@@ -16,20 +16,20 @@ public class WwiseTest : MonoBehaviour {
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.W)) PlayWoof();
-        if (Input.GetKeyDown(KeyCode.G)) PlayGlass();
+        if (Input.GetKeyDown(KeyCode.Q)) PlayQuack();
 
     }
 
-    void PlayWoof() {
+    void PlayQuack() {
 
-        AkSoundEngine.PostEvent("Manager_Test_Woof", gameObject);
+        AkSoundEngine.PostEvent("Test_Duck_Play", gameObject);
             
     }
 
-    void PlayGlass() {
+    public void PlayRockTestAudio() {
 
-        AkSoundEngine.PostEvent("Manager_Test_Glass", gameObject);
+
+        AkSoundEngine.PostEvent("Rock_Vid_Audio_TEMP", gameObject);
 
     }
 

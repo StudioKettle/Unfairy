@@ -21,7 +21,7 @@ public class RockControl : MonoBehaviour {
     [SerializeField] GameObject calculateMarimba;
 
 
-    [SerializeField] Transform daeVideo;
+    //[SerializeField] Transform daeVideo;
     List<GameObject> daePlanes = new List<GameObject>();
     int planesIndex = 0;
 
@@ -30,12 +30,12 @@ public class RockControl : MonoBehaviour {
 
     private void Start() {
 
-        foreach(Transform child in daeVideo) {
-            if (child != daeVideo) {
-                daePlanes.Add(child.gameObject);
-                child.gameObject.SetActive(child.gameObject == daePlanes[0]);
-            }
-        }
+        //foreach(Transform child in daeVideo) {
+        //    if (child != daeVideo) {
+        //        daePlanes.Add(child.gameObject);
+        //        child.gameObject.SetActive(child.gameObject == daePlanes[0]);
+        //    }
+        //}
 
         CheckForActive();
     }

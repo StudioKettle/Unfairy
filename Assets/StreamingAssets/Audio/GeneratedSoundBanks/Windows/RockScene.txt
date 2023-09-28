@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	164447830	Rock_Vid_Audio_TEMP			\Default Work Unit\Rock_Vid_Audio_TEMP	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	927872451	Rock Scene synced_2	E:\gdrive streaming\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Rock Scene synced_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rock Scene synced_2		24967776
+
