@@ -22,11 +22,13 @@ namespace Paperticket {
         public delegate void SceneMadeActive();
         public static event SceneMadeActive OnSceneMadeActive;
 
-        enum StartBehaviour { None, LoadFirstScene, SetFirstSceneActive }
+        enum StartBehaviour { None, LoadFirstScene, LoadFirstSceneOverride, SetFirstSceneActive }
+        enum FirstSceneName { BottleTest, WFCTest, RockTest }
 
         [Header("Controls")]
 
         [SerializeField] StartBehaviour startBehaviour;
+        [SerializeField] FirstSceneName firstSceneName;
 
         public string _FirstSceneName = "";
 
@@ -47,11 +49,23 @@ namespace Paperticket {
                 Destroy(gameObject);
             }
 
+
+
+
+            // If this is a build and we don't wanna force override, set the first scene by build index (for Granger's benefit)
+            //if (!Application.isEditor && startBehaviour != StartBehaviour.LoadFirstSceneOverride) {
+            //    _FirstSceneName = SceneManager.GetSceneByBuildIndex(1).name;
+            //} else {
+                _FirstSceneName = firstSceneName.ToString();
+            //}
+
+            if (_Debug) Debug.Log("[SceneUtilities] First scene name: " + _FirstSceneName);
+
             // Load first scene or make it active, if applicable
             switch (startBehaviour) {
-
                 // Load first scene
-                case StartBehaviour.LoadFirstScene:                    
+                case StartBehaviour.LoadFirstSceneOverride:
+                case StartBehaviour.LoadFirstScene:
                     StartCoroutine(LoadingFirstScene());
                     break;
 
@@ -62,12 +76,15 @@ namespace Paperticket {
 
                 // Do nothing
                 case StartBehaviour.None:
-                default:                    
+                default:
                     break;
             }
+           
+            
         }
 
         IEnumerator LoadingFirstScene() {
+
             if (_Debug) Debug.Log("[SceneUtilities] Loading the first scene: " + _FirstSceneName);
 
             BeginLoadScene(_FirstSceneName);

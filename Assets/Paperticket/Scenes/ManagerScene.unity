@@ -2150,8 +2150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7f4f0ca872cc74dacc6f5c49c2de98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBehaviour: 2
-  _FirstSceneName: RockTest
+  startBehaviour: 1
+  firstSceneName: 2
+  _FirstSceneName: 
   _Debug: 1
   convergeDynamicGI: 0
 --- !u!1 &794864575
