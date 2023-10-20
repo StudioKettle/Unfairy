@@ -78,10 +78,10 @@ public class WFCControl : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) CycleSpheres();
         else if (Input.GetKeyDown(KeyCode.M)) ToggleSticks();
         //else if (Input.GetKeyDown(KeyCode.C)) ToggleCactus();
-        //else if (Input.GetKeyDown(KeyCode.B)) ToggleBoard();
+        else if (Input.GetKeyDown(KeyCode.B)) ToggleBoard();
         else if (Input.GetKeyDown(KeyCode.G)) ToggleGrid();
         else if (Input.GetKeyDown(KeyCode.L)) ToggleLegs();
-        //else if (Input.GetKeyDown(KeyCode.F)) ToggleParticles();
+        else if (Input.GetKeyDown(KeyCode.F)) ToggleParticles();
         //else if (Input.GetKeyDown(KeyCode.S)) ToggleScreen();
         else if (Input.GetKeyDown(KeyCode.P)) ToggleVideoPlaying();
         else if (Input.GetKeyDown(KeyCode.V)) CycleVideo();
@@ -97,9 +97,9 @@ public class WFCControl : MonoBehaviour {
     //void ToggleCactus() {
     //    cactus.SetActive(!cactus.activeSelf);
     //}
-    //void ToggleBoard() {
-    //    board.SetActive(!board.activeSelf);
-    //}
+    void ToggleBoard() {
+        board.SetActive(!board.activeSelf);
+    }
 
     void ToggleGrid() {
         floorInt = Mathf.Abs(floorInt - 0.5f);
@@ -110,9 +110,9 @@ public class WFCControl : MonoBehaviour {
         legs.SetActive(!legs.activeSelf);
     }
 
-    //void ToggleParticles() {
-    //    particles.SetActive(!particles.activeSelf);
-    //}
+    void ToggleParticles() {
+        particles.SetActive(!particles.activeSelf);
+    }
 
     //void ToggleScreen() {
     //    screen.SetActive(!screen.activeSelf);

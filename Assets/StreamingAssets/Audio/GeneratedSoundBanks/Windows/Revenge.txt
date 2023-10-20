@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2584009824	Revenge_Ambient_Video			\Default Work Unit\Revenge_Ambient_Video	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	1050985740	Revengeshot_231020_tempaudio	E:\gdrive streaming again\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revengeshot_231020_tempaudio_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Video temps\Revengeshot_231020_tempaudio		13632096
+

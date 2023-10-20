@@ -2,11 +2,11 @@
 <PlatformInfo>
 	<Platform Name="Windows" BasePlatform="Windows" Generator="2022.1.7.8290"/>
 	<RootPaths>
-		<ProjectRoot>E:/gdrive streaming/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main</ProjectRoot>
-		<SourceFilesRoot>E:/gdrive streaming/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>E:/gdrive streaming again/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main</ProjectRoot>
+		<SourceFilesRoot>E:/gdrive streaming again/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main/.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>E:/gdrive streaming/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>E:/gdrive streaming again/My Drive/Hello_Sync/GS TEAM SOUND DESIGN/UnFairy VR/3.EDIT/Unfairy Wwise Project/Unfairy_Main/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DefaultAlign>16</DefaultAlign>
 	<Settings>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
 	</Settings>
-	<FileHash>{BA79E687-ACD3-CDB7-A105-992BEB181F0B}</FileHash>
+	<FileHash>{007E9903-4BF4-2841-3B00-7C95F2C221AA}</FileHash>
 </PlatformInfo>
