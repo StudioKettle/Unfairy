@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	3189989493	Manager_Test_Woof			\Default Work Unit\Manager_Test_Woof	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	722684486	23_MX_MAL_WOOF	E:\gdrive streaming\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Wise Unfairy\Unfairy_Main\.cache\Windows\SFX\23_MX_MAL_WOOF_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\23_MX_MAL_WOOF		44440
-

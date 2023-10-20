@@ -52,12 +52,14 @@ namespace Paperticket {
 
 
 
-            // If this is a build and we don't wanna force override, set the first scene by build index (for Granger's benefit)
-            //if (!Application.isEditor && startBehaviour != StartBehaviour.LoadFirstSceneOverride) {
-            //    _FirstSceneName = SceneManager.GetSceneByBuildIndex(1).name;
-            //} else {
+            //// If this is a build and we don't wanna force override, set the first scene by build index (for Granger's benefit)
+            if (Application.isEditor || startBehaviour == StartBehaviour.LoadFirstSceneOverride) {
                 _FirstSceneName = firstSceneName.ToString();
-            //}
+            } else {
+                //_FirstSceneName = SceneManager.GetSceneByBuildIndex(1).name;
+                string path = SceneUtility.GetScenePathByBuildIndex(1);         
+                _FirstSceneName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
+            }
 
             if (_Debug) Debug.Log("[SceneUtilities] First scene name: " + _FirstSceneName);
 
@@ -162,7 +164,6 @@ namespace Paperticket {
         public void LoadScene( string sceneToLoad, bool setActive ) {
             if (_Debug) Debug.Log("[SceneUtilities] Attempting to load scene '" + sceneToLoad + "'" + (setActive ? ", and set it as the active scene" : "" ));
             StartCoroutine(LoadingScene(sceneToLoad, setActive));
-
         }
 
         public void BeginLoadScene( string sceneToLoad ) {
