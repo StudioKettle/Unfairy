@@ -33,10 +33,13 @@ namespace Paperticket {
 
         void PostEvent(int eventIndex) {
             var audioEvent = audioEvents[eventIndex];
+            
+            // Play at the optional source GO, otherwise play on this GO
+            var optionalSource = (audioEvent.optionalSource == null) ? PTUtilities.instance.headProxy.gameObject : audioEvent.optionalSource;
 
             audioEvent.audioEvent.Post(gameObject, audioEvent.callbackFlags, null);
 
-            if (debugging) Debug.Log("[PostAudioEvent] Sending audio event '"+audioEvent.audioEvent.Name+"'");
+            if (debugging) Debug.Log("[PostAudioEvent] Posting audio event '"+audioEvent.audioEvent.Name+"' at GameObject '"+optionalSource+"'");
         }
     }
 
@@ -46,11 +49,13 @@ namespace Paperticket {
         [Min(0)] public float timeBeforeEvent = 0;
         public AK.Wwise.Event audioEvent = null;
         public AK.Wwise.CallbackFlags callbackFlags = null;
+        public GameObject optionalSource = null;
 
-        public AudioEvent (float timeBeforeEvent, AK.Wwise.Event audioEvent, AK.Wwise.CallbackFlags callbackFlags = null) {
+        public AudioEvent (float timeBeforeEvent, AK.Wwise.Event audioEvent, AK.Wwise.CallbackFlags callbackFlags = null, GameObject optionalSource = null) {
             this.timeBeforeEvent = timeBeforeEvent;
             this.audioEvent = audioEvent;
             this.callbackFlags = callbackFlags;
+            this.optionalSource = optionalSource;
         }
 
     }

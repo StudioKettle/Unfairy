@@ -15,9 +15,9 @@ public class BottleControl : MonoBehaviour {
     [SerializeField] AK.Wwise.Event bottleAudio = null;
     [SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
 
-    [Space(5)]
-    [SerializeField] bool cycleVideoEvent = true;
-    [SerializeField] UnityEvent2 onCycleVideo = null;
+    //[Space(5)]
+    //[SerializeField] bool cycleVideoEvent = true;
+    //[SerializeField] UnityEvent2 onCycleVideo = null;
 
     uint audioPlayingId = 0;
 
@@ -57,9 +57,9 @@ public class BottleControl : MonoBehaviour {
     }
 
 
-    void UpdateText() {
-        //tableText.text = "<b>Current Video</b>" + System.Environment.NewLine + clips[clipsInt].name + " (" + clipsInt + ")";
-    }
+    //void UpdateText() {
+    //    //tableText.text = "<b>Current Video</b>" + System.Environment.NewLine + clips[clipsInt].name + " (" + clipsInt + ")";
+    //}
 
 }
 
