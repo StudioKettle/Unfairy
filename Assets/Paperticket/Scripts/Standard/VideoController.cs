@@ -82,6 +82,14 @@ namespace Paperticket {
         [SerializeField] private long endFrames = 0;
 
 
+        public delegate void VideoStarted();
+        public event VideoStarted OnVideoStarted;
+
+        public delegate void VideoPrepared();
+        public event VideoPrepared OnVideoPrepared;
+
+
+
         #region Enable and Update
 
         private void Awake() {
@@ -168,7 +176,26 @@ namespace Paperticket {
             StartCoroutine(LoadVideoClipFromBundle(newVideoName));
 
         }
-        
+
+        public void SetNextVideo( VideoClip newVideoClip) {
+
+            if (debugging) Debug.Log("[VideoController] Setting the video clip");
+
+            //Let other scripts know the video hasn't started yet
+            videoStarted = false;
+
+            // Give the clip to the video player
+            videoPlayer.clip = newVideoClip;
+            currentVideoName = newVideoClip.name;
+
+            if (debugging) Debug.Log("[VideoController] Video clip set to '" + newVideoClip.name + "'");
+
+            // Prepare the video, stopping any current preparation attempts in case of error
+            if (preppingVideoCo != null) StopCoroutine(preppingVideoCo);
+            preppingVideoCo = StartCoroutine(PreparingVideo());
+
+        }
+
         // Plays the video if it's not already playing 
         public void PlayVideo() {
 
@@ -181,6 +208,8 @@ namespace Paperticket {
             // If the video hasn't started yet...
             if (!videoStarted) {
                 videoStarted = true;
+
+                if (OnVideoStarted != null) OnVideoStarted();
 
                 // Play the video
                 videoPlayer.Play();
@@ -215,6 +244,8 @@ namespace Paperticket {
         // Set the time of the video (only seems to work when playing)
         public void SetTime( float time ) {
             if (debugging) Debug.Log("[VideoController] Atempting to set time to " + time + " seconds...");
+
+            if (debugging && !videoPlayer.canSetTime) Debug.LogError("[VideoController] Cannot set time, video clip won't let us.");
 
             // Check if the provided time is viable
             if (time < (endFrames / videoPlayer.frameRate)) {
@@ -313,6 +344,11 @@ namespace Paperticket {
             externalAudioSource.time = (float)videoPlayer.time;
         }
 
+
+
+
+
+
         #endregion
 
 
@@ -409,6 +445,7 @@ namespace Paperticket {
 
         }
 
+       
         // Start preparing the video and waits till its done
         Coroutine preppingVideoCo;
         IEnumerator PreparingVideo() {
@@ -430,6 +467,8 @@ namespace Paperticket {
             if (debugging) Debug.Log("[VideoController] Video prepared!");
 
             videoLoaded = true;
+
+            if (OnVideoPrepared != null) OnVideoPrepared();
 
             endFrames = (long)(videoPlayer.frameCount - (earlyFinishDuration * videoPlayer.frameRate)); // 15
 

@@ -393,6 +393,11 @@ namespace Paperticket {
         }
 
 
+
+        public void PostAudioEvent(AK.Wwise.Event audioEvent, GameObject go) {
+            audioEvent.Post(go);
+        }
+
         #endregion
 
 

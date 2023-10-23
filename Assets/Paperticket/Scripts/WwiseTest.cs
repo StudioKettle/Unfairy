@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WwiseTest : MonoBehaviour {
 
-    
+    public AK.Wwise.Event wiseEvent;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class WwiseTest : MonoBehaviour {
 
 
         AkSoundEngine.PostEvent("Rock_Vid_Audio_TEMP", gameObject);
+        
 
     }
 

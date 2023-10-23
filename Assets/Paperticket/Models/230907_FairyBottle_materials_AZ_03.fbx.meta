@@ -183,12 +183,12 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: WoodFloor044_4K-JPG_NormalGL
-    second: {fileID: 2800000, guid: 4f68e79d66853f44f8fd2f164c271d0e, type: 3}
+    second: {fileID: 2800000, guid: f51d0645dc0f0d645b783d908f2c3116, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: WoodFloor044_4K-JPG_Roughness
-    second: {fileID: 2800000, guid: 552c585aabc67b842912dd98faa6046b, type: 3}
+    second: {fileID: 2800000, guid: befb506a4c2f5f74fbc77f3dc70ba4e8, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -261,7 +261,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -276,11 +276,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

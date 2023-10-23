@@ -678,47 +678,62 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
 
-    public void FadeAudioSourceIn( AudioSource source ) {
-        StartCoroutine(PTUtilities.instance.FadeAudioTo(source, 1f, 0.5f, TimeScale.Scaled));
+    //public void FadeAudioSourceIn( AudioSource source ) {
+    //    StartCoroutine(PTUtilities.instance.FadeAudioTo(source, 1f, 0.5f, TimeScale.Scaled));
+    //}
+
+    //public void FadeAudioSourceOut( AudioSource source ) {
+    //    StartCoroutine(PTUtilities.instance.FadeAudioTo(source, 0f, 0.5f, TimeScale.Scaled));
+    //}
+    //public void FadeAudioSource( AudioSource source, float volume, float duration ) {
+    //    StartCoroutine(PTUtilities.instance.FadeAudioTo(source, volume, duration, TimeScale.Scaled));
+    //}
+
+
+    //public void UnscaledFadeAudioSource( AudioSource source, float volume, float duration ) {
+    //    StartCoroutine(PTUtilities.instance.FadeAudioTo(source, volume, duration, TimeScale.Unscaled));
+    //}
+
+
+
+
+    //Coroutine mixerFadeCo;
+    //public void FadeAudioMasterIn( float duration ) {
+    //    if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
+    //    mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(1, duration, TimeScale.Scaled));
+    //}
+
+    //public void FadeAudioMasterOut( float duration ) {
+    //    if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
+    //    mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(0, duration, TimeScale.Scaled));
+    //}
+
+    //public void FadeAudioMaster (float volume, float duration ) {
+    //    if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
+    //    mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(volume, duration, TimeScale.Scaled));
+    //}
+
+
+
+    //public void UnscaledFadeAudioMaster( float volume, float duration ) {
+    //    if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
+    //    mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(volume, duration, TimeScale.Unscaled));
+    //}
+
+    #endregion
+
+    #region Wwise calls
+    public void PostAudioEvent(AK.Wwise.Event audioEvent, GameObject go) {
+        PTUtilities.instance.PostAudioEvent(audioEvent, go);
     }
 
-    public void FadeAudioSourceOut( AudioSource source ) {
-        StartCoroutine(PTUtilities.instance.FadeAudioTo(source, 0f, 0.5f, TimeScale.Scaled));
-    }
-    public void FadeAudioSource( AudioSource source, float volume, float duration ) {
-        StartCoroutine(PTUtilities.instance.FadeAudioTo(source, volume, duration, TimeScale.Scaled));
-    }
-
-
-    public void UnscaledFadeAudioSource( AudioSource source, float volume, float duration ) {
-        StartCoroutine(PTUtilities.instance.FadeAudioTo(source, volume, duration, TimeScale.Unscaled));
+    public void PostAudioEvent(string audioEvent, GameObject go) {
+        AkSoundEngine.PostEvent(audioEvent, go);
     }
 
 
 
-
-    Coroutine mixerFadeCo;
-    public void FadeAudioMasterIn( float duration ) {
-        if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
-        mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(1, duration, TimeScale.Scaled));
-    }
-
-    public void FadeAudioMasterOut( float duration ) {
-        if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
-        mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(0, duration, TimeScale.Scaled));
-    }
-
-    public void FadeAudioMaster (float volume, float duration ) {
-        if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
-        mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(volume, duration, TimeScale.Scaled));
-    }
-
-
-
-    public void UnscaledFadeAudioMaster( float volume, float duration ) {
-        if (mixerFadeCo != null) StopCoroutine(mixerFadeCo);
-        mixerFadeCo = StartCoroutine(PTUtilities.instance.FadeAudioMasterTo(volume, duration, TimeScale.Unscaled));
-    }
+    
 
     #endregion
 
