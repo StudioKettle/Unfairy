@@ -37,7 +37,7 @@ namespace Paperticket {
             // Play at the optional source GO, otherwise play on this GO
             var optionalSource = (audioEvent.optionalSource == null) ? PTUtilities.instance.headProxy.gameObject : audioEvent.optionalSource;
 
-            audioEvent.audioEvent.Post(gameObject, audioEvent.callbackFlags, null);
+            audioEvent.audioEvent.Post(optionalSource, audioEvent.callbackFlags, null);
 
             if (debugging) Debug.Log("[PostAudioEvent] Posting audio event '"+audioEvent.audioEvent.Name+"' at GameObject '"+optionalSource+"'");
         }

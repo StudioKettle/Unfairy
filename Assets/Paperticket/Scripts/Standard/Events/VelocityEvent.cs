@@ -7,11 +7,17 @@ namespace Paperticket {
 
     public class VelocityEvent : MonoBehaviour {
 
+        [System.Serializable] enum EventBehaviour { OneTimeUse, ResendOnEnable, Looping }
 
-        [Header("HAND CONTROLS")]
+        [SerializeField] new Rigidbody rigidbody;
+
+        [SerializeField] bool debugging;
+
+        [Header("CONTROLS")]
         [Space(10)]
+        [SerializeField] EventBehaviour eventBehaviour = EventBehaviour.OneTimeUse;
         [SerializeField] float velocitySensitivity = 0.8f;
-        [SerializeField] AnimationCurve rotationSensitivity = AnimationCurve.EaseInOut(0,0,1,1);
+        [SerializeField] AnimationCurve sensitivityCurve = AnimationCurve.EaseInOut(0,0,1,1);
 
         [Header("PROGRESS CONTROLS")]
         [Space(10)]
@@ -22,42 +28,43 @@ namespace Paperticket {
         [Header("READ ONLY")]
         [Space(10)]
         [SerializeField] [Range(0, 1)] float progress;
-        float rotateVelocity;
-        float rotationTotal;
-        bool finished;
+        float velocity;
+        float adjustedVelocity;
+        bool disabled;
 
         [Space(10)]
         [SerializeField] List<ProgressEvent> progressEvents = new List<ProgressEvent>();
 
+        [HideInInspector] public float Progress { get {return progress; } }
 
+        void OnEnable() {
+            rigidbody = (rigidbody==null) ? GetComponent<Rigidbody>() : rigidbody;
+            if (rigidbody == null) {
+                Debug.LogError("[VelocityEvent] ERROR -> No rigidbody assigned or found! Disabling.");
+                enabled = false;
+            }
+
+            disabled = false;
+        }
 
         // Update is called once per frame
         void Update() {
-            if (finished) return;
+            if (disabled) return;
 
-            CalculateHandRotation();
+            CalculateProgress();
             CheckProgressEvents();
 
-            if (progress >= 1) {
-                finished = true;
-
-                if (GetComponents<Component>().Length > 2) {
-                    Destroy(this);
-                } else {
-                    Destroy(gameObject);
-                }
-
-            }
+            if (progress >= 1) Resolve();
         }
 
 
-        void CalculateHandRotation() {
+        void CalculateProgress() {
 
             // Save the current controller velocity and apply senitivity curve 
-            rotateVelocity = Mathf.Clamp01(PTUtilities.instance.ControllerVelocity.magnitude / velocitySensitivity);
-            rotationTotal = rotationSensitivity.Evaluate(rotateVelocity);
+            velocity = Mathf.Clamp01(rigidbody.velocity.magnitude / velocitySensitivity);            
+            adjustedVelocity = sensitivityCurve.Evaluate(velocity);
 
-            if (rotationTotal > minDeltaPerFrame) progress = Mathf.Clamp01(progress + (rotationTotal * progressSpeed * 0.0001f));
+            if (adjustedVelocity > minDeltaPerFrame) progress = Mathf.Clamp01(progress + (adjustedVelocity * progressSpeed * 0.0001f));
 
         }
 
@@ -68,11 +75,48 @@ namespace Paperticket {
             for (int i = progressEventIndex; i < progressEvents.Count; i++) {
                 if (progress >= progressEvents[i].threshold) {
                     if (progressEvents[i].progressEvent != null) progressEvents[i].progressEvent.Invoke();
-                    progressEventIndex += 1;
+                    progressEventIndex = (progressEventIndex + 1) % progressEvents.Count;
                 }
 
             }
 
+        }
+
+        void Resolve() {
+            // Figure out what to do next
+            switch (eventBehaviour) {
+
+                case EventBehaviour.OneTimeUse:
+                    // Destroy script as there are more components and/or children beneath this object
+                    if (GetComponents<Component>().Length > 2 || transform.childCount > 0) {
+                        if (debugging) Debug.Log("[VelocityEvent] One Time Use. There are still more components/children, destroying only this script.");
+                        Destroy(this);
+                    }
+                    // Destroy game object as this was the last script remaining 
+                    else {
+                        if (debugging) Debug.Log("[VelocityEvent] One Time Use. No more components/children here, destroying this object.");
+                        Destroy(gameObject);
+                    }
+                    break;
+
+                case EventBehaviour.ResendOnEnable:
+                    // Disable the update loop and wait for next enable
+                    if (debugging) Debug.Log("[VelocityEvent] Resend On Enable. Waiting for next time this script turns on.");
+                    disabled = true;
+                    progress = 0;
+                    break;
+
+                case EventBehaviour.Looping:
+                    // Immediately reset the timer and keep going
+                    if (debugging) Debug.Log("[VelocityEvent] Looping. Resetting progress and starting again.");
+                    progress = 0;
+                    break;
+
+                default:
+                    Debug.LogError("[VelocityEvent] ERROR -> Bad event bevehaviour defined!");
+                    disabled = true;
+                    break;
+            }
         }
 
     }

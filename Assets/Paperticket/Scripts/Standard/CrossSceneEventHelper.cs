@@ -225,6 +225,13 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     #region General purpose calls
 
+    public void CreateGameObject( GameObject prefab, Transform parent, Vector3 position, Vector3 rotation) {
+        Instantiate(prefab, position, Quaternion.Euler(rotation), parent);
+    }
+
+    public void CreateGameObject(GameObject prefab, Transform parent, Transform copyTransform) {
+        Instantiate(prefab, copyTransform.position, copyTransform.rotation, parent);
+    }
 
     public void DestroyGameObject( GameObject objectToDestroy ) {
         Destroy(objectToDestroy);
