@@ -7,15 +7,20 @@ namespace Paperticket {
 
     public class VelocityEvent : MonoBehaviour {
 
+        [System.Serializable] enum VelocityType { Transform, Rigidbody }
         [System.Serializable] enum EventBehaviour { OneTimeUse, ResendOnEnable, Looping }
 
-        [SerializeField] new Rigidbody rigidbody;
+
+        [SerializeField] Transform target;
+        new Rigidbody rigidbody;
 
         [SerializeField] bool debugging;
 
         [Header("CONTROLS")]
         [Space(10)]
         [SerializeField] EventBehaviour eventBehaviour = EventBehaviour.OneTimeUse;
+        [SerializeField] VelocityType velocityType = VelocityType.Transform;
+        [Space(5)]
         [SerializeField] float velocitySensitivity = 0.8f;
         [SerializeField] AnimationCurve sensitivityCurve = AnimationCurve.EaseInOut(0,0,1,1);
 
@@ -32,23 +37,28 @@ namespace Paperticket {
         float adjustedVelocity;
         bool disabled;
 
+        Vector3 prevPos = Vector3.zero;
+
         [Space(10)]
         [SerializeField] List<ProgressEvent> progressEvents = new List<ProgressEvent>();
 
         [HideInInspector] public float Progress { get {return progress; } }
 
         void OnEnable() {
-            rigidbody = (rigidbody==null) ? GetComponent<Rigidbody>() : rigidbody;
-            if (rigidbody == null) {
+            rigidbody = (target == null) ? GetComponent<Rigidbody>() : target.GetComponent<Rigidbody>();
+            if (velocityType == VelocityType.Rigidbody && rigidbody == null) {
                 Debug.LogError("[VelocityEvent] ERROR -> No rigidbody assigned or found! Disabling.");
                 enabled = false;
             }
+            target = (target == null) ? transform : target;
+
+            prevPos = transform.position;
 
             disabled = false;
         }
 
         // Update is called once per frame
-        void Update() {
+        void FixedUpdate() {
             if (disabled) return;
 
             CalculateProgress();
@@ -57,11 +67,18 @@ namespace Paperticket {
             if (progress >= 1) Resolve();
         }
 
-
+        Vector3 newVel = Vector3.zero;
         void CalculateProgress() {
 
-            // Save the current controller velocity and apply senitivity curve 
-            velocity = Mathf.Clamp01(rigidbody.velocity.magnitude / velocitySensitivity);            
+            if (velocityType == VelocityType.Rigidbody) {
+                velocity = Mathf.Clamp01(rigidbody.velocity.magnitude / velocitySensitivity);
+            } else {
+                newVel = (prevPos - transform.position) / Time.fixedDeltaTime;
+                velocity = Mathf.Clamp01(newVel.magnitude / velocitySensitivity);
+                prevPos = transform.position;
+            }
+
+            // Save the current controller velocity and apply senitivity curve        
             adjustedVelocity = sensitivityCurve.Evaluate(velocity);
 
             if (adjustedVelocity > minDeltaPerFrame) progress = Mathf.Clamp01(progress + (adjustedVelocity * progressSpeed * 0.0001f));

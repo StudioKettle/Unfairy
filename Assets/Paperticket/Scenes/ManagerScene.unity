@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.173648, g: 0.2170949, b: 0.29921225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
     type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2282,8 +2282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7f4f0ca872cc74dacc6f5c49c2de98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startBehaviour: 1
-  firstSceneName: 0
+  startBehaviour: 3
+  firstSceneName: 3
   _FirstSceneName: 
   _Debug: 1
   convergeDynamicGI: 0
