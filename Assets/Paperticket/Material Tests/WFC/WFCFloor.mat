@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GridAdditive
+  m_Name: WFCFloor
   m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHAMODULATE_ON
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 400, y: 400}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a5888ab2610a91d40a5deefc40b7bfe4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7fe6363502452d841a849423ff86fea4, type: 3}
         m_Scale: {x: 400, y: 400}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -73,15 +73,15 @@ Material:
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0
+    - _DistortionStrengthScaled: 0.1
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 0.507
-    - _Glossiness: 0.551
+    - _Glossiness: 0.616
     - _GlossyReflections: 1
     - _LightingEnabled: 1
-    - _Metallic: 0.558
+    - _Metallic: 0.573
     - _Mode: 6
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -95,7 +95,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.9260073, g: 0.9260073, b: 0.9260073, a: 1}
+    - _Color: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

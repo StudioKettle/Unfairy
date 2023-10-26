@@ -10,18 +10,23 @@ public class Wand : MonoBehaviour
     
     public Gradient gradient;
 
+    public GameObject wandObject;
+
     string propertyName = "";
     Material mat;
 
     void OnEnable() {
 
-        mat = GetComponent<MeshRenderer>().material;
+        if (wandObject == null) wandObject = gameObject;
+
+        mat = wandObject.GetComponent<MeshRenderer>().material;
                 
         propertyName = mat.HasProperty("_Color") ? "_Color" : mat.HasProperty("_BaseColor") ? "_BaseColor" : "";
         if (propertyName == "") {
             Debug.LogError("[Wand] ERROR -> Could not find property name of mesh renderer to fade! Cancelling...");
         }
 
+        mat.SetColor(propertyName, gradient.Evaluate(1));
 
 
     }
