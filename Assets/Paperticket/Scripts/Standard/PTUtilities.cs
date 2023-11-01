@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -409,7 +410,7 @@ namespace Paperticket {
         #region Utilities
 
         // Helper coroutine for fading the alpha of a sprite
-        public IEnumerator FadeAlphaTo( SpriteRenderer sprite, float targetAlpha, float duration, TimeScale timeScale) {
+        public IEnumerator FadeAlphaTo( SpriteRenderer sprite, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale) {
 
             if (sprite.color.a != targetAlpha) {
 
@@ -421,7 +422,7 @@ namespace Paperticket {
 
                 float alpha = sprite.color.a;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.Lerp(alpha, targetAlpha, t));
+                    sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, Mathf.Lerp(alpha, targetAlpha, animCurve.Evaluate(t)));
                     yield return null;
                 }
                 sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, targetAlpha);
@@ -439,7 +440,7 @@ namespace Paperticket {
 
         }
         // Helper coroutine for fading the alpha of text
-        public IEnumerator FadeAlphaTo( TextMeshPro textmesh, float targetAlpha, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeAlphaTo( TextMeshPro textmesh, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             if (textmesh.color.a != targetAlpha) {
 
@@ -451,7 +452,7 @@ namespace Paperticket {
 
                 float alpha = textmesh.color.a;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    textmesh.color = new Color(textmesh.color.r, textmesh.color.g, textmesh.color.b, Mathf.Lerp(alpha, targetAlpha, t));
+                    textmesh.color = new Color(textmesh.color.r, textmesh.color.g, textmesh.color.b, Mathf.Lerp(alpha, targetAlpha, animCurve.Evaluate(t)));
                     yield return null;
                 }
                 textmesh.color = new Color(textmesh.color.r, textmesh.color.g, textmesh.color.b, targetAlpha);
@@ -469,7 +470,7 @@ namespace Paperticket {
 
         }
         // Helper coroutine for fading the alpha of mesh renderer
-        public IEnumerator FadeAlphaTo( MeshRenderer mRenderer, float targetAlpha, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeAlphaTo( MeshRenderer mRenderer, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             Material mat = mRenderer.material;
 
@@ -491,7 +492,7 @@ namespace Paperticket {
 
                 float alpha = col.a;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    Color newColor = new Color(col.r, col.g, col.b, Mathf.Lerp(alpha, targetAlpha, t));
+                    Color newColor = new Color(col.r, col.g, col.b, Mathf.Lerp(alpha, targetAlpha, animCurve.Evaluate(t)));
                     mat.SetColor(propertyName, newColor);
                     yield return null;
                 }
@@ -510,7 +511,7 @@ namespace Paperticket {
             }
         }
         // Helper coroutine for fading the alpha of an image
-        public IEnumerator FadeAlphaTo( Image image, float targetAlpha, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeAlphaTo( Image image, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             if (image.color.a != targetAlpha) {
 
@@ -522,7 +523,7 @@ namespace Paperticket {
 
                 float alpha = image.color.a;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(alpha, targetAlpha, t));
+                    image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Lerp(alpha, targetAlpha, animCurve.Evaluate(t)));
                     yield return null;
                 }
                 image.color = new Color(image.color.r, image.color.g, image.color.b, targetAlpha);
@@ -542,7 +543,7 @@ namespace Paperticket {
 
 
         // Helper coroutine for fading the color of a sprite
-        public IEnumerator FadeColorTo( SpriteRenderer sprite, Color targetColor, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeColorTo( SpriteRenderer sprite, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             if (sprite.color != targetColor) {
 
@@ -554,8 +555,8 @@ namespace Paperticket {
 
                 Color color = sprite.color;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    sprite.color = Color.Lerp(color, targetColor, t);
-                    yield return null;
+                    sprite.color = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
+                yield return null;
                 }
                 sprite.color = targetColor;
 
@@ -572,7 +573,7 @@ namespace Paperticket {
 
         }
         // Helper coroutine for fading the color of a sprite
-        public IEnumerator FadeColorTo( MeshRenderer mRenderer, Color targetColor, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeColorTo( MeshRenderer mRenderer, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             Material mat = mRenderer.material;
 
@@ -593,7 +594,7 @@ namespace Paperticket {
 
                 Color color = mat.GetColor(propertyName);
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    Color newColor = Color.Lerp(color, targetColor, t);
+                    Color newColor = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
                     mat.SetColor(propertyName, newColor);
                     yield return null;
                 }
@@ -612,7 +613,7 @@ namespace Paperticket {
 
         }
         // Helper coroutine for fading the color of a text mesh
-        public IEnumerator FadeColorTo( TextMeshPro textMesh, Color targetColor, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeColorTo( TextMeshPro textMesh, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             if (textMesh.color != targetColor) {
 
@@ -624,7 +625,7 @@ namespace Paperticket {
 
                 Color color = textMesh.color;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    textMesh.color = Color.Lerp(color, targetColor, t);
+                    textMesh.color = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
                     yield return null;
                 }
                 textMesh.color = targetColor;
@@ -642,7 +643,7 @@ namespace Paperticket {
 
         }
         // Helper coroutine for fading the color of an image
-        public IEnumerator FadeColorTo( Image image, Color targetColor, float duration, TimeScale timeScale ) {
+        public IEnumerator FadeColorTo( Image image, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
             if (image.color != targetColor) {
 
@@ -654,7 +655,7 @@ namespace Paperticket {
 
                 Color color = image.color;
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                    image.color = Color.Lerp(color, targetColor, t);
+                    image.color = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
                     yield return null;
                 }
                 image.color = targetColor;
@@ -674,7 +675,7 @@ namespace Paperticket {
 
 
         // Helper coroutine for fading volume weight
-        public IEnumerator FadePostVolumeTo( Volume volume, float targetWeight, float duration, TimeScale timeScale ) {
+        public IEnumerator FadePostVolumeTo( Volume volume, float targetWeight, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
             float weight = volume.weight;
             targetWeight = Mathf.Clamp01(targetWeight);
 
@@ -682,7 +683,7 @@ namespace Paperticket {
 
 
             for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
-                float newWeight = Mathf.Lerp(weight, targetWeight, t);
+                float newWeight = Mathf.Lerp(weight, targetWeight, animCurve.Evaluate(t)); 
                 volume.weight = newWeight;
                 yield return null;
             }
@@ -692,7 +693,26 @@ namespace Paperticket {
             }
         }
 
-               
+        // Helper coroutine for fading volume weight
+        public IEnumerator FadePostVolumeTo(PostProcessVolume volume, float targetWeight, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+            float weight = volume.weight;
+            targetWeight = Mathf.Clamp01(targetWeight);
+
+            if (!volume.enabled) volume.enabled = true;
+
+
+            for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                float newWeight = Mathf.Lerp(weight, targetWeight, animCurve.Evaluate(t));
+                volume.weight = newWeight;
+                yield return null;
+            }
+            volume.weight = targetWeight;
+            if (targetWeight == 0) {
+                volume.enabled = false;
+            }
+        }
+
+
 
         // Helper coroutine for fading audio source volume
         public IEnumerator FadeAudioTo( AudioSource audio, float targetVolume, float duration, TimeScale timeScale ) {

@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class ThrownObject : MonoBehaviour {
 
     [SerializeField] Vector3 forceToAdd;
     [SerializeField] ForceMode mode;
 
-    Rigidbody rb;
+    [SerializeField] Rigidbody rb;
     Vector3 startPos;
     Quaternion startRot;
 
     void Awake() {
-        rb = GetComponent<Rigidbody>();
-        startPos = transform.position;
-        startRot = transform.rotation;
+        rb = (rb!=null) ? rb : GetComponent<Rigidbody>();
+
+        if (rb == null) {
+            Debug.Log("[ThrownObject] ERROR -> Meli is too cute! :3 Also, thrown object has no rigidbody!");
+            enabled = false;
+        }
+
+        startPos = rb.transform.position;
+        startRot = rb.transform.rotation;
     }
 
     private void OnEnable() {
@@ -27,7 +32,8 @@ public class ThrownObject : MonoBehaviour {
         rb.rotation = startRot;
 
         // Add relative force
-        rb.AddRelativeForce(forceToAdd, mode);
-    
+        //rb.AddRelativeForce(rb.transform.InverseTransformVector(transform.TransformVector(forceToAdd)), mode);
+        rb.AddForce(transform.TransformVector(forceToAdd), mode);
+
     }
 }

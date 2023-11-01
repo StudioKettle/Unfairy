@@ -15,12 +15,33 @@ namespace Paperticket {
                 if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' layer '" + LayerMask.LayerToName(gameObject.layer) + "' is invalid, returning false.");
                 return false;
             }
-            if (tag.Length > 0 && gameObject.tag != tag) {
-                if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
-                return false;
+            if (tag.Length > 0) {
+                string[] splitTags = tag.Split(',');
+                foreach (string splitTag in splitTags) {
+                    if (gameObject.tag == splitTag) {
+                        if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
+                        return true;
+                    }
+                }
             }
-            if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
-            return true;
+            if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
+            return false;
+                //if (tag.Contains(",")) {
+                //    string[] splitTags = tag.Split(',');
+                //    foreach (string splitTag in splitTags) {
+                //        if (splitTag == tag) {
+                //            if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
+                //            return true;
+                //        }
+                //    }
+                //    if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
+                //    return false;
+                //} else if (gameObject.tag != tag) {
+                //    if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
+                //    return false;
+                //}                       
+            //if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
+            //return true;
         }
 
         public static void DestroyMe(this GameObject gameObject) {

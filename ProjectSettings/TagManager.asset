@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HeadTrigger
   - HandTrigger
+  - FloorTrigger
   layers:
   - Default
   - TransparentFX
@@ -18,10 +19,10 @@ TagManager:
   - LitSelective
   - HeadTrigger
   - Interactable
-  - 
-  - 
-  - 
-  - 
+  - PostProcessing
+  - Duck
+  - DuckPieces
+  - DuckHand
   - 
   - 
   - 
