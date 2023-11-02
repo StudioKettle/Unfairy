@@ -2514,6 +2514,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  wandObject: {fileID: 0}
 --- !u!1 &335101466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,9 +4190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b79b52bb3c046442a192edbe0e03a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 0}
+  target: {fileID: 0}
   debugging: 0
   eventBehaviour: 1
+  velocityType: 0
   velocitySensitivity: 0.8
   sensitivityCurve:
     serializedVersion: 2
