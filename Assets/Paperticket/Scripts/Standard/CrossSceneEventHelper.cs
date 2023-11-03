@@ -478,6 +478,25 @@ public class CrossSceneEventHelper : MonoBehaviour {
     #endregion
 
 
+    #region Light calls
+
+    public void FadeLightColor(Light light, Color color, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeColorTo(light, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+
+    public void FadeLightIntensity(Light light, float intensity, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeLightIntensityTo(light, intensity, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+
+    public void ShiftLightRange(Light light, float range, float duration) {
+        StartCoroutine(PTUtilities.instance.ShiftRangeTo(light, range, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+
+
+
+    #endregion
+
+
     #region Volume calls
 
 

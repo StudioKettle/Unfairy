@@ -6,7 +6,17 @@ Shader "Paperticket/AlphaTransColor" {
         _MainTex("Albedo (RGB)", 2D) = "white" {}
     }
         SubShader{
-            Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }
+            Tags { "Queue" = "Transparent" "RenderType" = "Transparent"  }
+
+            //Cull Off
+            //Lighting Off
+            //Blend Off
+            //ColorMask 0
+            //ZWrite On
+            //ZTest Less
+            //AlphaTest Greater .99
+            //ColorMaterial AmbientAndDiffuse
+
             LOD 200
 
             CGPROGRAM

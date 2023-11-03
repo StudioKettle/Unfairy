@@ -712,7 +712,100 @@ namespace Paperticket {
             }
         }
 
+       
 
+        // Helper coroutine for fading the intensity of an light
+        public IEnumerator FadeLightIntensityTo(Light light, float targetIntensity, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            if (light.intensity != targetIntensity) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Fading light " + light.name + " to intensity " + targetIntensity);
+
+                if (!light.enabled) {
+                    light.enabled = true;
+                }
+
+                float intensity = light.intensity;
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    light.intensity = Mathf.Lerp(intensity, targetIntensity, animCurve.Evaluate(t));
+                    yield return null;
+                }
+                light.intensity = targetIntensity;
+
+                if (targetIntensity == 0f) {
+                    light.enabled = false;
+                }
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + " successfully faded to intensity " + targetIntensity);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at intensity " + targetIntensity + ", cancelling fade");
+            }
+
+        }
+
+        // Helper coroutine for shifting the range of an light
+        public IEnumerator ShiftRangeTo(Light light, float targetRange, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            if (light.range != targetRange) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Shifting light " + light.name + " to range " + targetRange);
+
+                if (!light.enabled) {
+                    light.enabled = true;
+                }
+
+                float range = light.range;
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    light.intensity = Mathf.Lerp(range, targetRange, animCurve.Evaluate(t));
+                    yield return null;
+                }
+                light.range = targetRange;
+
+                if (targetRange == 0f) {
+                    light.enabled = false;
+                }
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + " successfully shifted to range " + targetRange);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at range " + targetRange + ", cancelling shift");
+            }
+
+        }
+        
+        // Helper coroutine for fading the color of an light
+        public IEnumerator FadeColorTo(Light light, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            if (light.color != targetColor) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Fading light " + light.name + "to color " + targetColor);
+
+                if (!light.enabled) {
+                    light.enabled = true;
+                }
+
+                Color color = light.color;
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    light.color = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
+                    yield return null;
+                }
+                light.color = targetColor;
+
+                if (targetColor.a == 0f) {
+                    light.enabled = false;
+                }
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + "successfully faded to " + color);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at color " + targetColor + ", cancelling fade");
+            }
+
+        }
 
         // Helper coroutine for fading audio source volume
         public IEnumerator FadeAudioTo( AudioSource audio, float targetVolume, float duration, TimeScale timeScale ) {

@@ -19,12 +19,12 @@ TagManager:
   - LitSelective
   - HeadTrigger
   - Interactable
-  - PostProcessing
+  - PostProcess
   - Duck
   - DuckPieces
   - DuckHand
-  - 
-  - 
+  - OverlayCamera
+  - PostProcessNoOverlay
   - 
   - 
   - 
