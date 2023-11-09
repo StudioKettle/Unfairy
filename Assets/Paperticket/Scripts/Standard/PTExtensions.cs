@@ -23,6 +23,9 @@ namespace Paperticket {
                         return true;
                     }
                 }
+            } else {
+                if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
+                return true;
             }
             if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
             return false;

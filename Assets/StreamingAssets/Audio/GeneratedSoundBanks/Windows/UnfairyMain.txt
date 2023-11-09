@@ -1,8 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	1630103680	Test_Duck_Play			\Default Work Unit\Test_Duck_Play	
-	2617020722	Main_Event_RajSection4			\Default Work Unit\Main_Event_RajSection4	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	209974336	25_MX_MAL_DUCK 1	E:\gdrive streaming again\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\25_MX_MAL_DUCK 1		34528
-	519569679	Raj_aysha_Section4_V1_Transition	E:\gdrive streaming again\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Raj_aysha_Section4_V1_Transition_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raj Narrator Audio\Raj_aysha_Section4_V1_Transition		2703456
-

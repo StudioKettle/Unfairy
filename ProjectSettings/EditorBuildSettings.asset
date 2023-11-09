@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Paperticket/Scenes/BottleTest.unity
     guid: b4e481c9ce0cfca49a970569e43828f7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Paperticket/Scenes/WFCTest.unity
     guid: c0d04fb37c3800d44ab516d2c4bca4ea
-  - enabled: 0
+  - enabled: 1
     path: Assets/Paperticket/Scenes/RockTest.unity
     guid: de05ffad0a74eb84b8daa63b7dc25382
   m_configObjects:

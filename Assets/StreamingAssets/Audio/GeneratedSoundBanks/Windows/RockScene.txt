@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	2733779535	Rock_Ambient_Video			\Default Work Unit\Rock_Ambient_Video	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	1043187	Rockscene_231020B_tempaudio	E:\gdrive streaming again\My Drive\Hello_Sync\GS TEAM SOUND DESIGN\UnFairy VR\3.EDIT\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Rockscene_231020B_tempaudio_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Video temps\Rockscene_231020B_tempaudio		25666656
-
