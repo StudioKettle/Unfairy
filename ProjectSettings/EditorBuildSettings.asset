@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Paperticket/Scenes/RockTest.unity
     guid: de05ffad0a74eb84b8daa63b7dc25382
+  - enabled: 1
+    path: Assets/Paperticket/Scenes/RevengeTest.unity
+    guid: 74887c6e257efe94db42d65ef117db17
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

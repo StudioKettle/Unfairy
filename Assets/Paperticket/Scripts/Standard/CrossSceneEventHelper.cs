@@ -387,15 +387,6 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     #region Sprite calls
 
-
-
-    public void FadeSpriteIn( SpriteRenderer sprite ) {
-        StartCoroutine(PTUtilities.instance.FadeAlphaTo(sprite, 1, 1.5f, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
-    }
-    public void FadeSpriteOut( SpriteRenderer sprite ) {
-        StartCoroutine(PTUtilities.instance.FadeAlphaTo(sprite, 0, 1.5f, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
-    }
-
     public void FadeSpriteIn( SpriteRenderer sprite, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeAlphaTo(sprite, 1, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
@@ -423,21 +414,20 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
     #region Text calls
-
-    public void FadeTextIn( TextMeshPro text ) {
-        StartCoroutine(PTUtilities.instance.FadeAlphaTo(text, 1, 1.5f, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+        
+    public void FadeTextIn(TextMeshPro text, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAlphaTo(text, 1, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
-
-    public void FadeTextOut( TextMeshPro text ) {
-        StartCoroutine(PTUtilities.instance.FadeAlphaTo(text, 0, 1.5f, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    public void FadeTextOut(TextMeshPro text, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAlphaTo(text, 0, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
+    
     public void FadeText( TextMeshPro text, float alpha, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeAlphaTo(text, alpha, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
     public void FadeTextColor( TextMeshPro text, Color color, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeColorTo(text, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
-
 
 
     public void UnscaledFadeText( TextMeshPro text, float alpha, float duration ) {
@@ -459,6 +449,7 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void FadeImageOut( Image image, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeAlphaTo(image, 0, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
+
     public void FadeImage( Image image, float alpha, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeAlphaTo(image, alpha, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
