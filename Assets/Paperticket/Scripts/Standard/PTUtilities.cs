@@ -510,6 +510,46 @@ namespace Paperticket {
                 if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
         }
+        // Helper coroutine for fading the alpha of mesh renderer
+        public IEnumerator FadeAlphaTo(MeshRenderer mRenderer, string propertyName, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            Material mat = mRenderer.material;
+
+            propertyName = mat.HasProperty(propertyName) ? propertyName : "";
+            if (propertyName == "") {
+                Debug.LogError("[PTUtilities] ERROR -> Could not find property name '" + propertyName + "' in mesh renderer to fade! Cancelling...");
+            }
+
+            Color col = mat.GetColor(propertyName);
+
+            if (col.a != targetAlpha) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + "to alpha " + targetAlpha);
+
+                if (!mRenderer.enabled) {
+                    mRenderer.enabled = true;
+                }
+
+                float alpha = col.a;
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    Color newColor = new Color(col.r, col.g, col.b, Mathf.Lerp(alpha, targetAlpha, animCurve.Evaluate(t)));
+                    mat.SetColor(propertyName, newColor);
+                    yield return null;
+                }
+                mat.SetColor(propertyName, new Color(col.r, col.g, col.b, targetAlpha));
+
+
+                if (targetAlpha == 0f) {
+                    mRenderer.enabled = false;
+                }
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded to alpha " + targetAlpha);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
+            }
+        }
         // Helper coroutine for fading the alpha of an image
         public IEnumerator FadeAlphaTo( Image image, float targetAlpha, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
@@ -594,6 +634,45 @@ namespace Paperticket {
 
                 Color color = mat.GetColor(propertyName);
                 for (float t = 0.0f; t < 1.0f; t += (timeScale==0?Time.deltaTime:Time.unscaledDeltaTime) / duration) {
+                    Color newColor = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
+                    mat.SetColor(propertyName, newColor);
+                    yield return null;
+                }
+                mat.SetColor(propertyName, targetColor);
+
+                if (targetColor.a == 0f) {
+                    mRenderer.enabled = false;
+                }
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + "successfully faded to " + color);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at color " + targetColor + ", cancelling fade");
+            }
+
+        }
+        // Helper coroutine for fading the color of a sprite
+        public IEnumerator FadeColorTo(MeshRenderer mRenderer, string propertyName, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            Material mat = mRenderer.material;
+                        
+            propertyName = mat.HasProperty(propertyName) ? propertyName : "";
+            if (propertyName == "") {
+                Debug.LogError("[PTUtilities] ERROR -> Could not find property name '"+propertyName+"' in mesh renderer to fade! Cancelling...");
+            }
+
+            if (mat.GetColor(propertyName) != targetColor) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Fading Sprite " + mRenderer.name + "to color " + targetColor);
+
+                if (!mRenderer.enabled) {
+                    mRenderer.enabled = true;
+                }
+
+
+                Color color = mat.GetColor(propertyName);
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
                     Color newColor = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
                     mat.SetColor(propertyName, newColor);
                     yield return null;

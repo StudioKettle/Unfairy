@@ -28,6 +28,8 @@ public class UnusedClass {
 
     private UpdatableInvokableCall<MeshRenderer, float> _meshrendererFloat;
     private UpdatableInvokableCall<MeshRenderer, float, float> _meshrendererFloatFloat;
+    private UpdatableInvokableCall<MeshRenderer, string, float, float> _meshrendererStringFloatFloat;
+    private UpdatableInvokableCall<MeshRenderer, string, Color, float> _meshrendererStringColorFloat;
     private UpdatableInvokableCall<MeshRenderer, Color, float> _meshrendererColorFloat;
     private UpdatableInvokableCall<SpriteRenderer, float> spriterendererFloat;
     private UpdatableInvokableCall<SpriteRenderer, float, float> _spriterendererFloatFloat;

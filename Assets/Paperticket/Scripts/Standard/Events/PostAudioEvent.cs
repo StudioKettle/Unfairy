@@ -56,8 +56,6 @@ namespace Paperticket {
             this.audioEvent = audioEvent;
             this.callbackFlags = callbackFlags;
             this.optionalSource = optionalSource;
-        }
-
+        }        
     }
-
 }

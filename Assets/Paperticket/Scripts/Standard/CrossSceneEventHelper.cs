@@ -347,8 +347,14 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void FadeMesh( MeshRenderer mesh, float alpha, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeAlphaTo(mesh, alpha, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
+    public void FadeMesh(MeshRenderer mesh, string propertyName, float alpha, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAlphaTo(mesh, propertyName, alpha, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
     public void FadeMeshColor( MeshRenderer mesh, Color color, float duration ) {
         StartCoroutine(PTUtilities.instance.FadeColorTo(mesh, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+    public void FadeMeshColor(MeshRenderer mesh, string propertyName, Color color, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeColorTo(mesh, propertyName, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
 
     public void SetMeshAlpha( MeshRenderer mesh, float alpha ) {
