@@ -1,0 +1,16 @@
+Event	ID	Name			Wwise Object Path	Notes
+	360908400	Bottle_Event_RajSection1			\Default Work Unit\Bottle_Event_RajSection1	
+	360908403	Bottle_Event_RajSection2			\Default Work Unit\Bottle_Event_RajSection2	
+	3237654247	Bottle_Event_Ring_End			\Default Work Unit\Bottle_Event_Ring_End	
+	3645921748	Bottle_Event_Ring_Start			\Default Work Unit\Bottle_Event_Ring_Start	
+	3705923960	Bottle_Ambient_Video			\Default Work Unit\Bottle_Ambient_Video	
+
+Effect plug-ins	ID	Name	Type				Notes
+	894285556	Gain (Custom)	Wwise Gain			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	75641990	Phone_Ring	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Iphone ring 3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Phone_Ring		932040
+	611737355	CactusIntroShot_231020B_tempaudio	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\CactusIntroShot_231020B_tempaudio_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Video temps\CactusIntroShot_231020B_tempaudio		13946976
+	676024380	Raj_aysha_Section1_V1	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Raj_aysha_Section1_V1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raj Narrator Audio\Raj_aysha_Section1_V1		2342496
+	1026098927	Raj_aysha_Section2_V1	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Raj_aysha_Section2_V1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Raj Narrator Audio\Raj_aysha_Section2_V1		9600096
+

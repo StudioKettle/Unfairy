@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1729393136	WFC_Ambient_Video			\Default Work Unit\WFC_Ambient_Video	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	974865136	WishFulfilmentCentre_230820_tempaudio	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\WishFulfilmentCentre_230820_tempaudio_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Video temps\WishFulfilmentCentre_230820_tempaudio		54076520
+
