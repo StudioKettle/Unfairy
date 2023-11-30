@@ -25,7 +25,8 @@ public class UnusedClass {
     private UpdatableInvokableCall<Transform, CrossSceneEventHelper.CurveType, Vector3, float> _transformCurvetypeVector3Float;
     private UpdatableInvokableCall<GameObject, Transform> _gameObjectTransform;
     private UpdatableInvokableCall<GameObject, Transform, bool> _gameObjectTransformBool;
-
+    private UpdatableInvokableCall<GameObject, LayerMask> _gameObjectLayerMask;
+    
     private UpdatableInvokableCall<MeshRenderer, float> _meshrendererFloat;
     private UpdatableInvokableCall<MeshRenderer, float, float> _meshrendererFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, float, float> _meshrendererStringFloatFloat;
@@ -58,5 +59,7 @@ public class UnusedClass {
     private UpdatableInvokableCall<AK.Wwise.Event, float> _wwiseeventFloat;
 
     private UpdatableInvokableCall<AssetBundle, bool> _assetbundleBool;
+
+
 
 }

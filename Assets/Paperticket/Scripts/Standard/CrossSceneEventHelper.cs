@@ -331,6 +331,12 @@ public class CrossSceneEventHelper : MonoBehaviour {
     }
 
 
+
+    public void SetLayer(GameObject gameObject, LayerMask layerMask) {
+        gameObject.layer = (int)Mathf.Log(layerMask.value, 2);
+    }
+    //
+
     #endregion
 
 

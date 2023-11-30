@@ -12,8 +12,8 @@ public class BottleControl : MonoBehaviour {
     [SerializeField] VideoController videoController = null;
 
     [SerializeField] VideoClip bottleVideo = null;
-    [SerializeField] AK.Wwise.Event bottleAudio = null;
-    [SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
+    //[SerializeField] AK.Wwise.Event bottleAudio = null;//
+    //[SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
 
     //[Space(5)]
     //[SerializeField] bool cycleVideoEvent = true;
