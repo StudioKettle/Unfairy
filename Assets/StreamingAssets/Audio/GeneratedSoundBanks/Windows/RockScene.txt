@@ -1,0 +1,42 @@
+Event	ID	Name			Wwise Object Path	Notes
+	712355292	Rock_RageChannel03			\Default Work Unit\4_Rock\Rage_Channels\Rock_RageChannel03	
+	712355293	Rock_RageChannel02			\Default Work Unit\4_Rock\Rage_Channels\Rock_RageChannel02	
+	712355294	Rock_RageChannel01			\Default Work Unit\4_Rock\Rage_Channels\Rock_RageChannel01	
+	720901216	Rock_INT_hitkey5			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey5	
+	720901217	Rock_INT_hitkey4			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey4	
+	720901218	Rock_INT_hitkey7			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey7	
+	720901219	Rock_INT_hitkey6			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey6	
+	720901220	Rock_INT_hitkey1			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey1	
+	720901222	Rock_INT_hitkey3			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey3	
+	720901223	Rock_INT_hitkey2			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey2	
+	720901229	Rock_INT_hitkey8			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkey8	
+	1220003658	Rock_Failstate_PlaySmallBoo			\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlaySmallBoo	
+	1298401736	Rock_Winstate_PlayCheer			\Default Work Unit\4_Rock\Crowd_States\Rock_Winstate_PlayCheer	
+	2028207771	Rock_Failstate_PlayBigBoo			\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlayBigBoo	
+	2733779535	Rock_Ambient_Video			\Default Work Unit\4_Rock\Rock_Ambient_Video	
+	3623126147	Rock_INT_hitkeyBUM4			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkeyBUM4	
+	3623126148	Rock_INT_hitkeyBUM3			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkeyBUM3	
+	3623126149	Rock_INT_hitkeyBUM2			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkeyBUM2	
+	3623126150	Rock_INT_hitkeyBUM1			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkeyBUM1	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	24137789	Rock_Failstate_PlayBigBoo	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Rock_Failstate_PlayBigBoo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlayBigBoo		3616924
+	40104632	MX_INT OP4_7_G4	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_7_G4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_7_G4		302086
+	49730313	RageChannel01_V2_AUDIO	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\RageChannel01_V2_AUDIO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TEST_OLD\Video temps\RageChannel01_V2_AUDIO		25543776
+	107784692	MX_INT OP4_6_E4	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_6_E4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_6_E4		274546
+	144442135	25_MX_MAL_DUCK 2	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BUM_NOTES\25_MX_MAL_DUCK 2		72366
+	167180871	MX_INT OP4_4_B4	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_4_B4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_4_B4		280318
+	209974336	25_MX_MAL_DUCK 1	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BUM_NOTES\25_MX_MAL_DUCK 1		34528
+	278862616	23_MX_MAL_WOOF	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\23_MX_MAL_WOOF_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BUM_NOTES\23_MX_MAL_WOOF		44440
+	330034563	MX_INT OP4_3_A4	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_3_A4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_3_A4		251698
+	402770323	MX_INT OP4_2_G3	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_2_G3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_2_G3		260834
+	457380343	MX_INT OP4_1_E3	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_1_E3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_1_E3		294180
+	493929085	RageChannel02_V2_AUDIO	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\RageChannel02_V2_AUDIO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TEST_OLD\Video temps\RageChannel02_V2_AUDIO		25543776
+	502255321	24_MX_MAL_GLASS	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\24_MX_MAL_GLASS_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BUM_NOTES\24_MX_MAL_GLASS		81478
+	518846313	Rockscene_231116_tempaudio	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Rockscene_231116_tempaudio_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TEST_OLD\Video temps\Rockscene_231116_tempaudio		25543776
+	599584660	MX_INT OP4_8_E5	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_8_E5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_8_E5		296916
+	811955495	Rock_Failstate_PlaySmallBoo	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Rock_Failstate_PlaySmallBoo_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlaySmallBoo		2118516
+	834622244	MX_INT OP4_5_D4	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\MX_INT OP4_5_D4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Keyboard Notes\BANK_4\MX_INT OP4_5_D4		315196
+	903562095	RageChannel03_V2_AUDIO	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\RageChannel03_V2_AUDIO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\TEST_OLD\Video temps\RageChannel03_V2_AUDIO		25543776
+	948104323	Rock_Winstate_PlayCheer	G:\.shortcut-targets-by-id\109s72eAZIdWnX5iD8YgOKzB1dX6uDT5l\Unfairy_Main\.cache\Windows\SFX\Rock_Winstate_PlayCheer_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Crowd_States\Rock_Winstate_PlayCheer		2700200
+

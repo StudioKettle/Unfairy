@@ -7344,7 +7344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoController: {fileID: 601134944}
-  videoTimeBeforeEvent: 2.9
+  videoTimeBeforeEvent: 7.2
   eventBehaviour: 1
   debug: 0
   OnEventTriggered:
@@ -18818,7 +18818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoController: {fileID: 601134944}
-  videoTimeBeforeEvent: 67
+  videoTimeBeforeEvent: 71.3
   eventBehaviour: 0
   debug: 0
   OnEventTriggered:
@@ -30782,7 +30782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableText: {fileID: 1926591145}
   videoController: {fileID: 601134944}
-  bottleVideo: {fileID: 32900000, guid: 9813424251f1b63429612c0e1770b306, type: 3}
+  bottleVideo: {fileID: 32900000, guid: 8482b400e4602604ca7111d67207519b, type: 3}
 --- !u!4 &2130263765
 Transform:
   m_ObjectHideFlags: 0

@@ -4,8 +4,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
 using TMPro;
-using Paperticket;
 using System.Linq;
+using Paperticket;
+
+
+namespace Paperticket {
+    [System.Serializable]
+    public enum BarLength { Double, Whole, Half, Quarter }
+
+}
 
 public class RockControl : MonoBehaviour {
 
@@ -14,6 +21,38 @@ public class RockControl : MonoBehaviour {
     public VideoController videoController;
 
     [SerializeField] VideoClip RockVideo = null;
+    [SerializeField] GameObject[] sparks;
+    [SerializeField] MeshRenderer[] keyIndicators;
+
+
+    [Space(10)]
+    [SerializeField] TextMeshPro debugText;
+    [SerializeField] bool debugging = false;
+
+    [Header("Performance Controls")]
+    [Space(10)]
+    [SerializeField] float boredomSpeed = 0.1f;
+    [SerializeField] float hitAddition = 0.05f;
+    [SerializeField] float hitMinThreshold = 0.5f;
+    [Space(5)]
+    [SerializeField] float winMarker = 0.75f;
+    [SerializeField] AK.Wwise.Event winAKEvent;
+    [Space(5)]
+    [SerializeField] AK.Wwise.Event fail1AKEvent;
+    [SerializeField] float fail1Marker = 0.25f;
+    [Space(5)]
+    [SerializeField] AK.Wwise.Event fail2AKEvent;
+    [SerializeField] float fail2Marker = 0f;
+
+    [Header("Winning Notes Controls")]
+    [Space(10)]
+    [SerializeField] Color selectedColor = Color.green * 1.1f;
+    [SerializeField] Color upcomingColor = Color.yellow * 1.1f;
+    [SerializeField] Color unselectedColor = Color.red * 1.1f;
+    [Space(5)]
+    [SerializeField] UpcomingNote[] score = null;
+
+
 
     //[Space(10)]
     //[SerializeField] KeyboardBank keyboardBank = KeyboardBank.Bank1;
@@ -22,37 +61,25 @@ public class RockControl : MonoBehaviour {
     //[SerializeField] List<AK.Wwise.Event> bank2;
     //[SerializeField] List<AK.Wwise.Event> bank3;
 
-    [Space(10)]
-    [SerializeField] float boredomSpeed = 0.1f;
-    [SerializeField] float hitAddition = 0.05f;
-    [SerializeField] float hitMinThreshold = 0.5f;
-    [Space(5)]
-    [SerializeField] AK.Wwise.Event winAKEvent;
-    [SerializeField] float winMarker = 0.75f;
-    [Space(5)]
-    [SerializeField] AK.Wwise.Event fail1AKEvent;
-    [SerializeField] float fail1Marker = 0.25f;
-    [Space(5)]
-    [SerializeField] AK.Wwise.Event fail2AKEvent;
-    [SerializeField] float fail2Marker = 0f;
-
-    [Space(10)]
-    [SerializeField] TextMeshPro debugText;
-    [SerializeField] bool debugging = false;
-
 
     [Header("READ ONLY")]
     [SerializeField] [Range(0, 1)] float performance = 0.5f;
+    [SerializeField] bool[] winningNotes;
+    [SerializeField] UpcomingNote currentUpcoming = null;
+   //[SerializeField] bool[] upcomingNotes;
 
     bool videoReady = false;
     bool performing = false;
     Coroutine calculatingPerformanceCo = null;
-    
-    [SerializeField] GameObject sparks;
+
+    Coroutine progressingScoreCo = null;
 
 
     void Start() {
         StartCoroutine(StartVideo());
+
+
+        winningNotes = new bool[12];
     }
 
     IEnumerator StartVideo() {
@@ -75,16 +102,15 @@ public class RockControl : MonoBehaviour {
 
 
 
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.S)) ToggleSparks();
-    }   
 
-    void ToggleSparks () {
-        sparks.SetActive(!sparks.activeSelf);
-    }
+
+
+    #region Calculating Performance
 
 
     public void StartPerformance() {
+
+        // Start calculating performance 
         if (calculatingPerformanceCo != null) StopCoroutine(calculatingPerformanceCo);
         calculatingPerformanceCo = StartCoroutine(CalculatingPerformance());
         if (debugging) Debug.Log("[RockControl] Starting Performance, calculating crowd boredom vs keyboard.");
@@ -98,8 +124,12 @@ public class RockControl : MonoBehaviour {
 
     }
 
-    public void AddToPerformance() {
+    public void AddToPerformance(int noteIndex) {
         if (!performing) return;
+
+        if (winningNotes[noteIndex]) {
+            ActivateSparks();
+        }
 
         if (performance < hitMinThreshold) {
             performance = hitMinThreshold;
@@ -161,6 +191,206 @@ public class RockControl : MonoBehaviour {
 
     }
 
+    #endregion
+
+
+
+    #region Set Winning Notes
+
+    public void ProgressMusicScore() {
+
+        // Start progressing the score
+        if (progressingScoreCo != null) StopCoroutine(progressingScoreCo);
+        progressingScoreCo = StartCoroutine(ProgressingMusicScore());
+        if (debugging) Debug.Log("[RockControl] Progressing score, changing gfx based on winning / upcoming notes");
+
+    }
+
+    IEnumerator ProgressingMusicScore() {
+
+        float fadeTime = 0.8f;
+        float delay = 0;
+
+        // Set all key indicators to red
+        foreach (MeshRenderer rend in keyIndicators) {
+            rend.material.SetColor("_EmissionColor", unselectedColor);
+        }
+
+
+        // Go through the entire score in order
+        foreach (UpcomingNote upcomingNote in score) {
+
+
+            currentUpcoming = upcomingNote;
+
+            // Start fading the upcoming notes to yellow, if they are not already green
+            for (int i = 0; i < upcomingNote.winningNotes.Length; i++) {
+                if (upcomingNote.winningNotes[i] && !winningNotes[i]) {
+                    StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[i], "_EmissionColor", upcomingColor, fadeTime, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
+
+                    if (debugging) Debug.Log("[RockControl] Fading upcoming note index " + i + " to yellow.");
+                }
+            }
+
+            // Wait until entirely green
+            yield return new WaitForSeconds(fadeTime);
+
+            
+            for (int i = 0; i < upcomingNote.winningNotes.Length; i++) {
+
+                // Set upcoming notes to green, as long as they are not already green
+                if (upcomingNote.winningNotes[i] && !winningNotes[i]) {
+                    keyIndicators[i].material.SetColor("_EmissionColor", selectedColor);
+
+                    if (debugging) Debug.Log("[RockControl] Setting new note index " + i + " to green.");
+                }
+
+                // Set old notes back to red, as long as they are not still green
+                else if (winningNotes[i] && !upcomingNote.winningNotes[i]) {
+                    keyIndicators[i].material.SetColor("_EmissionColor", unselectedColor);
+
+                    if (debugging) Debug.Log("[RockControl] Setting old note index " + i + " back to red.");
+                }
+            }
+
+            // Set the upcoming notes as the new winning notes
+            winningNotes = upcomingNote.winningNotes;
+
+            // Convert the next bar length to seconds
+            switch (upcomingNote.barLength) {
+                case BarLength.Quarter:
+                    delay = 0.39f;
+                    break;
+                case BarLength.Half:
+                    delay = 0.79f;
+                    break;
+                case BarLength.Whole:
+                    delay = 1.59f;
+                    break;
+                case BarLength.Double:
+                    delay = 3.19f;
+                    break;
+                default:
+                    break;
+            }
+
+            if (debugging) Debug.Log("[RockControl] UpcomingNote length = " + delay);
+
+            // Wait until next notes need to fade in
+            yield return new WaitForSeconds(delay - fadeTime);
+
+        }
+
+
+        if (debugging) Debug.Log("[RockControl] Finished score.");
+
+    }
+
+
+    public void SetWinningNotes(int noteIndex1, int noteIndex2) {
+
+        //// Reset the material colors
+        //for (int i = 0; i < keyIndicators.Length; i++) {
+        //    if (upcomingNotes[i]) {
+        //        keyIndicators[i].material.SetColor("_EmissionColor", unselectedColor);
+        //    }
+        //}
+
+        //// Set the winning notes
+        //upcomingNotes = new bool[12];
+        //upcomingNotes[noteIndex1] = true;
+        //upcomingNotes[noteIndex2] = true;
+
+        //// Set the new material colors
+        //keyIndicators[noteIndex1].material.SetColor("_EmissionColor", selectedColor);
+        //keyIndicators[noteIndex2].material.SetColor("_EmissionColor", selectedColor);
+
+    }
+
+    public void SetWinningNotes(int noteIndex1, int noteIndex2, BarLength delay) {
+        float _delay = 0;
+        switch (delay) {
+            case BarLength.Quarter:
+                _delay = 0.4f;
+                break;
+            case BarLength.Half:
+                _delay = 0.8f;
+                break;
+            case BarLength.Whole:
+                _delay = 1.6f;
+                break;
+            case BarLength.Double:
+                _delay = 3.2f;
+                break;
+            default:
+                break;
+        }
+        StartCoroutine(SettingWinningNotes(noteIndex1, noteIndex2, _delay));
+    }
+
+
+    IEnumerator SettingWinningNotes(int noteIndex1, int noteIndex2, float delay) {
+
+        StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex1], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
+        StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex2], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
+
+        yield return new WaitForSeconds(delay);
+
+        // Reset previous key indicators
+        for (int i = 0; i < keyIndicators.Length; i++) {
+            if (winningNotes[i]) {
+                keyIndicators[i].material.SetColor("_EmissionColor", unselectedColor);
+            }
+        }
+
+        winningNotes = new bool[12];
+        winningNotes[noteIndex1] = true;
+        winningNotes[noteIndex2] = true;
+    }
+
+
+    #endregion
+
+
+    #region Activating Sparks
+
+    public void ActivateSparks() {
+        if (activatingSparksCo != null) {
+            if (debugging) Debug.Log("[RockControl] Tried to activate sparks but they're already activating, ignoring.");
+            return;
+        }
+        activatingSparksCo = StartCoroutine(ActivatingSparks());
+    }
+
+
+    Coroutine activatingSparksCo;
+    IEnumerator ActivatingSparks() {
+
+        int firstIndex = Random.Range(0, sparks.Length);
+        int secondIndex = 0;
+        while (secondIndex == firstIndex) {
+            secondIndex = Random.Range(0, sparks.Length);
+        }
+
+        sparks[firstIndex].SetActive(true);
+        sparks[secondIndex].SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        sparks[firstIndex].SetActive(false);
+        sparks[secondIndex].SetActive(false);
+
+        activatingSparksCo = null;
+    }
+
+    #endregion
+
+
+
+
+
+
+
 
     //public void SwitchBank(KeyboardBank nextBank) {
     //    keyboardBank = nextBank;
@@ -184,6 +414,23 @@ public class RockControl : MonoBehaviour {
 
 
 }
+
+
+[System.Serializable]
+public class UpcomingNote {
+
+    public string note = "";
+    public bool[] winningNotes = null;
+    public BarLength barLength = 0;
+
+    public UpcomingNote(string note = "New UpcomingNote", bool[] winningNotes = null, BarLength barLength = 0) {
+        this.note = note;
+        this.winningNotes = winningNotes;
+        this.barLength = barLength;
+    }
+}
+
+
 ///OLD
 ///
 //[SerializeField] GameObject audience;
