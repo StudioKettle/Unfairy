@@ -15,6 +15,7 @@ namespace Paperticket {
         [SerializeField] bool debugging = false;
         [Space(10)]
         [SerializeField] controllerType controller = controllerType.LeftController;
+        [SerializeField] bool startConstrained = true;
         [Space(5)]
         [SerializeField] Vector3 positionOffset;
         [SerializeField] Vector3 rotationOffset;
@@ -54,7 +55,7 @@ namespace Paperticket {
             }
         
 
-            source.weight = 1;
+            source.weight = startConstrained ? 1 : 0;
 
             constraint.AddSource(source);
             constraint.SetTranslationOffset(0, positionOffset);
@@ -87,10 +88,7 @@ namespace Paperticket {
             else constraint.rotationAxis = Axis.None;
 
 
-            constraint.constraintActive = true;
-
-
-
+            constraint.constraintActive = startConstrained;
 
         }
 

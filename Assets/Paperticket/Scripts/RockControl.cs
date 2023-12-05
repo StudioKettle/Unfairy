@@ -43,6 +43,8 @@ public class RockControl : MonoBehaviour {
     [Space(5)]
     [SerializeField] AK.Wwise.Event fail2AKEvent;
     [SerializeField] float fail2Marker = 0f;
+    
+    
 
     [Header("Winning Notes Controls")]
     [Space(10)]
@@ -50,8 +52,14 @@ public class RockControl : MonoBehaviour {
     [SerializeField] Color upcomingColor = Color.yellow * 1.1f;
     [SerializeField] Color unselectedColor = Color.red * 1.1f;
     [Space(5)]
+    [SerializeField] float quarterDuration = 0.385f;
+    [SerializeField] float halfDuration = 0.785f;
+    [SerializeField] float wholeDuration = 1.585f;
+    [SerializeField] float doubleDuration = 3.185f;       
+    [Space(5)]
     [SerializeField] UpcomingNote[] score = null;
-
+    [Space(5)]
+    [SerializeField] float sparksDuration = 1.25f;
 
 
     //[Space(10)]
@@ -259,16 +267,16 @@ public class RockControl : MonoBehaviour {
             // Convert the next bar length to seconds
             switch (upcomingNote.barLength) {
                 case BarLength.Quarter:
-                    delay = 0.39f;
+                    delay = quarterDuration;
                     break;
                 case BarLength.Half:
-                    delay = 0.79f;
+                    delay = halfDuration;
                     break;
                 case BarLength.Whole:
-                    delay = 1.59f;
+                    delay = wholeDuration;
                     break;
                 case BarLength.Double:
-                    delay = 3.19f;
+                    delay = doubleDuration;
                     break;
                 default:
                     break;
@@ -307,46 +315,46 @@ public class RockControl : MonoBehaviour {
 
     }
 
-    public void SetWinningNotes(int noteIndex1, int noteIndex2, BarLength delay) {
-        float _delay = 0;
-        switch (delay) {
-            case BarLength.Quarter:
-                _delay = 0.4f;
-                break;
-            case BarLength.Half:
-                _delay = 0.8f;
-                break;
-            case BarLength.Whole:
-                _delay = 1.6f;
-                break;
-            case BarLength.Double:
-                _delay = 3.2f;
-                break;
-            default:
-                break;
-        }
-        StartCoroutine(SettingWinningNotes(noteIndex1, noteIndex2, _delay));
-    }
+    //public void SetWinningNotes(int noteIndex1, int noteIndex2, BarLength delay) {
+    //    float _delay = 0;
+    //    switch (delay) {
+    //        case BarLength.Quarter:
+    //            _delay = 0.4f;
+    //            break;
+    //        case BarLength.Half:
+    //            _delay = 0.8f;
+    //            break;
+    //        case BarLength.Whole:
+    //            _delay = 1.6f;
+    //            break;
+    //        case BarLength.Double:
+    //            _delay = 3.2f;
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //    StartCoroutine(SettingWinningNotes(noteIndex1, noteIndex2, _delay));
+    //}
 
 
-    IEnumerator SettingWinningNotes(int noteIndex1, int noteIndex2, float delay) {
+    //IEnumerator SettingWinningNotes(int noteIndex1, int noteIndex2, float delay) {
 
-        StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex1], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
-        StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex2], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
+    //    StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex1], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
+    //    StartCoroutine(PTUtilities.instance.FadeColorTo(keyIndicators[noteIndex2], selectedColor, delay, AnimationCurve.EaseInOut(0, 0, 1, 1), TimeScale.Scaled));
 
-        yield return new WaitForSeconds(delay);
+    //    yield return new WaitForSeconds(delay);
 
-        // Reset previous key indicators
-        for (int i = 0; i < keyIndicators.Length; i++) {
-            if (winningNotes[i]) {
-                keyIndicators[i].material.SetColor("_EmissionColor", unselectedColor);
-            }
-        }
+    //    // Reset previous key indicators
+    //    for (int i = 0; i < keyIndicators.Length; i++) {
+    //        if (winningNotes[i]) {
+    //            keyIndicators[i].material.SetColor("_EmissionColor", unselectedColor);
+    //        }
+    //    }
 
-        winningNotes = new bool[12];
-        winningNotes[noteIndex1] = true;
-        winningNotes[noteIndex2] = true;
-    }
+    //    winningNotes = new bool[12];
+    //    winningNotes[noteIndex1] = true;
+    //    winningNotes[noteIndex2] = true;
+    //}
 
 
     #endregion
@@ -375,7 +383,7 @@ public class RockControl : MonoBehaviour {
         sparks[firstIndex].SetActive(true);
         sparks[secondIndex].SetActive(true);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(sparksDuration);
 
         sparks[firstIndex].SetActive(false);
         sparks[secondIndex].SetActive(false);
