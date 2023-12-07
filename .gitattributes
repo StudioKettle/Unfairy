@@ -1,6 +1,7 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.wmv filter=lfs diff=lfs merge=lfs -text
 *.bnk filter=lfs diff=lfs merge=lfs -text
-
 Assets/Paperticket/Models/Rock/230905_ROCK_ARENA.blend filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Rock/230927_ROCK_ARENA.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Models/Rock/ROCK_ARENA.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Models/Rock/rageSpiral.blend filter=lfs diff=lfs merge=lfs -text
