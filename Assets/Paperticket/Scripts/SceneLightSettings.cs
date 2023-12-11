@@ -9,6 +9,7 @@ namespace Paperticket {
         public static SceneLightSettings instance = null;
 
         [SerializeField] bool applyOnLoad = true;
+        [SerializeField] AnimationCurve fadeCurve = AnimationCurve.EaseInOut(0,0,1,1);
         [SerializeField] int currentIndex = 0;
 
         [Space(5)]
@@ -112,6 +113,73 @@ namespace Paperticket {
             SceneUtilities.OnSceneMadeActive -= CheckForActive;
         }
 
+
+
+
+
+        public void FadeToNewSettings(int settingIndex, float duration) {
+            if (debugging) Debug.Log("[SceneLightSettings] Searching for settings [" + settingIndex + "] to fade to...");
+
+            if (settings.Length > settingIndex) {
+                StartCoroutine(FadingToNewSettings(settingIndex, duration));
+                return;
+            }
+
+            if (debugging) Debug.LogError("[SceneLightSettings] ERROR -> Could not find matching settings [" + settingIndex + "]");
+        }
+
+        IEnumerator FadingToNewSettings(int settingIndex, float duration) {
+
+            SceneLightSettingsContainer container = settings[settingIndex];
+
+            Color ambientColor = RenderSettings.ambientLight;                
+            Color fogColor = RenderSettings.fogColor;
+            float fogDensity = RenderSettings.fogDensity;
+            float fogStart = RenderSettings.fogStartDistance;
+            float fogEnd = RenderSettings.fogEndDistance;
+
+            if (container.changeFog) {
+                RenderSettings.fogMode = container.fogMode;
+            }
+
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration) {
+
+                if (container.changeAmbientLight) {
+                    RenderSettings.ambientLight = Color.Lerp(ambientColor, container.ambientLightColor, fadeCurve.Evaluate(t));  
+                }
+
+                if (container.changeFog) {
+                    if (container.fogEnabled) {
+                        RenderSettings.fogColor = Color.Lerp(fogColor, container.fogColor, fadeCurve.Evaluate(t));
+                        RenderSettings.fogDensity = Mathf.Lerp(fogDensity, container.fogDensity, fadeCurve.Evaluate(t));
+                        RenderSettings.fogStartDistance = Mathf.Lerp(fogStart, container.fogStart, fadeCurve.Evaluate(t));
+                        RenderSettings.fogEndDistance = Mathf.Lerp(fogEnd, container.fogEnd, fadeCurve.Evaluate(t));
+                    } else {
+                        RenderSettings.fogColor = Color.Lerp(fogColor, Color.clear, fadeCurve.Evaluate(t));
+                        RenderSettings.fogDensity = Mathf.Lerp(fogDensity, 0f, fadeCurve.Evaluate(t));
+                        RenderSettings.fogStartDistance = Mathf.Lerp(fogStart, 0f, fadeCurve.Evaluate(t));
+                        RenderSettings.fogEndDistance = Mathf.Lerp(fogEnd, 0f, fadeCurve.Evaluate(t));
+                    }
+                }
+
+                yield return null;
+            }
+
+            if (container.changeAmbientLight) {
+                RenderSettings.ambientLight = container.ambientLightColor;
+            }
+            if (container.changeFog) {
+                if (container.fogEnabled) {
+                    RenderSettings.fogColor = container.fogColor;
+                    RenderSettings.fogDensity = container.fogDensity;
+                    RenderSettings.fogStartDistance = container.fogStart;
+                    RenderSettings.fogEndDistance = container.fogEnd;
+                }
+                RenderSettings.fog = container.fogEnabled;
+            }
+
+            currentIndex = settingIndex;
+        }
     }
 
 
@@ -144,7 +212,7 @@ namespace Paperticket {
             fogDensity = _fogDensity;
             fogStart = _fogStart;
             fogEnd = _fogEnd;
-    }
+        }
 
     }
 

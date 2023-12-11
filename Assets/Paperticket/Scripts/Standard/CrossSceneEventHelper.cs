@@ -261,6 +261,16 @@ public class CrossSceneEventHelper : MonoBehaviour {
         Instantiate(prefab, copyTransform.position, copyTransform.rotation, parent);
     }
 
+    public void CreateGameObject(GameObject prefab, bool spawnInManagerScene, Vector3 position, Vector3 rotation) {
+        GameObject createdObject = null;
+        if (spawnInManagerScene) {
+            createdObject = Instantiate(prefab, position, Quaternion.Euler(rotation), PTUtilities.instance.transform);
+        } else {
+            createdObject = Instantiate(prefab, position, Quaternion.Euler(rotation), transform);
+        }
+        createdObject.transform.parent = null;
+    }
+
     public void DestroyGameObject( GameObject objectToDestroy ) {
         Destroy(objectToDestroy);
     }
