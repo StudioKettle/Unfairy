@@ -10,10 +10,15 @@ public class Wand : MonoBehaviour
     
     public Gradient gradient;
 
-    public GameObject wandObject;
+    public GameObject wandObject = null;
 
     string propertyName = "";
-    Material mat;
+
+    public bool startActive = true;
+
+    Material mat = null;
+
+    Coroutine wandingCo = null;
 
     void OnEnable() {
 
@@ -26,30 +31,33 @@ public class Wand : MonoBehaviour
             Debug.LogError("[Wand] ERROR -> Could not find property name of mesh renderer to fade! Cancelling...");
         }
 
-        mat.SetColor(propertyName, gradient.Evaluate(1));
-
+        if (startActive) {
+            Activate();
+        }
 
     }
 
-    private void Update() {
-        mat.SetColor(propertyName, gradient.Evaluate(velocityEvent.Progress));
+    public void Activate() {
+        Deactivate();
+        wandingCo = StartCoroutine(Wanding());
+    }
+
+    public void Deactivate() {
+        if (wandingCo != null) StopCoroutine(wandingCo);
     }
 
 
-    //IEnumerator ChangeColor() {
+    IEnumerator Wanding() {
 
+        mat.SetColor(propertyName, gradient.Evaluate(0));
 
+        velocityEvent.enabled = true;
 
-    //    mat.SetColor(propertyName, gradient.Evaluate(progress));
-
-    //    for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration) {            
-            
-    //        yield return null;
-    //    }
-    //    mat.SetColor(propertyName, gradient.Evaluate(1));
-    //    yield return null;
-
-
-    //}
+        while (true) {
+            mat.SetColor(propertyName, gradient.Evaluate(velocityEvent.Progress));
+            yield return null;
+        }
+        
+    }
 
 }

@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBehaviour: 3
-  firstSceneName: 1
+  firstSceneName: 2
   _FirstSceneName: 
   _Debug: 1
   convergeDynamicGI: 0

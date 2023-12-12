@@ -22300,7 +22300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeEvent: 10
+  timeBeforeEvent: 30
   eventBehaviour: 0
   timeBehaviour: 0
   debug: 0
