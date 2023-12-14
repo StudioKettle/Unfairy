@@ -209,8 +209,7 @@ MonoBehaviour:
   GenerateAllMipmaps: 1
   OutputMaterial: {fileID: 2100000, guid: 03d9ea6cf8b275d4fa1418643073dfeb, type: 2}
   DefaultPreset: " <sbspreset pkgurl=\"pkg://Striped_Carpet\" label=\"\" >\n  <presetinput
-    identifier=\"$outputsize\" uid=\"669850267\" type=\"8\" value=\"10,10\" />\n
-    </sbspreset>\n"
+    identifier=\"$outputsize\" uid=\"669850267\" type=\"8\" value=\"10,10\" />\n</sbspreset>\n"
   MaterialShader: Standard
   RenderTextures: 0
   OutputRemaped: 0

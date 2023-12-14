@@ -135,9 +135,9 @@ public class RockControl : MonoBehaviour {
     public void AddToPerformance(int noteIndex) {
         if (!performing) return;
 
-        if (winningNotes[noteIndex]) {
-            ActivateSparks();
-        }
+        //if (winningNotes[noteIndex]) {
+        //    ActivateSparks();
+        //}
 
         if (performance < hitMinThreshold) {
             performance = hitMinThreshold;
@@ -206,6 +206,9 @@ public class RockControl : MonoBehaviour {
     #region Set Winning Notes
 
     public void ProgressMusicScore() {
+
+        Debug.LogWarning("[RockControl] We are not progressing score at the moment! Ignoring.");
+        return;
 
         // Start progressing the score
         if (progressingScoreCo != null) StopCoroutine(progressingScoreCo);

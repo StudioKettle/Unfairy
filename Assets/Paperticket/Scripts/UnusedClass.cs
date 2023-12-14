@@ -20,6 +20,7 @@ public class UnusedClass {
     private UpdatableInvokableCall<Transform, bool> _transformBool;
     private UpdatableInvokableCall<GameObject, Transform, Vector3, Vector3> _gameObjectTransformVector3Vector3;
     private UpdatableInvokableCall<GameObject, Transform, Transform> _gameObjectTransformTransform;
+    private UpdatableInvokableCall<GameObject, bool, Vector3, Vector3> _gameObjectBoolVector3Vector3;
     private UpdatableInvokableCall<Transform, Vector3, Vector3, float> _transformVector3Vector3Float;
     private UpdatableInvokableCall<Transform, Vector3, float> _transformVector3Float;
     private UpdatableInvokableCall<Transform, CrossSceneEventHelper.CurveType, Vector3, float> _transformCurvetypeVector3Float;
@@ -59,6 +60,8 @@ public class UnusedClass {
     private UpdatableInvokableCall<AK.Wwise.Event, float> _wwiseeventFloat;
 
     private UpdatableInvokableCall<AssetBundle, bool> _assetbundleBool;
+
+    private UpdatableInvokableCall<int, float> _intFloat;
 
 
 

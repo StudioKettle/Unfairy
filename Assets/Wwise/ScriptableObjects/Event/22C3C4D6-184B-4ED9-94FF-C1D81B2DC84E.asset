@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1309ca45dc24e6042bb76a03165568d0, type: 3}
   m_Name: 22C3C4D6-184B-4ED9-94FF-C1D81B2DC84E
   m_EditorClassIdentifier: 
-  objectName: Rock_INT_hitkey2
-  id: 720901223
+  objectName: Rock_INT_hitkey1
+  id: 720901220
   guid: 22C3C4D6-184B-4ED9-94FF-C1D81B2DC84E
