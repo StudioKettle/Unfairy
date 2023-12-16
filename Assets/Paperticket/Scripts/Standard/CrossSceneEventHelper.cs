@@ -8,19 +8,20 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class CrossSceneEventHelper : MonoBehaviour {
 
+
     [System.Serializable]
     public enum CurveType { Constant, Linear, EaseInOut, EaseIn, EaseOut }
 
-    AnimationCurve convertedCurve (CurveType curveType) {
+    AnimationCurve convertedCurve(CurveType curveType) {
         switch (curveType) {
-                case CurveType.Constant: return AnimationCurve.Constant(0, 1, 1);
-                case CurveType.Linear: return AnimationCurve.Linear(0, 0, 1, 1);
-                case CurveType.EaseInOut: return AnimationCurve.EaseInOut(0, 0, 1, 1);
-                case CurveType.EaseIn: return PTUtilities.instance.easeInCurve; 
-                case CurveType.EaseOut: return PTUtilities.instance.easeOutCurve; 
-                default: Debug.LogError("[{0}] ERROR -> Bad CurveType recieved in ConvertedCurve!!"); return null;
-            }
+            case CurveType.Constant: return AnimationCurve.Constant(0, 1, 1);
+            case CurveType.Linear: return AnimationCurve.Linear(0, 0, 1, 1);
+            case CurveType.EaseInOut: return AnimationCurve.EaseInOut(0, 0, 1, 1);
+            case CurveType.EaseIn: return PTUtilities.instance.easeInCurve;
+            case CurveType.EaseOut: return PTUtilities.instance.easeOutCurve;
+            default: Debug.LogError("[{0}] ERROR -> Bad CurveType recieved in ConvertedCurve!!"); return null;
         }
+    }
 
     [System.Serializable]
     public enum TrackingType { Head, LeftController, RightController, BetweenControllers }
@@ -98,30 +99,30 @@ public class CrossSceneEventHelper : MonoBehaviour {
     // All loading/unloading is done with the above LoadCareScene function
     // (This also applies to the bundle loading/unloading further down)
 
-    public void SwitchToScene( string sceneName, float invokeTime ) {
+    public void SwitchToScene(string sceneName, float invokeTime) {
         StartCoroutine(WaitThenSwitchToScene(sceneName, invokeTime));
     }
-    IEnumerator WaitThenSwitchToScene( string sceneName, float invokeTime ) {
+    IEnumerator WaitThenSwitchToScene(string sceneName, float invokeTime) {
         yield return new WaitForSeconds(invokeTime);
         SwitchToScene(sceneName);
     }
 
-    public void SwitchToScene(string sceneName ) {
+    public void SwitchToScene(string sceneName) {
         SceneUtilities.instance.LoadSceneExclusive(sceneName);
     }
 
 
 
-    public void LoadNextScene (string sceneName, float invokeTime ) {
+    public void LoadNextScene(string sceneName, float invokeTime) {
         StartCoroutine(WaitThenLoadNextScene(sceneName, invokeTime));
     }
-    IEnumerator WaitThenLoadNextScene( string sceneName, float invokeTime ) {
+    IEnumerator WaitThenLoadNextScene(string sceneName, float invokeTime) {
         yield return new WaitForSeconds(invokeTime);
         LoadNextScene(sceneName);
     }
 
 
-    public void LoadNextScene( string sceneName ) {
+    public void LoadNextScene(string sceneName) {
         SceneUtilities.instance.BeginLoadScene(sceneName);
         SceneUtilities.OnSceneAlmostReady += LoadSceneCallback;
 
@@ -144,11 +145,11 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     #region Headset / controller calls
 
-    public void SetControllerBeam( bool toggle ) {
+    public void SetControllerBeam(bool toggle) {
         PTUtilities.instance.ControllerBeamActive = toggle;
     }
 
-    public void SetControllerInteractionLayers (LayerMask layerMask ) {
+    public void SetControllerInteractionLayers(LayerMask layerMask) {
         PTUtilities.instance.ControllerBeamLayerMask = layerMask;
     }
 
@@ -156,29 +157,55 @@ public class CrossSceneEventHelper : MonoBehaviour {
     /// <summary>
     /// NOTE: Re-enable this vvvvv when Oculus is installed
     /// </summary>
-    public void DoHaptics( Hand hand, float strength, float duration ) {
+    public void DoHaptics(Hand hand, float strength, float duration) {
 
         //PTUtilities.instance.DoHaptics(hand, strength, duration);
-       // StartCoroutine(OculusUtilities.instance.DoingHaptics(strength, strength, duration, hand));
+        // StartCoroutine(OculusUtilities.instance.DoingHaptics(strength, strength, duration, hand));
 
     }
 
 
 
 
-    public void MatchHeadsetTransform (Transform target ) {
+    public void MatchHeadsetTransform(Transform target) {
 
         target.position = PTUtilities.instance.HeadsetPosition();
         target.rotation = PTUtilities.instance.HeadsetRotation();
 
     }
 
+    public void FaceHeadsetTransform(Transform target, float distance) {
+
+        target.position = PTUtilities.instance.HeadsetPosition();
+        target.rotation = PTUtilities.instance.HeadsetRotation();
+        target.Rotate(0, 180, 0, Space.Self);
+        target.Translate(Vector3.Scale(Vector3.back * distance, target.localScale), Space.Self);
+
+    }
+
+    [System.Serializable]
+    public enum FaceValue { KeepCurrent, FaceHeadset, FaceTarget }
+    public void InterposeWithHeadset(Transform intercepter, Transform target, FaceValue facing, float distance) {
+        InterposeWithHeadset(intercepter, target.position, facing, distance);
+    }
+    public void InterposeWithHeadset(Transform intercepter, Vector3 target, FaceValue facing, float distance) {
+        var headPos = PTUtilities.instance.HeadsetPosition();
+
+        intercepter.position = Vector3.MoveTowards(headPos, target, distance);
+
+        if (facing == FaceValue.FaceHeadset) {
+            intercepter.LookAt(headPos);
+        } else if (facing == FaceValue.FaceTarget) {
+            intercepter.LookAt(target);
+        }
+    }
+
 
 
     Coroutine headFadeCo;
-    public void FadeHeadsetColor( Color color, float duration ) {
+    public void FadeHeadsetColor(Color color, float duration) {
         if (headFadeCo != null) StopCoroutine(headFadeCo);
-        headFadeCo = StartCoroutine(PTUtilities.instance.FadeColorTo(PTUtilities.instance.headGfx, color, duration, AnimationCurve.Linear(0,0,1,1), TimeScale.Scaled));
+        headFadeCo = StartCoroutine(PTUtilities.instance.FadeColorTo(PTUtilities.instance.headGfx, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
     public void FadeHeadsetColor(Color color, float duration, CurveType curveType) {
         if (headFadeCo != null) StopCoroutine(headFadeCo);
@@ -186,7 +213,7 @@ public class CrossSceneEventHelper : MonoBehaviour {
     }
 
 
-    public void FadeHeadsetIn( float duration ) {
+    public void FadeHeadsetIn(float duration) {
         if (headFadeCo != null) StopCoroutine(headFadeCo);
         headFadeCo = StartCoroutine(PTUtilities.instance.FadeAlphaTo(PTUtilities.instance.headGfx, 0f, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
@@ -195,7 +222,7 @@ public class CrossSceneEventHelper : MonoBehaviour {
         headFadeCo = StartCoroutine(PTUtilities.instance.FadeAlphaTo(PTUtilities.instance.headGfx, 0f, duration, convertedCurve(curveType), TimeScale.Scaled));
     }
 
-    public void FadeHeadsetOut( float duration ) {
+    public void FadeHeadsetOut(float duration) {
         if (headFadeCo != null) StopCoroutine(headFadeCo);
         headFadeCo = StartCoroutine(PTUtilities.instance.FadeAlphaTo(PTUtilities.instance.headGfx, 1f, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
@@ -205,16 +232,16 @@ public class CrossSceneEventHelper : MonoBehaviour {
     }
 
 
-    public void FadeHeadsetToBlack( float duration ) {
+    public void FadeHeadsetToBlack(float duration) {
         FadeHeadsetColor(Color.black, duration);
     }
 
-    public void FadeHeadsetToWhite( float duration ) {
+    public void FadeHeadsetToWhite(float duration) {
         FadeHeadsetColor(Color.white, duration);
     }
 
 
-    public void UnscaledFadeHeadsetColor( Color color, float duration ) {
+    public void UnscaledFadeHeadsetColor(Color color, float duration) {
         if (headFadeCo != null) StopCoroutine(headFadeCo);
         headFadeCo = StartCoroutine(PTUtilities.instance.FadeColorTo(PTUtilities.instance.headGfx, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Unscaled));
     }
@@ -223,14 +250,14 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
 
-    public void TeleportPlayer( Vector3 worldPosition, Vector3 forwardDirection ) {
+    public void TeleportPlayer(Vector3 worldPosition, Vector3 forwardDirection) {
         PTUtilities.instance.TeleportPlayer(worldPosition, forwardDirection);
     }
 
-    public void TeleportPlayer( Transform targetTransform ) {
+    public void TeleportPlayer(Transform targetTransform) {
         PTUtilities.instance.TeleportPlayer(targetTransform);
     }
-    public void TeleportPlayer( Transform targetTransform, bool rotatePlayer ) {
+    public void TeleportPlayer(Transform targetTransform, bool rotatePlayer) {
         PTUtilities.instance.TeleportPlayer(targetTransform, rotatePlayer);
     }
 
@@ -251,9 +278,10 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
 
+
     #region General purpose calls
 
-    public void CreateGameObject( GameObject prefab, Transform parent, Vector3 position, Vector3 rotation) {
+    public void CreateGameObject(GameObject prefab, Transform parent, Vector3 position, Vector3 rotation) {
         Instantiate(prefab, position, Quaternion.Euler(rotation), parent);
     }
 
@@ -271,52 +299,73 @@ public class CrossSceneEventHelper : MonoBehaviour {
         createdObject.transform.parent = null;
     }
 
-    public void DestroyGameObject( GameObject objectToDestroy ) {
+    public void DestroyGameObject(GameObject objectToDestroy) {
         Destroy(objectToDestroy);
     }
 
-    public void DestroyComponent (Component componentToDestroy ) {
+    public void DestroyComponent(Component componentToDestroy) {
         Destroy(componentToDestroy);
     }
 
 
-    public void ShakeTransform( Transform target, Vector3 shakePosition, Vector3 shakeRotation, float duration) {
-        StartCoroutine(PTUtilities.instance.ShakeTransform(target, shakePosition, shakeRotation, duration, TimeScale.Scaled));
+
+
+    public void SetTimeScale(float timeScale) {
+        PTUtilities.instance.TimeScale = timeScale;
     }
 
+
+
+
+    public void SetLayer(GameObject gameObject, LayerMask layerMask) {
+        gameObject.layer = (int)Mathf.Log(layerMask.value, 2);
+    }
+
+    #endregion
+
+
+
+
+    #region Transform calls
+
+
+
+    public void ShakeTransform(Transform target, Vector3 shakePosition, Vector3 shakeRotation, float duration) {
+        StartCoroutine(PTUtilities.instance.ShakeTransform(target, shakePosition, shakeRotation, duration, TimeScale.Scaled));
+    }
 
     public void ShakeRotation(Transform target, Vector3 shakeAmount, float duration) {
         StartCoroutine(PTUtilities.instance.ShakeRotation(target, shakeAmount, duration, TimeScale.Scaled));
     }
 
 
-    public void MoveTransformViaCurve( Transform target, CurveType curveType, Vector3 moveAmount, float duration ) {
-        StartCoroutine(PTUtilities.instance.MoveTransformViaCurve (target, convertedCurve(curveType), moveAmount, duration, TimeScale.Scaled));        
+    public void MoveTransformViaCurve(Transform target, CurveType curveType, Vector3 moveAmount, float duration) {
+        StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(target, convertedCurve(curveType), moveAmount, duration, TimeScale.Scaled));
     }
 
-    public void ScaleTransformViaCurve( Transform target, CurveType curveType, Vector3 scaleAmount, float duration ) {
+    public void ScaleTransformViaCurve(Transform target, CurveType curveType, Vector3 scaleAmount, float duration) {
         StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(target, convertedCurve(curveType), scaleAmount, duration, TimeScale.Scaled));
 
     }
 
-    public void RotateTransformViaCurve( Transform target, CurveType curveType, Vector3 rotateAmount, float duration ) {
+    public void RotateTransformViaCurve(Transform target, CurveType curveType, Vector3 rotateAmount, float duration) {
         StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(target, convertedCurve(curveType), rotateAmount, duration, TimeScale.Scaled));
 
     }
 
 
 
-    public void UnscaledMoveTransformViaCurve( Transform target, CurveType curveType, Vector3 moveAmount, float duration ) {
+    public void UnscaledMoveTransformViaCurve(Transform target, CurveType curveType, Vector3 moveAmount, float duration) {
         StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(target, convertedCurve(curveType), moveAmount, duration, TimeScale.Unscaled));
 
     }
 
-    public void UnscaledScaleTransformViaCurve( Transform target, CurveType curveType, Vector3 scaleAmount, float duration ) {
+    public void UnscaledScaleTransformViaCurve(Transform target, CurveType curveType, Vector3 scaleAmount, float duration) {
         StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(target, convertedCurve(curveType), scaleAmount, duration, TimeScale.Unscaled));
 
     }
 
-    public void UnscaledRotateTransformViaCurve( Transform target, CurveType curveType, Vector3 rotateAmount, float duration ) {
+    public void UnscaledRotateTransformViaCurve(Transform target, CurveType curveType, Vector3 rotateAmount, float duration) {
         StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(target, convertedCurve(curveType), rotateAmount, duration, TimeScale.Unscaled));
 
     }
@@ -324,31 +373,38 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
 
-    public void TeleportGameObject( GameObject targetObject, Transform targetTransform ) {
+    public void TeleportGameObject(GameObject targetObject, Transform targetTransform) {
         targetObject.transform.position = targetTransform.position;
         targetObject.transform.rotation = targetTransform.rotation;
     }
-
-    public void TeleportGameObject( GameObject targetObject, Transform targetTransform, bool rotateObject ) {
+    public void TeleportGameObject(GameObject targetObject, Transform targetTransform, bool rotateObject) {
         targetObject.transform.position = targetTransform.position;
         if (rotateObject) targetObject.transform.rotation = targetTransform.rotation;
     }
 
 
 
-    public void SetTimeScale (float timeScale ) {
-        PTUtilities.instance.TimeScale = timeScale;
+
+    public void LookAt(Transform looker, Transform target) {
+        looker.LookAt(target);
+    }
+
+    public void LookAwayFrom(Transform looker, Transform target) {
+        looker.LookAwayFrom(target);
     }
 
 
 
-    public void SetLayer(GameObject gameObject, LayerMask layerMask) {
-        gameObject.layer = (int)Mathf.Log(layerMask.value, 2);
+    public void MoveToIntercept(Transform intercepter, Transform origin, Transform target, float maxDelta) {
+        
+       intercepter.position = Vector3.MoveTowards(intercepter.position,intercepter.position.NearestPointOnLine(origin.position, target.position), maxDelta);
+
     }
-    //
+
+
+
 
     #endregion
-
 
 
 
@@ -371,6 +427,9 @@ public class CrossSceneEventHelper : MonoBehaviour {
     }
     public void FadeMeshColor(MeshRenderer mesh, string propertyName, Color color, float duration) {
         StartCoroutine(PTUtilities.instance.FadeColorTo(mesh, propertyName, color, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+    public void FadeMeshColor(MeshRenderer mesh, string propertyName, Color color, float intensity, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeColorTo(mesh, propertyName, color * intensity, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
 
     public void SetMeshAlpha( MeshRenderer mesh, float alpha ) {

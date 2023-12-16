@@ -18,6 +18,9 @@ public class UnusedClass {
     private UpdatableInvokableCall<float, CrossSceneEventHelper.CurveType> _floatCurvetype;
     private UpdatableInvokableCall<Vector3, Vector3> _vector3Vector3;
     private UpdatableInvokableCall<Transform, bool> _transformBool;
+    private UpdatableInvokableCall<Transform, float> _transformFloat;
+    private UpdatableInvokableCall<Transform, Transform> _transformTransform;
+    private UpdatableInvokableCall<Transform, Transform, Transform, float> _transformTransformTransformFloat;
     private UpdatableInvokableCall<GameObject, Transform, Vector3, Vector3> _gameObjectTransformVector3Vector3;
     private UpdatableInvokableCall<GameObject, Transform, Transform> _gameObjectTransformTransform;
     private UpdatableInvokableCall<GameObject, bool, Vector3, Vector3> _gameObjectBoolVector3Vector3;
@@ -27,11 +30,15 @@ public class UnusedClass {
     private UpdatableInvokableCall<GameObject, Transform> _gameObjectTransform;
     private UpdatableInvokableCall<GameObject, Transform, bool> _gameObjectTransformBool;
     private UpdatableInvokableCall<GameObject, LayerMask> _gameObjectLayerMask;
-    
+    private UpdatableInvokableCall<Transform, Transform, CrossSceneEventHelper.FaceValue, float> _transformTransformFacevalueFloat;
+    private UpdatableInvokableCall<Transform, Vector3, CrossSceneEventHelper.FaceValue, float> _transformVector3FacevalueFloat;
+
+
     private UpdatableInvokableCall<MeshRenderer, float> _meshrendererFloat;
     private UpdatableInvokableCall<MeshRenderer, float, float> _meshrendererFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, float, float> _meshrendererStringFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, Color, float> _meshrendererStringColorFloat;
+    private UpdatableInvokableCall<MeshRenderer, string, Color, float, float> _meshrendererStringColorFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, Color, float> _meshrendererColorFloat;
     private UpdatableInvokableCall<SpriteRenderer, float> spriterendererFloat;
     private UpdatableInvokableCall<SpriteRenderer, float, float> _spriterendererFloatFloat;

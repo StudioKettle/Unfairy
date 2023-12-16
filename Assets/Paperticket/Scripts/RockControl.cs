@@ -187,11 +187,13 @@ public class RockControl : MonoBehaviour {
                 fail2Activated = false;
             }
 
-            debugText.text =    "Performance = " + performance + System.Environment.NewLine +
-                                System.Environment.NewLine +
-                                "Cheer No.		> 0.75" + System.Environment.NewLine +
-                                "SmallBoo No. 	< 0.25" + System.Environment.NewLine +
-                                "LargeBoo No. 	= 0";
+            if (debugText != null) {
+                debugText.text = "Performance = " + performance + System.Environment.NewLine +
+                                    System.Environment.NewLine +
+                                    "Cheer No.		> 0.75" + System.Environment.NewLine +
+                                    "SmallBoo No. 	< 0.25" + System.Environment.NewLine +
+                                    "LargeBoo No. 	= 0";
+            }
 
             yield return null;
 

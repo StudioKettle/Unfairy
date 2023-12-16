@@ -5482,7 +5482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeEvent: 10
+  timeBeforeEvent: 10.25
   eventBehaviour: 0
   timeBehaviour: 0
   debug: 0
@@ -5551,7 +5551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeEvent: 10.5
+  timeBeforeEvent: 10.65
   eventBehaviour: 0
   timeBehaviour: 0
   debug: 0
