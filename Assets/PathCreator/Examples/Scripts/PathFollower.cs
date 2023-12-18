@@ -10,12 +10,16 @@ namespace PathCreation.Examples
         public EndOfPathInstruction endOfPathInstruction;
         public float speed = 5;
         public bool resetPositionOnEnable = true;
-        //bool active;
         float distanceTravelled;
 
         public bool followRotation = true;
 
         Vector3 startPos;
+
+        public float Speed {
+            set { speed = value; }
+        }
+
 
         void Awake() {
             startPos = transform.position;
@@ -47,13 +51,5 @@ namespace PathCreation.Examples
             distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         }
 
-        //public void Activate() {
-        //    active = true;
-        //}
-
-        //public void Deactivate() {
-        //    active = false;
-        //    if (resetOnDeactivate) distanceTravelled = 0;
-        //}
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.173648, g: 0.2170949, b: 0.29921225, a: 1}
+  m_IndirectSpecularColor: {r: 0.17386729, g: 0.21739529, b: 0.2995497, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750417}
   - component: {fileID: 750418}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: HeadGfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,7 +1081,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 423935
+    m_Bits: 948223
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2607,7 +2607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBehaviour: 3
-  firstSceneName: 3
+  firstSceneName: 1
   _FirstSceneName: 
   _Debug: 1
   convergeDynamicGI: 0
@@ -2867,7 +2867,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 557056
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

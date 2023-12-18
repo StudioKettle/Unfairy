@@ -281,8 +281,16 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     #region General purpose calls
 
+    public void CreateGameObject(GameObject prefab, Vector3 position, Vector3 rotation) {
+        Instantiate(prefab, position, Quaternion.Euler(rotation));
+    }
+
     public void CreateGameObject(GameObject prefab, Transform parent, Vector3 position, Vector3 rotation) {
         Instantiate(prefab, position, Quaternion.Euler(rotation), parent);
+    }
+
+    public void CreateGameObject(GameObject prefab, Transform copyTransform) {
+        Instantiate(prefab, copyTransform.position, copyTransform.rotation);
     }
 
     public void CreateGameObject(GameObject prefab, Transform parent, Transform copyTransform) {

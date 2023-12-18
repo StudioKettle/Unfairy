@@ -254,7 +254,7 @@ MonoBehaviour:
       Index: 13
       Type: 8
       Channel: baseColor
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 95972aae6ab25644f875330ca8da1b27, type: 3}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -270,7 +270,7 @@ MonoBehaviour:
       Index: 14
       Type: 8
       Channel: diffuse
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: e200d21b3673a4646b895d6c4ae58920, type: 3}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -286,7 +286,7 @@ MonoBehaviour:
       Index: 15
       Type: 8
       Channel: normal
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 904599cd91fe24e41b0d7fb3ab36d4f0, type: 3}
     sRGB: 0
     IsVirtual: 0
     IsAlphaAssignable: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
       Index: 17
       Type: 8
       Channel: metallic
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: bd4fc711dd7df094fada0f26eb87dc31, type: 3}
     sRGB: 0
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -366,7 +366,7 @@ MonoBehaviour:
       Index: 20
       Type: 8
       Channel: height
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: c5c91bf265edfd24ba2e9400f11a0364, type: 3}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -382,7 +382,7 @@ MonoBehaviour:
       Index: 21
       Type: 8
       Channel: ambientOcclusion
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 15bf620cf36b41a458fe1111d5e67097, type: 3}
     sRGB: 0
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -437,8 +437,8 @@ MonoBehaviour:
   DefaultPreset: " <sbspreset pkgurl=\"pkg://Natural_Leather\" label=\"\" >\n  <presetinput
     identifier=\"$outputsize\" uid=\"1515341805\" type=\"8\" value=\"10,10\" />\n</sbspreset>\n"
   MaterialShader: Standard
-  RenderTextures: 1
-  OutputRemaped: 1
+  RenderTextures: 0
+  OutputRemaped: 0
   Presets: []
   references:
     version: 2
