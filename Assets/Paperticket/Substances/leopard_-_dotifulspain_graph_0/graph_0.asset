@@ -17,10 +17,10 @@ MonoBehaviour:
   Name: graph_0
   IsRoot: 1
   FlagedForDelete: 0
-  GUID: b25087c1-0340-4d60-a500-503e370bd4bf
+  GUID: 964fbadc-b30c-466d-8773-0e8b66e59d97
   Index: 0
   Input:
-  - rid: 1376227119690940442
+  - rid: 1376227254041051136
   Output:
   - Index: 0
     VirtualOutputIndex: 9
@@ -177,15 +177,16 @@ MonoBehaviour:
   GenerateAllMipmaps: 1
   OutputMaterial: {fileID: 2100000, guid: 329a6fc190409634894a268775d20b25, type: 2}
   DefaultPreset: " <sbspreset pkgurl=\"pkg://Leopard\" label=\"\" >\n  <presetinput
-    identifier=\"$outputsize\" uid=\"414923205\" type=\"8\" value=\"10,10\" />\n</sbspreset>\n"
+    identifier=\"$outputsize\" uid=\"414923205\" type=\"8\" value=\"10,10\" />\n
+    </sbspreset>\n"
   MaterialShader: Standard
-  RenderTextures: 0
-  OutputRemaped: 0
+  RenderTextures: 1
+  OutputRemaped: 1
   Presets: []
   references:
     version: 2
     RefIds:
-    - rid: 1376227119690940442
+    - rid: 1376227254041051136
       type: {class: SubstanceInputInt2, ns: Adobe.Substance.Input, asm: Adobe.Substance}
       data:
         Index: 0

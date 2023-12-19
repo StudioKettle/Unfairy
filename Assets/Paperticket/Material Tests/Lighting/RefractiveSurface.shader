@@ -91,9 +91,9 @@ Shader "Custom/Refractive surface"
 					emission = _LitColor * (_LitColor.a * fresnel);
 
 					// Feed output
-					s.Albedo = frag;
+					s.Albedo = emission; //frag;
 					s.Normal = bump;
-					s.Emission = emission;
+					s.Emission = frag; //emission;
 					s.Smoothness = _Glossiness;
 				}
 				ENDCG

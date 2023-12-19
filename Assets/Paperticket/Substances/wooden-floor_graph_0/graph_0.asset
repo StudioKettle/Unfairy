@@ -239,7 +239,7 @@ MonoBehaviour:
       Index: 13
       Type: 8
       Channel: baseColor
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: ea402a22332b5ca4d8bf07aaabe7e733, type: 3}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -255,7 +255,7 @@ MonoBehaviour:
       Index: 14
       Type: 8
       Channel: normal
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 9b4b3c6985a90e14aadafec0ca777a8f, type: 3}
     sRGB: 0
     IsVirtual: 0
     IsAlphaAssignable: 0
@@ -287,7 +287,7 @@ MonoBehaviour:
       Index: 16
       Type: 8
       Channel: height
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 08ce1080407b9584181e914e83b2c979, type: 3}
     sRGB: 1
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -303,7 +303,7 @@ MonoBehaviour:
       Index: 17
       Type: 8
       Channel: ambientOcclusion
-    OutputTexture: {fileID: 0}
+    OutputTexture: {fileID: 2800000, guid: 58e96af1e1035374c868e3d4dc2a2d35, type: 3}
     sRGB: 0
     IsVirtual: 0
     IsAlphaAssignable: 1
@@ -324,7 +324,7 @@ MonoBehaviour:
   DefaultPreset: " <sbspreset pkgurl=\"pkg://Wooden_Floor\" label=\"\" >\n  <presetinput
     identifier=\"$outputsize\" uid=\"2675255633\" type=\"8\" value=\"10,10\" />\n</sbspreset>\n"
   MaterialShader: Standard
-  RenderTextures: 1
+  RenderTextures: 0
   OutputRemaped: 0
   Presets: []
   references:

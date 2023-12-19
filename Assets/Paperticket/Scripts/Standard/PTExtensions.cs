@@ -823,6 +823,11 @@ public class RangeInt : Range<int> {
         Min = 0;
         Max = 1;
     }
+    public RangeInt(int min, int max) {
+        Min = min;
+        Max = max;
+    }
+
     public override int RandomInRange() {
         if (Min <= Max) return UnityEngine.Random.Range(Min, Max);
         return UnityEngine.Random.Range(Max, Min);
@@ -834,6 +839,10 @@ public class RangeFloat : Range<float> {
     public RangeFloat() {
         Min = 0;
         Max = 1;
+    }
+    public RangeFloat(int min, int max) {
+        Min = min;
+        Max = max;
     }
 
     public override float RandomInRange() {
@@ -847,6 +856,10 @@ public class RangeColor : Range<Color> {
     public RangeColor() {
         Min = Color.HSVToRGB(0f, 0f, 0f);
         Max = Color.HSVToRGB(0.999f, 1f, 1f);
+    }
+    public RangeColor(Color min, Color max) {
+        Min = min;
+        Max = max;
     }
 
     public override Color RandomInRange() {
@@ -863,6 +876,10 @@ public class RangeVector3 : Range<Vector3> {
     public RangeVector3() {
         Min = Vector3.zero;
         Max = Vector3.one;
+    }
+    public RangeVector3(Vector3 min, Vector3 max) {
+        Min = min;
+        Max = max;
     }
 
     public override Vector3 RandomInRange() {
@@ -888,6 +905,10 @@ public class RangeVector2 : Range<Vector2> {
     public RangeVector2() {
         Min = Vector2.zero;
         Max = Vector2.one;
+    }
+    public RangeVector2(Vector2 min, Vector2 max) {
+        Min = min;
+        Max = max;
     }
 
     public override Vector2 RandomInRange() {
