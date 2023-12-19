@@ -34,8 +34,12 @@ public class ShrinkToSphere : MonoBehaviour {
     IEnumerator Shrinking() {        
 
         if (startEvents != null) startEvents.Invoke();
-               
+
         // Reset the position of the target to the sphere, but leave children where they are
+        Debug.Log("[ShrinkToSphere] constraint = " + constraint);
+        Debug.Log("[ShrinkToSphere] GetSource(0) = " + constraint.GetSource(0));
+        Debug.Log("[ShrinkToSphere] SourceTransform = " + constraint.GetSource(0).sourceTransform);
+        Debug.Log("[ShrinkToSphere] Position = " + constraint.GetSource(0).sourceTransform.position);
         var movement = constraint.GetSource(0).sourceTransform.position - transform.position;        
         transform.position += movement;
         foreach (Transform child in transform) {

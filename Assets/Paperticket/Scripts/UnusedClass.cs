@@ -70,6 +70,10 @@ public class UnusedClass {
 
     private UpdatableInvokableCall<int, float> _intFloat;
 
+    private UpdatableInvokableCall<MultiEvent.EventBehaviour> _multiEventBehaviour;
+
+    private UpdatableInvokableCall<Vector3, Space> _vector3Space;
+
 
 
 }
