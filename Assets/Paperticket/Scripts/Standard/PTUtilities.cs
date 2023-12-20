@@ -70,6 +70,7 @@ namespace Paperticket {
 
 
 
+
         #region Public variables
 
 
@@ -120,6 +121,8 @@ namespace Paperticket {
 
         float fixedTimeScaleDefault = 0;
 
+
+        public static event Action OnSetupComplete = delegate { };
 
         #endregion
 
@@ -221,6 +224,8 @@ namespace Paperticket {
             // Finish setup
             SetupComplete = true;
             if (_Debug) Debug.Log("[PTUtilities] Setup complete!");
+
+            if (OnSetupComplete != null) OnSetupComplete.Invoke();
         }
 
 
