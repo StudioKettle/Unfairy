@@ -40,6 +40,7 @@ public class UnusedClass {
     private UpdatableInvokableCall<MeshRenderer, string, Color, float> _meshrendererStringColorFloat;
     private UpdatableInvokableCall<MeshRenderer, string, Color, float, float> _meshrendererStringColorFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, Color, float> _meshrendererColorFloat;
+    private UpdatableInvokableCall<MeshRenderer, string, float, float, CrossSceneEventHelper.CurveType> _meshrendererStringFloatFloatCurvetype;
     private UpdatableInvokableCall<SpriteRenderer, float> spriterendererFloat;
     private UpdatableInvokableCall<SpriteRenderer, float, float> _spriterendererFloatFloat;
     private UpdatableInvokableCall<SpriteRenderer, Color, float> _spriterendererColorFloat;

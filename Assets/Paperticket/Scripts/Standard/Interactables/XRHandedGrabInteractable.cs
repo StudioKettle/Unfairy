@@ -43,10 +43,10 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
     //  OnSelectEntering - set attachTransform - then call base
     protected override void OnSelectEntering(SelectEnterEventArgs args) {
         if (args.interactorObject == leftController) {
-            Debug.Log($"Left hand");
+            //Debug.Log($"Left hand");
             attachTransform.SetPositionAndRotation(LeftHandAttachTransform.position, LeftHandAttachTransform.rotation);
         } else if (args.interactorObject == rightController) {
-            Debug.Log($"Right hand");
+            //Debug.Log($"Right hand");
             attachTransform.SetPositionAndRotation(RightHandAttachTransform.position, RightHandAttachTransform.rotation);
         } else {
             // Handle case where interactor is not left hand or right hand (socket?)

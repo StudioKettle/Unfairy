@@ -758,6 +758,43 @@ namespace Paperticket {
         }
 
 
+
+        // Helper coroutine for fading the float property of mesh renderer
+        public IEnumerator FadeMeshFloatPropTo(MeshRenderer mRenderer, string propertyName, float targetValue, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            Material mat = mRenderer.material;
+
+            propertyName = mat.HasProperty(propertyName) ? propertyName : "";
+            if (propertyName == "") {
+                Debug.LogError("[PTUtilities] ERROR -> Could not find property name '" + propertyName + "' in mesh renderer to fade! Cancelling...");
+            }
+
+            float currentValue = mat.GetFloat(propertyName);
+
+            if (currentValue != targetValue) {
+
+                if (_Debug) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + " property '" + propertyName + "' to value " + targetValue);
+
+                if (!mRenderer.enabled) {
+                    mRenderer.enabled = true;
+                }
+
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    mat.SetFloat(propertyName, Mathf.Lerp(currentValue, targetValue, animCurve.Evaluate(t)));
+                    yield return null;
+                }
+                mat.SetFloat(propertyName, targetValue);
+
+                yield return null;
+
+                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded property '" + propertyName + "' to value " + targetValue);
+
+            } else {
+                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " property '" + propertyName + "' already at value " + targetValue + ", cancelling fade");
+            }
+        }
+
+
         // Helper coroutine for fading volume weight
         public IEnumerator FadePostVolumeTo( Volume volume, float targetWeight, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
             float weight = volume.weight;

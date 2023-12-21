@@ -439,6 +439,9 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void FadeMeshColor(MeshRenderer mesh, string propertyName, Color color, float intensity, float duration) {
         StartCoroutine(PTUtilities.instance.FadeColorTo(mesh, propertyName, color * intensity, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
+    public void FadeMeshFloatProp(MeshRenderer mesh, string propertyName, float targetValue, float duration, CurveType curveType) {
+        StartCoroutine(PTUtilities.instance.FadeMeshFloatPropTo(mesh, propertyName, targetValue, duration, convertedCurve(curveType), TimeScale.Scaled));
+    }
 
     public void SetMeshAlpha( MeshRenderer mesh, float alpha ) {
 
@@ -457,7 +460,6 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
         if (alpha == 0) mesh.enabled = false;
         else mesh.enabled = true;
-
 
     }
 

@@ -22,7 +22,7 @@ namespace Paperticket {
         public delegate void SceneMadeActive();
         public static event SceneMadeActive OnSceneMadeActive;
 
-        enum StartBehaviour { None, LoadFirstScene, LoadFirstSceneOverride, SetFirstSceneActive }
+        enum StartBehaviour { None, LoadFirstScene, LoadFirstSceneOverride, SetFirstSceneActive, SetOpenSceneActive }
         enum FirstSceneName { BottleTest, WFCTest, RockTest, RevengeTest }
 
         [Header("Controls")]
@@ -75,6 +75,13 @@ namespace Paperticket {
                 case StartBehaviour.SetFirstSceneActive:
                     StartCoroutine(SettingFirstSceneActive());
                     break;
+
+                // Set open scene active
+                case StartBehaviour.SetOpenSceneActive:                                        
+                    _FirstSceneName = SceneManager.GetSceneAt(1).name;
+                    StartCoroutine(SettingFirstSceneActive());
+                    break;
+
 
                 // Do nothing
                 case StartBehaviour.None:

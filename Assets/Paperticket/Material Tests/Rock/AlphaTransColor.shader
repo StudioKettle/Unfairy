@@ -4,6 +4,7 @@ Shader "Paperticket/AlphaTransColor" {
         _TransparentColor("Transparent Color", Color) = (1,1,1,1)
         _Threshold("Threshhold", Float) = 0.1
         _MainTex("Albedo (RGB)", 2D) = "white" {}
+		_Alpha("Alpha", Float) = 1
     }
         SubShader{
             Tags { "Queue" = "Transparent" "RenderType" = "Transparent"  }
@@ -21,6 +22,8 @@ Shader "Paperticket/AlphaTransColor" {
 
             CGPROGRAM
             #pragma surface surf Lambert alpha
+			//allow instancing
+			#pragma multi_compile_instancing
 
             sampler2D _MainTex;
 
@@ -31,6 +34,7 @@ Shader "Paperticket/AlphaTransColor" {
             fixed4 _Color;
             fixed4 _TransparentColor;
             half _Threshold;
+			half _Alpha;
 
             void surf(Input IN, inout SurfaceOutput o) {
                 // Read color from the texture
@@ -46,14 +50,14 @@ Shader "Paperticket/AlphaTransColor" {
                 half transparent_diff_squared = dot(transparent_diff,transparent_diff);
 
                 //if colour is too close to the transparent one, discard it.
-                //note: you could do cleverer t$$anonymous$$ngs like fade out the alpha
+                //note: you could do cleverer things like fade out the alpha
                 if (transparent_diff_squared < _Threshold)
                     discard;
 
                 //output albedo and alpha just like a normal shader
                 //o.Albedo = output_col.rgb;
                 o.Emission = output_col.rgb;
-                o.Alpha = output_col.a;
+				o.Alpha = _Alpha; // output_col.a;
             }
             ENDCG
     }
