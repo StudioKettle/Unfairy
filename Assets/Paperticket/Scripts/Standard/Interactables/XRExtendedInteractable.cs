@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
+using Paperticket;
 
 [SelectionBase]
 [DisallowMultipleComponent]
-[RequireComponent(typeof(Rigidbody))]
-[AddComponentMenu("Paperticket/XR/XR Extended Interactable")]
-public class XRExtendedInteractable : XRBaseInteractable {
+[AddComponentMenu("Paperticket/XR Extended Interactable")]
+public class XRExtendedInteractable : XRSimpleInteractable {
+
+    [Header("Paperticket Settings")]
+    [Space(10)]
+    public HandPose animationPose = 0;
+    public HandPose hoverPose = 0;
 
     public UnityEvent2 ExtOnHoverEnter = null;
     public UnityEvent2 ExtOnHoverExit = null;

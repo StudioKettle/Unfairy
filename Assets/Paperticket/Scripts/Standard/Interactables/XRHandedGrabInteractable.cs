@@ -5,22 +5,25 @@ using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 using Paperticket;
 
-[AddComponentMenu("Paperticket/XR/XR Handed Grab Interactable")]
+[SelectionBase]
+[DisallowMultipleComponent]
+[AddComponentMenu("Paperticket/XR Handed Grab Interactable")]
 public class XRHandedGrabInteractable : XRGrabInteractable {
     [Header("Paperticket Settings")]
     [Space(10)]
-    [SerializeField] private Transform LeftHandAttachTransform;
-    [SerializeField] private Transform RightHandAttachTransform;
+    public Transform LeftHandAttachTransform = null;
+    public Transform RightHandAttachTransform = null;
+    public HandPose animationPose = 0;
+    public HandPose hoverPose = 0;
 
+    private XRDirectInteractor leftController = null;
+    private XRDirectInteractor rightController = null;
 
-    private XRDirectInteractor leftController;
-    private XRDirectInteractor rightController;
-
-    private Transform m_OriginalAttachTransform;
+    private Transform originalAttachTransform = null;
 
     protected override void Awake() {
 
-        m_OriginalAttachTransform = attachTransform;
+        originalAttachTransform = attachTransform;
 
         if (PTUtilities.instance.SetupComplete) {
             Setup();            
@@ -50,7 +53,7 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
             attachTransform.SetPositionAndRotation(RightHandAttachTransform.position, RightHandAttachTransform.rotation);
         } else {
             // Handle case where interactor is not left hand or right hand (socket?)
-            attachTransform.SetPositionAndRotation(m_OriginalAttachTransform.position, m_OriginalAttachTransform.rotation);
+            attachTransform.SetPositionAndRotation(originalAttachTransform.position, originalAttachTransform.rotation);
         }
         base.OnSelectEntering(args);
     }

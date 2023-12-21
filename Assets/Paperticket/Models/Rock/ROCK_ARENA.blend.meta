@@ -3,7 +3,277 @@ guid: 0f5e13a54d44bc0489ccf3a229254b96
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_01_Mat.001
+    second: {fileID: 2100000, guid: d3d7b82c19e1e314983018c33436346a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_01_Mat.002
+    second: {fileID: 2100000, guid: 1e876861fa92556408b1327876ce16a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_02_Mat.001
+    second: {fileID: 2100000, guid: 9abd202951677264bbcba25f536f9c9c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_02_Mat.002
+    second: {fileID: 2100000, guid: a381e6f35aa764c4eba899ea136811f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_01_mat.001
+    second: {fileID: 2100000, guid: a7b3801368ab65145a7d47adf46bb289, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_01_mat.002
+    second: {fileID: 2100000, guid: f62d495a3bda36648bff231216a0c519, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_02_Mat.001
+    second: {fileID: 2100000, guid: b73f2a6c326ffb84bb9b2ba0b9847c78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_02_Mat.002
+    second: {fileID: 2100000, guid: faa6ea63e1d090540882b30d56563bc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_metal_mat
+    second: {fileID: 2100000, guid: cfb82b316c6e8484f94a4991fb9d6b50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_metal_mat.001
+    second: {fileID: 2100000, guid: 647418e3feb0c5a4a89b8ead0ade58fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_metal_mat.002
+    second: {fileID: 2100000, guid: 68a38519393243f419dedf76e4b5740b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bird Eye
+    second: {fileID: 2100000, guid: 407fb0c73a4d52742bca78587314ca85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 99875a01621a330499856aadc5b397ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CableMetal
+    second: {fileID: 2100000, guid: 96738256bebc70149ab87651726ce766, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Castor_Mat.001
+    second: {fileID: 2100000, guid: 432d04ffb6243344bb1c7af93b06ae38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Castor_Mat.002
+    second: {fileID: 2100000, guid: bd9949e85408f304d802e23f073618c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_01_Mat.001
+    second: {fileID: 2100000, guid: 73da02081063e1f47a9a1adffceaa449, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_01_Mat.002
+    second: {fileID: 2100000, guid: 76119a22c55c2e04b802c1325a07257f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_02_Mat.001
+    second: {fileID: 2100000, guid: 37ebd7797f3b9f64ea0760cd251b9654, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_02_Mat.002
+    second: {fileID: 2100000, guid: 18f48c4b52106894e9417f97f48d51b9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Speaker_Mat.001
+    second: {fileID: 2100000, guid: e97d52b61aae18c4694fba565cb21c11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Speaker_Mat.002
+    second: {fileID: 2100000, guid: bac6ce7b15c8a50489f0b35faf846804, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence Metal
+    second: {fileID: 2100000, guid: 56506bbb057106b449f197c408ebb912, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flat_Speaker_Metals_mat.001
+    second: {fileID: 2100000, guid: 0b45cef45bdd6754c8bc92630f65ecc8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flat_Speaker_Metals_mat.002
+    second: {fileID: 2100000, guid: 62804cb238b9f5748b308c3954630d86, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holder_Mat
+    second: {fileID: 2100000, guid: 12f51686c3422cc4caaa38ddca4bac10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LavaLamp Soliana
+    second: {fileID: 2100000, guid: fbffd8a44cbb70546b2cc214c2ce81fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Glass
+    second: {fileID: 2100000, guid: 98b143e719a0fa74d8d1b6c234547057, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LinearSpeaker
+    second: {fileID: 2100000, guid: 28d2e27148b72094aa8a2edab87abf98, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 3914414ce16f85841a72841752d7435c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 0e4aa79450615a649a16edf381f8f234, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 650475d683b352547b89890e5009abfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 98522f0096ccdb445828823417779d32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_01.001
+    second: {fileID: 2100000, guid: 7c4459fe8a94c4a408bbb6cfdbbd7a2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_01.002
+    second: {fileID: 2100000, guid: 9c4ce46c78737de4481514e8f512c06e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_02.001
+    second: {fileID: 2100000, guid: 058c0286a3ed75644a41d7a6b64c1d03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_02.002
+    second: {fileID: 2100000, guid: 489bd6182511a7b4fa66eaf546fd9caf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: 2100000, guid: 9ece4244d1878474884ca79d5870f16a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker
+    second: {fileID: 2100000, guid: eb614ea5ce99efe4f86ef4e1c05f9675, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker.001
+    second: {fileID: 2100000, guid: e698e077a4e85d440a7c0e7d06208945, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_01_Mat.001
+    second: {fileID: 2100000, guid: 64c4f73b92c36f14680960694250c2d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_01_Mat.002
+    second: {fileID: 2100000, guid: 32111a7effa7a9740a61639ec510dd4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_02_Mat.001
+    second: {fileID: 2100000, guid: 3df437ca8075d3749b768b46cd5756aa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_02_Mat.002
+    second: {fileID: 2100000, guid: a82b3d666bb7fa34b8ea5b88d22d450d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Back_Mat.001
+    second: {fileID: 2100000, guid: 4a1bcb7a1433bea4e9b7b0370922f9b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Back_Mat.002
+    second: {fileID: 2100000, guid: e0df6ee47a6cd1d4197032471bec71cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Mat
+    second: {fileID: 2100000, guid: 98c3b0c7daaff02478c87dbd3f269fde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Mat.002
+    second: {fileID: 2100000, guid: 905cbdf565525994ebca9b02b17d8b1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Mat
+    second: {fileID: 2100000, guid: a14fe5583f5ecd24698556bfcd30b6ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Mat.002
+    second: {fileID: 2100000, guid: d86a0413cf674aa40a7a991402c259b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Mat.003
+    second: {fileID: 2100000, guid: 5c3fc56cd88989742942f8cd381c7a96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Metals_mat.001
+    second: {fileID: 2100000, guid: 9e99e98fe0b0ace47a4851ec8b81d846, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Metals_mat.002
+    second: {fileID: 2100000, guid: ade9222f801b53d43828e0930bcfd8c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bir
+    second: {fileID: 2100000, guid: 83c521a6a3f21024080f4ce73abaa523, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

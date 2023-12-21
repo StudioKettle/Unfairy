@@ -1893,6 +1893,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   LeftHandAttachTransform: {fileID: 547371392}
   RightHandAttachTransform: {fileID: 403081023}
+  animationPose: 3
 --- !u!1 &193530116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2097,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   LeftHandAttachTransform: {fileID: 73019570}
   RightHandAttachTransform: {fileID: 209075487}
+  animationPose: 10
 --- !u!1 &209075486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7168,6 +7170,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   LeftHandAttachTransform: {fileID: 2147139717}
   RightHandAttachTransform: {fileID: 951730773}
+  animationPose: 2
 --- !u!1 &1246242476
 GameObject:
   m_ObjectHideFlags: 0
@@ -9564,6 +9567,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   LeftHandAttachTransform: {fileID: 1177639867}
   RightHandAttachTransform: {fileID: 1090011878}
+  animationPose: 7
 --- !u!64 &1605216790
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11055,6 +11059,7 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   LeftHandAttachTransform: {fileID: 822158323}
   RightHandAttachTransform: {fileID: 1686853739}
+  animationPose: 11
 --- !u!1 &1891096010
 GameObject:
   m_ObjectHideFlags: 0
