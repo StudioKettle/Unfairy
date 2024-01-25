@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TabletScreen : MonoBehaviour {
 
-
     [SerializeField] SpriteRenderer spriteRenderer = null;
     [SerializeField] Sprite[] tabletScreens = null;
 
