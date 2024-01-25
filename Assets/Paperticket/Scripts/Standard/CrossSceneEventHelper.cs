@@ -164,6 +164,19 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     }
 
+    public void SetHandLayer(Hand hand, LayerMask layer) {
+
+        // Set right or both hands
+        if (hand != Hand.Left) {
+            PTUtilities.instance.rightController.GetComponentInChildren<HandAnimController>().SetHandLayer(layer);
+        }
+        // Set left or both hands
+        if (hand != Hand.Right) {
+            PTUtilities.instance.leftController.GetComponentInChildren<HandAnimController>().SetHandLayer(layer);
+        }
+
+    }
+
 
 
 
@@ -329,6 +342,16 @@ public class CrossSceneEventHelper : MonoBehaviour {
         gameObject.layer = (int)Mathf.Log(layerMask.value, 2);
     }
 
+    public void SetLayer(GameObject gameObject, LayerMask layerMask, bool includeChildren) {
+        gameObject.layer = (int)Mathf.Log(layerMask.value, 2);
+        if (includeChildren) {
+
+            foreach (Transform child in gameObject.transform.GetAllChildren()) {
+                child.gameObject.SetLayer(layerMask);
+            }
+        }
+    }
+
     #endregion
 
 
@@ -350,16 +373,25 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void MoveTransformViaCurve(Transform target, CurveType curveType, Vector3 moveAmount, float duration) {
         StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(target, convertedCurve(curveType), moveAmount, duration, TimeScale.Scaled));
     }
-
-    public void ScaleTransformViaCurve(Transform target, CurveType curveType, Vector3 scaleAmount, float duration) {
-        StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(target, convertedCurve(curveType), scaleAmount, duration, TimeScale.Scaled));
-
+    public void MoveTransformViaCurve(Transform target, CurveType curveType, Transform matchTransform, float duration) {
+        StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(target, convertedCurve(curveType), matchTransform, duration, TimeScale.Scaled));
     }
 
     public void RotateTransformViaCurve(Transform target, CurveType curveType, Vector3 rotateAmount, float duration) {
         StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(target, convertedCurve(curveType), rotateAmount, duration, TimeScale.Scaled));
-
     }
+    public void RotateTransformViaCurve(Transform target, CurveType curveType, Transform matchTransform, float duration) {
+        StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(target, convertedCurve(curveType), matchTransform, duration, TimeScale.Scaled));
+    }
+
+    public void ScaleTransformViaCurve(Transform target, CurveType curveType, Vector3 scaleAmount, float duration) {
+        StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(target, convertedCurve(curveType), scaleAmount, duration, TimeScale.Scaled));
+    }
+    public void ScaleTransformViaCurve(Transform target, CurveType curveType, Transform matchTransform, float duration) {
+        StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(target, convertedCurve(curveType), matchTransform, duration, TimeScale.Scaled));
+    }
+
+
 
 
 

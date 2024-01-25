@@ -2713,7 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBehaviour: 1
-  firstSceneName: 2
+  firstSceneName: 0
   _FirstSceneName: 
   _Debug: 1
   convergeDynamicGI: 0

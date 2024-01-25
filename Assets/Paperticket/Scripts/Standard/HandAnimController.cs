@@ -16,7 +16,7 @@ namespace Paperticket {
         [Space(10)]
         [SerializeField] HandPose defaultPose;
         [SerializeField] HandPose hoverPose;
-
+        
         [Header("READ ONLY")]
         [Space(10)]
         [SerializeField] HandPose handPose;
@@ -51,6 +51,7 @@ namespace Paperticket {
         #endregion
 
         void Hovered(HoverEnterEventArgs args) {
+            if (interactor.hasSelection) return;
 
             var interactable = args.interactableObject.transform.gameObject;
 
@@ -59,7 +60,7 @@ namespace Paperticket {
                 if (interactable.GetComponent<XRHandedGrabInteractable>().hoverPose != HandPose.None) {
                     SetHandPose(interactable.GetComponent<XRHandedGrabInteractable>().hoverPose);
                     return;
-                }                
+                }
 
             } else if (interactable.HasComponent<XRExtendedInteractable>()) {
                 if (interactable.GetComponent<XRExtendedInteractable>().hoverPose != HandPose.None) {
@@ -111,6 +112,14 @@ namespace Paperticket {
             animator.SetInteger("animationIndex", (int)newHandPose);
 
             //Debug.Log("HandPose = " + newHandPose.ToString() + ", index = " + (int)newHandPose);
+        }
+
+
+        public void SetHandLayer(LayerMask layer) {
+            gameObject.SetLayer(layer);
+            for (int i = 0; i < transform.childCount; i++) {
+                transform.GetChild(i).gameObject.SetLayer(layer);
+            }
         }
 
 

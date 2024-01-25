@@ -13,6 +13,7 @@ public class UnusedClass {
 
     private UpdatableInvokableCall<string, float> _stringFloat;
     private UpdatableInvokableCall<Hand, float, float> _handFloatFloat;
+    private UpdatableInvokableCall<Hand, LayerMask> _handLayermask;
     private UpdatableInvokableCall<Color, float> _colorFloat;
     private UpdatableInvokableCall<Color, float, CrossSceneEventHelper.CurveType> _colorFloatCurvetype;
     private UpdatableInvokableCall<float, CrossSceneEventHelper.CurveType> _floatCurvetype;
@@ -27,11 +28,14 @@ public class UnusedClass {
     private UpdatableInvokableCall<Transform, Vector3, Vector3, float> _transformVector3Vector3Float;
     private UpdatableInvokableCall<Transform, Vector3, float> _transformVector3Float;
     private UpdatableInvokableCall<Transform, CrossSceneEventHelper.CurveType, Vector3, float> _transformCurvetypeVector3Float;
+    private UpdatableInvokableCall<Transform, CrossSceneEventHelper.CurveType, Transform, float> _transformCurvetypeTransformFloat;
     private UpdatableInvokableCall<GameObject, Transform> _gameObjectTransform;
     private UpdatableInvokableCall<GameObject, Transform, bool> _gameObjectTransformBool;
     private UpdatableInvokableCall<GameObject, LayerMask> _gameObjectLayerMask;
+    private UpdatableInvokableCall<GameObject, LayerMask, bool> _gameObjectLayerMaskBool;
     private UpdatableInvokableCall<Transform, Transform, CrossSceneEventHelper.FaceValue, float> _transformTransformFacevalueFloat;
     private UpdatableInvokableCall<Transform, Vector3, CrossSceneEventHelper.FaceValue, float> _transformVector3FacevalueFloat;
+
 
 
     private UpdatableInvokableCall<MeshRenderer, float> _meshrendererFloat;

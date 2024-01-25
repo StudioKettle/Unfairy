@@ -32,6 +32,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: BookCover01.001
+    second: {fileID: 2100000, guid: d1c42fed0866d524cabcb3f3bc3d897c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: BottleGlass
     second: {fileID: 2100000, guid: 81bddf6e3a4af8042a0ced2476d20d6d, type: 2}
   - first:
@@ -44,6 +49,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: CalendarImg
     second: {fileID: 2100000, guid: 851c8d90ee6e4d74dbbc6433fcf92105, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Can
+    second: {fileID: 2100000, guid: 8cff4bbea5bf9e045b5a68f41dfb873c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -67,8 +77,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: ChipPacket
+    second: {fileID: 2100000, guid: 8d44370680c59ad40922307bdb77a35c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coffee
+    second: {fileID: 2100000, guid: 6a08aa50d6b7b5d4ab825346e88f8add, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: CoffeeTableLegs
     second: {fileID: 2100000, guid: 0e3996a34e7bcfc45ad4fa8152c4dab0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CoffeeTableTop
+    second: {fileID: 2100000, guid: 66653a86302d284489b1ab743ce55d7b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -97,6 +122,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Croissant
+    second: {fileID: 2100000, guid: 2b03841b53106124abb8ec2c48474f37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CushionLarge
+    second: {fileID: 2100000, guid: 40408236b895621448ac72ef8ddfc8c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CushionSmall
+    second: {fileID: 2100000, guid: 0f541a9bba028344f96755ee876ad0ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Diamond
+    second: {fileID: 2100000, guid: 2fb50ec1550a12542ace93c8ca500bec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: DuckBeak
     second: {fileID: 2100000, guid: 7afaab14e26b92a4b98bacb2140a24e0, type: 2}
   - first:
@@ -122,6 +167,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: EarpieceHolder
+    second: {fileID: 2100000, guid: f65ed14bd7cea094f9b88ba129f9f917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EggChair
+    second: {fileID: 2100000, guid: aa3ea1e58aba7c8449c37f86b02f488a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EggChairStand
+    second: {fileID: 2100000, guid: 8164b39d44c7a4b41885467842f30098, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EmissionRIng
+    second: {fileID: 2100000, guid: fd91194bbd7ef9c459cf5e465bcee88b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: FloorMaterial
     second: {fileID: 2100000, guid: 06c5cafe84ec7ba4e841497716a0c9eb, type: 2}
   - first:
@@ -142,6 +207,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Gem
+    second: {fileID: 2100000, guid: 26fe9e8d8ecb30448ac93439eff80cf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: HiltBottle
     second: {fileID: 2100000, guid: e5db0d58bd9966c4ba086ae48d77186c, type: 2}
   - first:
@@ -152,8 +222,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: InsideBook
+    second: {fileID: 2100000, guid: febae3c2473854e4c82f86e73d2e4b8e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Kitchenette
     second: {fileID: 2100000, guid: f8e1b43f3e48d6941b7a5b87e28a73fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LampGlobes
+    second: {fileID: 2100000, guid: ed3763bfa1a63c349a02f7fc92dfbef8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampstand
+    second: {fileID: 2100000, guid: 8803e8144636e614fae7a91a0bde42f3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -202,6 +287,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MushroomLampTop
+    second: {fileID: 2100000, guid: 30b7d97b42d2e4e409142bb724e15df7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MushroomLampbtm
+    second: {fileID: 2100000, guid: 52e8c410488ae6a41945e2171697d634, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PendantLight
+    second: {fileID: 2100000, guid: b07ad6c00d609a945a83e8542913d71c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PendantMetal
+    second: {fileID: 2100000, guid: 4e8fcca221b398842adce5a5bab54c2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: PixieBox
     second: {fileID: 2100000, guid: 5b9178d1fe75c544c9d5930d1fd330bd, type: 2}
   - first:
@@ -237,6 +342,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Saucer
+    second: {fileID: 2100000, guid: 6b672ae669925f344aae857f66b7d12d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Shelf
     second: {fileID: 2100000, guid: 417b641579bc91049bfe99ad3babe7b3, type: 2}
   - first:
@@ -252,8 +362,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: StackofPaper
+    second: {fileID: 2100000, guid: 585c602c6a8f40649a524c84dfb13250, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: StagesBeforeRages
     second: {fileID: 2100000, guid: c429030a7d3d7a44885a485589226190, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teacup
+    second: {fileID: 2100000, guid: e6208ad0cf8c7b843905b2613071a8b9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -262,8 +382,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: TeapotLid
+    second: {fileID: 2100000, guid: fc482765aaa5db747b4ec1ad2f3ebd3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Throw
+    second: {fileID: 2100000, guid: 7974d0caf24b66946a89bf03c5b2ebd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: TranslucentGlass
     second: {fileID: 2100000, guid: 8bdbd4ef82228c94db218e752dc94e04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TrimFloor
+    second: {fileID: 2100000, guid: 255d3456f1030e4438102984d86a79d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vase
+    second: {fileID: 2100000, guid: bc2e5e0285fc39e4ea41574f9de42d22, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -289,6 +429,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: innerSpeaker
     second: {fileID: 2100000, guid: 7b0caa62e7cf135428d725fbb58ddfd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_pulltab
+    second: {fileID: 2100000, guid: 0eac6bc5ac485df48a87a1c3ef28e8d3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

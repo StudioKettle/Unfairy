@@ -218,22 +218,10 @@ namespace Paperticket {
             }
             if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
             return false;
-            //if (tag.Contains(",")) {
-            //    string[] splitTags = tag.Split(',');
-            //    foreach (string splitTag in splitTags) {
-            //        if (splitTag == tag) {
-            //            if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
-            //            return true;
-            //        }
-            //    }
-            //    if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
-            //    return false;
-            //} else if (gameObject.tag != tag) {
-            //    if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' tag '" + gameObject.tag + "' is invalid, returning false.");
-            //    return false;
-            //}                       
-            //if (debugging) Debug.Log("[CheckLayerAndTag] GameObject '" + gameObject.name + "' has valid layer and tag, returning true.");
-            //return true;
+        }
+
+        public static void SetLayer(this GameObject go, LayerMask layerMask) {
+            go.layer = (int)Mathf.Log(layerMask.value, 2);
         }
 
         /// <summary>
@@ -495,6 +483,18 @@ namespace Paperticket {
                 UnityEngine.Object.Destroy(transform.GetChild(i).gameObject);
             }
         }
+
+        public static List<Transform> GetAllChildren(this Transform self) {
+            List<Transform> children = new List<Transform>();
+            foreach (Transform child in self) {
+                children.Add(child);
+                if (child.childCount > 0) children.AddRange(child.GetAllChildren());
+            }
+            return children;
+        }
+
+
+
 
         /// <summary>
         /// Reset the transformation, setting it as its neutral pose

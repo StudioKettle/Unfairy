@@ -1013,7 +1013,26 @@ namespace Paperticket {
 
             if (_Debug) Debug.Log("[PTUtilities] Finished moving " + target.name);
 
-        }  
+        }
+        // Helper coroutine for moving a transform
+        public IEnumerator MoveTransformViaCurve(Transform target, AnimationCurve animCurve, Transform matchTransform, float duration, TimeScale timeScale) {
+
+            float t = 0;
+            Vector3 initialPos = target.position;
+            Vector3 matchPos = matchTransform.position;
+
+            if (_Debug) Debug.Log("[PTUtilities] Moving transform " + target.name + " to match transform " + matchTransform.name);
+
+            while (t < duration) {
+                yield return null;
+                target.position = Vector3.Lerp(initialPos, matchPos, animCurve.Evaluate(t / duration));
+                t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
+            }
+            target.position = matchPos;
+
+            if (_Debug) Debug.Log("[PTUtilities] Finished moving " + target.name + " to match transform " + matchTransform.name);
+
+        }
         // Helper coroutine for rotating a transform
         public IEnumerator RotateTransformViaCurve( Transform target, AnimationCurve animCurve, Vector3 rotateAmount, float duration, TimeScale timeScale ) {
 
@@ -1030,6 +1049,25 @@ namespace Paperticket {
             target.localRotation = Quaternion.Euler(initialRot + rotateAmount);
 
             if (_Debug) Debug.Log("[PTUtilities] Finished rotating " + target.name);
+
+        }
+        // Helper coroutine for rotating a transform
+        public IEnumerator RotateTransformViaCurve(Transform target, AnimationCurve animCurve, Transform matchTransform, float duration, TimeScale timeScale) {
+
+            float t = 0;
+            Quaternion initialRot = target.rotation;
+            Quaternion matchRot = matchTransform.rotation;
+
+            if (_Debug) Debug.Log("[PTUtilities] Rotating transform " + target.name + " to match transform " + matchTransform.name);
+
+            while (t < duration) {
+                yield return null;
+                target.rotation = Quaternion.Lerp(initialRot, matchRot, animCurve.Evaluate(t / duration));
+                t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
+            }
+            target.rotation = matchRot;
+
+            if (_Debug) Debug.Log("[PTUtilities] Finished rotating " + target.name + " to match transform " + matchTransform.name);
 
         }
         // Helper coroutine for scaling a transform
@@ -1053,7 +1091,26 @@ namespace Paperticket {
             if (_Debug) Debug.Log("[PTUtilities] Finished scaling " + target.name);
 
         }
-        
+        // Helper coroutine for scaling a transform
+        public IEnumerator ScaleTransformViaCurve(Transform target, AnimationCurve animCurve, Transform matchTransform, float duration, TimeScale timeScale) {
+
+            float t = 0;
+            Vector3 initialScale = target.localScale;
+            Vector3 matchScale = matchTransform.localScale;
+
+            if (_Debug) Debug.Log("[PTUtilities] Scaling transform " + target.name + " to match transform " + matchTransform.name);
+
+            while (t < duration) {
+                yield return null;
+                target.localScale = Vector3.Lerp(initialScale, matchScale, animCurve.Evaluate(t / duration));
+                t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
+            }
+            target.localScale = matchScale;
+
+            if (_Debug) Debug.Log("[PTUtilities] Finished scaling " + target.name + " to match transform " + matchTransform.name);
+
+        }
+
         // Helper coroutine for shaking a transform (should be deprecated really)
         public IEnumerator ShakeTransform( Transform target, Vector3 shakePosition, Vector3 shakeRotation, float duration, TimeScale timeScale ) {
 

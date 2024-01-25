@@ -42,7 +42,7 @@ namespace Paperticket {
         [Space(10)]
         [SerializeField] List<ProgressEvent> progressEvents = new List<ProgressEvent>();
 
-        [HideInInspector] public float Progress { get {return progress; } }
+        [HideInInspector] public float Progress { get {return progress; } set { progress = value; } }
 
         void OnEnable() {
             rigidbody = (target == null) ? GetComponent<Rigidbody>() : target.GetComponent<Rigidbody>();
