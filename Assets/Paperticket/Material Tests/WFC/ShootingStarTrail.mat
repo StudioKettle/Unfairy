@@ -130,7 +130,7 @@ Material:
     - _numSteps: 16
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1.6130112, g: 1.0880218, b: 1.0880218, a: 1}
+    - _Color: {r: 1.6130114, g: 1.480772, b: 1.089416, a: 1}
     - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.14470588, g: 0.15113996, b: 0.16, a: 1}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}
