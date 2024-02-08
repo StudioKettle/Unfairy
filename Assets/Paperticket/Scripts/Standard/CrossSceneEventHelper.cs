@@ -606,6 +606,10 @@ public class CrossSceneEventHelper : MonoBehaviour {
         StartCoroutine(PTUtilities.instance.ShiftRangeTo(light, range, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
     }
 
+    public void SetLightCullingMask(Light light, LayerMask layerMask) {
+        light.cullingMask = (int)Mathf.Log(layerMask.value, 2);
+    }
+
 
 
     #endregion
