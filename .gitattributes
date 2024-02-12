@@ -6,3 +6,4 @@ Assets/Paperticket/Models/Rock/230927_ROCK_ARENA.blend filter=lfs diff=lfs merge
 Assets/Paperticket/Models/Rock/ROCK_ARENA.blend filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Rock/rageSpiral.blend filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Bottle/FairyBottle.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Material[[:space:]]Tests/Lighting/fractionwave.psd filter=lfs diff=lfs merge=lfs -text
