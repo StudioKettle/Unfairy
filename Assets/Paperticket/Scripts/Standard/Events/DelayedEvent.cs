@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace Paperticket {
     public class DelayedEvent : MonoBehaviour {
         
-        [System.Serializable] enum EventBehaviour { OneTimeUse, ResendOnEnable, Looping }
+        [System.Serializable] enum EventBehaviour { OneTimeUse, ResendOnEnable, Looping, LoopingSkipFirst }
         [System.Serializable] enum TimeBehaviour { Scaled, Unscaled }
 
         [Header("CONTROLS")]
@@ -24,8 +24,10 @@ namespace Paperticket {
         void OnEnable() {
             disabled = false;
 
-            if (timeBehaviour == TimeBehaviour.Scaled) timeToChange = Time.time + timeBeforeEvent;
+            if (eventBehaviour == EventBehaviour.LoopingSkipFirst) timeToChange = 0;
+            else if (timeBehaviour == TimeBehaviour.Scaled) timeToChange = Time.time + timeBeforeEvent;
             else timeToChange = Time.unscaledTime + timeBeforeEvent;
+                       
 
         }
 
@@ -39,7 +41,7 @@ namespace Paperticket {
 
                 // Trigger the event
                 if (OnEventTriggered != null) {
-                    if (debug) Debug.Log("[TimedEvent] OnEventTriggered called");
+                    if (debug) Debug.Log("[DelayedEvent] OnEventTriggered called");
                     OnEventTriggered.Invoke();
                 }
                              
@@ -49,25 +51,26 @@ namespace Paperticket {
                     case EventBehaviour.OneTimeUse:
                         // Destroy script as there are more components and/or children beneath this object
                         if (GetComponents<Component>().Length > 2 || transform.childCount > 0) {
-                            if (debug) Debug.Log("[TimedEvent] One Time Use. There are still more components/children, destroying only this script.");
+                            if (debug) Debug.Log("[DelayedEvent] One Time Use. There are still more components/children, destroying only this script.");
                             Destroy(this);
                         } 
                         // Destroy game object as this was the last script remaining 
                         else {
-                            if (debug) Debug.Log("[TimedEvent] One Time Use. No more components/children here, destroying this object.");
+                            if (debug) Debug.Log("[DelayedEvent] One Time Use. No more components/children here, destroying this object.");
                             Destroy(gameObject);
                         }
                         break;
                     
                     case EventBehaviour.ResendOnEnable:
                         // Disable the update loop and wait for next enable
-                        if (debug) Debug.Log("[TimedEvent] Resend On Enable. Waiting for next time this script turns on.");
+                        if (debug) Debug.Log("[DelayedEvent] Resend On Enable. Waiting for next time this script turns on.");
                         disabled = true;
                         break;
                     
                     case EventBehaviour.Looping:
+                    case EventBehaviour.LoopingSkipFirst:
                         // Immediately reset the timer and keep going
-                        if (debug) Debug.Log("[TimedEvent] Looping. Resetting timer and starting again.");
+                        if (debug) Debug.Log("[DelayedEvent] Looping. Resetting timer and starting again.");
                         if (timeBehaviour == TimeBehaviour.Scaled) timeToChange = Time.time + timeBeforeEvent;
                         else timeToChange = Time.unscaledTime + timeBeforeEvent;
                         break;

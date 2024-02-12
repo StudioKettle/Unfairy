@@ -17,6 +17,12 @@ Shader "Unlit/VideoTestAlphaShader"
             Tags { "Queue" = "Background" "RenderType" = "Background" "PreviewType" = "Skybox" }
             Cull Off ZWrite Off
 
+            Stencil {
+                Ref 2
+                Comp Greater
+                Pass Replace
+            }
+
             Pass {
 
                 CGPROGRAM

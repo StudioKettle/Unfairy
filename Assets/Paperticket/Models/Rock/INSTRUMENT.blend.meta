@@ -3,7 +3,37 @@ guid: cbe49d9b8f3e32f45bcf5c6e8a326b97
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DUCK BODY
+    second: {fileID: 2100000, guid: 1b34bf9a8edbb0c4c973a7bc7b5ba1bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DUCK MOUTH
+    second: {fileID: 2100000, guid: 1d6edf9c6a4f7ed408dc55218ed37059, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DUCK WINGS
+    second: {fileID: 2100000, guid: 310589410a95fe749b49fd8f868c0721, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Indicator
+    second: {fileID: 2100000, guid: 598bc5b2ef866454a832089210dd7936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shiny Gold
+    second: {fileID: 2100000, guid: 9757c08e78c7b7f4987c10afc3f1e8d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Transparent Glossy Plastic
+    second: {fileID: 2100000, guid: 551804537ca3c22479d40e605c4b62b9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

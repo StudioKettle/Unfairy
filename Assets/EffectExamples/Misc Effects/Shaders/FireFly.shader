@@ -9,6 +9,13 @@
 	SubShader
 	{
 		Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
+
+		Stencil {
+			Ref 2
+			Comp NotEqual
+			Pass Zero
+		}
+
 		LOD 100
 
 		//Pass

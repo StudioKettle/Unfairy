@@ -44314,7 +44314,7 @@ ParticleSystem:
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -44397,7 +44397,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.01
+      value: 0.0001
       mode: 0
       spread: 0
       speed:
@@ -54865,6 +54865,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 856800691}
+  - component: {fileID: 856800695}
   - component: {fileID: 856800694}
   - component: {fileID: 856800693}
   - component: {fileID: 856800692}
@@ -59879,7 +59880,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856800690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33aabe1a2dec93349b06e6e5dc51bc06, type: 3}
   m_Name: 
@@ -59893,6 +59894,82 @@ MonoBehaviour:
   pathFinished:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &856800695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856800690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa28610b149c35e46bd4a4af2f9a6e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathCreator: {fileID: 1748290534}
+  endOfPathInstruction: 0
+  baseSpeed: 0.05
+  speedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1.3083096
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 2
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.19421946
+      value: 0.85233223
+      inSlope: -0.17100336
+      outSlope: -0.17100336
+      tangentMode: 136
+      weightedMode: 3
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5027037
+      value: 0.83084124
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 3
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.69905996
+      value: 1.3083096
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 1
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1.3083096
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 1
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  resetPositionOnEnable: 1
+  followRotation: 1
+  finishMarginTime: 0.05
+  pathFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  currentTime: 0
+  curveMultiplier: 0
+  finalSpeed: 0
+  eventThisLoop: 0
 --- !u!1 &858744760
 GameObject:
   m_ObjectHideFlags: 0
@@ -88269,7 +88346,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335904254}
-  - component: {fileID: 1335904253}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -88277,32 +88353,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1335904253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335904252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 230f9521a2d4fbf41b01d1a245f80942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: dfb719d56d620b346b46fe45198a492d,
-    type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  engineLogging: 0
 --- !u!4 &1335904254
 Transform:
   m_ObjectHideFlags: 0
@@ -90197,7 +90247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1458870163
 Transform:
   m_ObjectHideFlags: 0
@@ -98576,7 +98626,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 1
-    vertexPathUpToDate: 1
+    vertexPathUpToDate: 0
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1

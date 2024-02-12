@@ -17,6 +17,15 @@ Shader "Paperticket/AlphaTransColor" {
             //ZTest Less
             //AlphaTest Greater .99
             //ColorMaterial AmbientAndDiffuse
+            //Blend SrcAlpha OneMinusSrcAlpha
+            //Offset -100, -100
+
+            Stencil {
+                Ref 2
+                Comp Greater
+                Pass Replace
+            }
+
 
             LOD 200
 
