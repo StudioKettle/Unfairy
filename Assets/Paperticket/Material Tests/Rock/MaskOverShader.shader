@@ -10,11 +10,11 @@ Shader "Paperticket/MaskOverShader"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-            Stencil {
-                Ref 2
-                Comp Greater
-                Pass Replace
-            }
+        Stencil {
+            Ref 2
+            Comp Greater
+            Pass Replace
+        }
 
         LOD 200
 
