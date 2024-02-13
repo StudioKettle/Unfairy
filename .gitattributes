@@ -8,3 +8,6 @@ Assets/Paperticket/Models/Rock/rageSpiral.blend filter=lfs diff=lfs merge=lfs -t
 Assets/Paperticket/Models/Bottle/FairyBottle.blend filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Material[[:space:]]Tests/Lighting/fractionwave.psd filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Bottle/FairyBottleRedux.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Models/Rock/Stage_Soliana.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Models/Rock/Rage/RageSpiral_03_240213.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Exports/FairyBottleRedux.fbx filter=lfs diff=lfs merge=lfs -text
