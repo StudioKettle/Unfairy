@@ -766,17 +766,24 @@ public class CrossSceneEventHelper : MonoBehaviour {
     #endregion
 
     #region Wwise calls
+
     public void PostAudioEvent(AK.Wwise.Event audioEvent, GameObject go) {
         PTUtilities.instance.PostAudioEvent(audioEvent, go);
     }
-
     public void PostAudioEvent(string audioEvent, GameObject go) {
         AkSoundEngine.PostEvent(audioEvent, go);
     }
 
 
+    public void SetAudioSwitch(AK.Wwise.Switch audioSwitch, GameObject go) {
+        PTUtilities.instance.SetAudioSwitch(audioSwitch, go);  
+    }
+    public void SetAudioSwitch(string switchGroup, string switchState, GameObject go) {
+        AkSoundEngine.SetSwitch(switchGroup, switchState, go);
+    }
 
-    
+
+
 
     #endregion
 

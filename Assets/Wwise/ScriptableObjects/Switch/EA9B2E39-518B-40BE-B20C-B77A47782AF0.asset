@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a2f62c000cb434bafd28a42455997f, type: 3}
+  m_Name: EA9B2E39-518B-40BE-B20C-B77A47782AF0
+  m_EditorClassIdentifier: 
+  objectName: Song_1
+  id: 3428420066
+  guid: EA9B2E39-518B-40BE-B20C-B77A47782AF0
+  WwiseSwitchGroupReference: {fileID: 11400000, guid: ccb393d31a51a574493e06de36e6326c,
+    type: 2}

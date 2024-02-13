@@ -11,7 +11,9 @@ namespace Paperticket {
         [Header("AUDIO EVENTS")]
         [Space(5)]
         [SerializeField] AudioEvent[] audioEvents = null;
+        [SerializeField] AudioSwitch[] audioSwitches = null;
 
+        #region Events
 
         public void SendEvent(int eventIndex) {
 
@@ -41,6 +43,44 @@ namespace Paperticket {
 
             if (debugging) Debug.Log("[PostAudioEvent] Posting audio event '"+audioEvent.audioEvent.Name+"' at GameObject '"+optionalSource+"'");
         }
+
+
+        #endregion
+
+
+        #region Switches
+
+
+        public void ChangeSwitch(int switchIndex) {
+
+            if (switchIndex >= audioSwitches.Length) return;
+
+
+            if (audioSwitches[switchIndex].timeBeforeSwitch > 0) {
+                StartCoroutine(WaitForSwitch(switchIndex));
+            } else {
+                SetSwitch(switchIndex);
+            }
+        }
+
+
+        IEnumerator WaitForSwitch(int switchIndex) {
+            yield return new WaitForSeconds(audioSwitches[switchIndex].timeBeforeSwitch);
+            SetSwitch(switchIndex);
+        }
+
+        void SetSwitch(int switchIndex) {
+            var audioSwitch = audioSwitches[switchIndex];
+
+            // Play at the optional source GO, otherwise play on this GO
+            var optionalSource = (audioSwitch.optionalSource == null) ? PTUtilities.instance.headProxy.gameObject : audioSwitch.optionalSource;
+
+            audioSwitch.audioSwitch.SetValue(optionalSource);
+
+            if (debugging) Debug.Log("[PostAudioEvent] Setting switch '" + audioSwitch.audioSwitch.Name + "' at GameObject '" + optionalSource + "'");
+        }
+
+        #endregion
     }
 
     [System.Serializable]
@@ -57,5 +97,18 @@ namespace Paperticket {
             this.callbackFlags = callbackFlags;
             this.optionalSource = optionalSource;
         }        
+    }
+
+    [System.Serializable]
+    public class AudioSwitch {
+        [Min(0)] public float timeBeforeSwitch = 0;
+        public AK.Wwise.Switch audioSwitch = null;
+        public GameObject optionalSource = null;
+
+        public AudioSwitch(float timeBeforeSwitch, AK.Wwise.Switch audioSwitch, GameObject optionalSource = null) {
+            this.timeBeforeSwitch = timeBeforeSwitch;
+            this.audioSwitch = audioSwitch;
+            this.optionalSource = optionalSource;
+        }
     }
 }

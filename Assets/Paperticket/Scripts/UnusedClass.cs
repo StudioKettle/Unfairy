@@ -70,6 +70,7 @@ public class UnusedClass {
     private UpdatableInvokableCall<AudioClip, CrossSceneEventHelper.TrackingType, float, float, float> _audioclipTrackingtypeFloatFloatFloat;
 
     private UpdatableInvokableCall<AK.Wwise.Event, float> _wwiseeventFloat;
+    private UpdatableInvokableCall<AK.Wwise.Switch, float> _wwiseswitchFloat;
 
     private UpdatableInvokableCall<AssetBundle, bool> _assetbundleBool;
 

@@ -404,6 +404,10 @@ namespace Paperticket {
             audioEvent.Post(go);
         }
 
+        public void SetAudioSwitch(AK.Wwise.Switch audioSwitch, GameObject go) {
+            audioSwitch.SetValue(go);
+        }
+
         #endregion
 
 

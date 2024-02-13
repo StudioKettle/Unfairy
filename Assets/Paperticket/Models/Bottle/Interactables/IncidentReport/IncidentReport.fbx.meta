@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57e8c88b1b7d2834184b79f11b75d253
+guid: d0db8183c26f96c49a88ec50ef620d62
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: IncReport02_report
-    second: {fileID: 2100000, guid: 69df9aa63f4e00a4eb2520c53229d515, type: 2}
+    second: {fileID: 2100000, guid: 00ac9a949ed20994db95e5b8977f5fd0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PostIt
-    second: {fileID: 2100000, guid: db2e1bb255ccbf1479f1ece003112fa3, type: 2}
+    second: {fileID: 2100000, guid: e4a2a84ec669cc2419b23ba049a6e59e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,10 +50,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 0
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -86,7 +86,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []
@@ -101,11 +101,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
