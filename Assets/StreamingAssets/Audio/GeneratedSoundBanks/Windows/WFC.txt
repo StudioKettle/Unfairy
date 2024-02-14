@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	1729393136	WFC_Ambient_Video			\Default Work Unit\3_WFC\WFC_Ambient_Video	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	544952524	WFC AMBI MIX_TEMP_v2	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC AMBI MIX_TEMP_v2_DAC62D07.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC AMBI MIX_TEMP_v2		107832624
-

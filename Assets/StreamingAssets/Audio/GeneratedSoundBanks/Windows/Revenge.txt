@@ -1,6 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	2584009824	Revenge_Ambient_Video			\Default Work Unit\5_Revenge\Revenge_Ambient_Video	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	804962809	Revenge240208_TEMPMIX	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge240208_TEMPMIX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\Revenge240208_TEMPMIX		14154336
-

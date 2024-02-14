@@ -1,0 +1,306 @@
+fileFormatVersion: 2
+guid: aa4d159272162394ba21027949f89351
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_01_Mat.001
+    second: {fileID: 2100000, guid: be2ba81b0cfcd4e4e88b33736f4d0aed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amp_Cover_02_Mat.001
+    second: {fileID: 2100000, guid: b339aadb3f2095242b505e9e46da10fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_01_mat.001
+    second: {fileID: 2100000, guid: 92c4af4dfd0c9ae46a8ac96447366a27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_02_Mat.001
+    second: {fileID: 2100000, guid: 1d5e639036304b642a13835be4319d16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Amplifier_metal_mat.001
+    second: {fileID: 2100000, guid: 12cbfa2c4fb399b49bf111817862068f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: AmponStageScene
+    second: {fileID: 2100000, guid: 4245a0c99a41fa14aa16d4e97fd32917, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BIRD.BASE
+    second: {fileID: 2100000, guid: 2523987ac619ba04daed3670c7f26f27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bass
+    second: {fileID: 2100000, guid: 26a66ec3dd7ede04fb6bf0542d8e711f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BirdChrome
+    second: {fileID: 2100000, guid: 4e2e1eac10728074395fbbed214c98b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bird_sqwark
+    second: {fileID: 2100000, guid: 28680a922a293534b8f5a0d98eae2bb5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 7722530a5a3605841bbd11cac9b74743, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Castor_Mat.001
+    second: {fileID: 2100000, guid: f8257609eb8cc974b953c1e3a87ace97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_01_Mat.001
+    second: {fileID: 2100000, guid: a00e5624f8cb80540b9d677cb802f9f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Back_02_Mat.001
+    second: {fileID: 2100000, guid: e2d44771b10e792498d67d47a1a270a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cover_Speaker_Mat.001
+    second: {fileID: 2100000, guid: 4e2fe3f763209f741ba8b49fdd60e933, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence Metal
+    second: {fileID: 2100000, guid: ac4ec8d0e1a49174d8a55b7f555f0bf7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flat_Speaker_Metals_mat.001
+    second: {fileID: 2100000, guid: d6c9acb0e2143d54692817d44e7f418b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FloorCable
+    second: {fileID: 2100000, guid: 3cb8fe6c994077a46be6861da8cf1b32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GigaSpeaker
+    second: {fileID: 2100000, guid: 8d9f2dec4fcfb3c42aa215ac8e365dc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holder_Mat.001
+    second: {fileID: 2100000, guid: baa564860452e8a4eb1470207a1d01f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Holder_Mat.002-LS
+    second: {fileID: 2100000, guid: e5ccf5d9de34fc1499bb6df345e99641, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LavaLamp
+    second: {fileID: 2100000, guid: 41a9a7c59fe5cc44f90ce111ad6ca880, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light Glass
+    second: {fileID: 2100000, guid: 5dc41c3f56f84bf4e9b0670dc0c07874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LinearSpeakers
+    second: {fileID: 2100000, guid: 2718092484d8e114b903ef07daca4f2a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: c2252f86ecde9574f8ec0b77add8f64c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: 3a842ad155d1e884e8e5be29afee6636, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_01.001
+    second: {fileID: 2100000, guid: b3b2f9ab06825ce4fb113d489e59453e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Panel_Mat_02.001
+    second: {fileID: 2100000, guid: 936106cf36e1db842bc673145ea1dade, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plastic
+    second: {fileID: 2100000, guid: 077d79753c3149f439e74406c08cb960, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker.001
+    second: {fileID: 2100000, guid: fa992d6a7ba2bbf46b9412a2d6a8acde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_01_Mat.001
+    second: {fileID: 2100000, guid: 15e5219652cd96245816a2018602ba69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_02_Mat.001
+    second: {fileID: 2100000, guid: a2a4f2bae88d70f48b30496ebc8a856c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Back_Mat.001
+    second: {fileID: 2100000, guid: b3ec24ca45bde8140b60874bb015368d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Mat
+    second: {fileID: 2100000, guid: 73c0cd417642be24d8a39c84eea2e3c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Mat.002
+    second: {fileID: 2100000, guid: 0d9a64787a934384994af91f8d7a0d33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Cover_Mat.003-LS
+    second: {fileID: 2100000, guid: 1c648f3a9619eca41b860eb0a0b05a13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Mat.002
+    second: {fileID: 2100000, guid: 2e9758456edda0141ac3642e64e5812a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Mat.003
+    second: {fileID: 2100000, guid: 6f5e2e7bae671f04bb1d10aba2fa052e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Speaker_Metals_mat.001
+    second: {fileID: 2100000, guid: f864cc1db4c8d454780b2b040691239b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bir
+    second: {fileID: 2100000, guid: 46b502acad4d5014692ea5a0eb4288d5, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 0
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

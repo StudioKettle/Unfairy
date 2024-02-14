@@ -237,6 +237,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: GiftTagMum
+    second: {fileID: 2100000, guid: 5e39e77270700e348acdd16e0e787b7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: GoldenDuck
     second: {fileID: 2100000, guid: c46e69d3d962c624c9980bb1d9e180c4, type: 2}
   - first:
