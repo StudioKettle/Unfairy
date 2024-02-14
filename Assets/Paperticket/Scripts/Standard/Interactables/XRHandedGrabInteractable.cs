@@ -21,6 +21,10 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
 
     private Transform originalAttachTransform = null;
 
+
+
+    private Coroutine forcingDetachCo = null;
+
     protected override void Awake() {
 
         originalAttachTransform = attachTransform;
@@ -56,5 +60,23 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
             attachTransform.SetPositionAndRotation(originalAttachTransform.position, originalAttachTransform.rotation);
         }
         base.OnSelectEntering(args);
+    }
+
+
+    
+    public void ForceDetach() {
+                
+        if (forcingDetachCo != null) return;
+        if (interactorsSelecting.Count == 0) return;
+
+        forcingDetachCo = StartCoroutine(ForcingDetach(interactorsSelecting[0] as XRBaseInteractor));        
+    }
+
+    private IEnumerator ForcingDetach(XRBaseInteractor interactor) {
+        if (interactor.TryGetComponent(out XRDirectInteractor directInteractor)) {
+            directInteractor.enabled = false;
+            yield return new WaitForSeconds(0.25f);
+            directInteractor.enabled = true;
+        }
     }
 }
