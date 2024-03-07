@@ -19,18 +19,26 @@ namespace Paperticket {
         [SerializeField] UnityEvent2 counterEvent = null;
 
 
-        int currentCount = 0;
         bool finished = false;
 
 
         [Header("LIVE VARIABLES")]
         [Space(5)]
         [SerializeField] bool eventLocked = false;
+        [SerializeField] int currentCount = 0;
 
         public bool locked {
             get { return eventLocked; }
             set { eventLocked = value; }
         }
+
+        public int threshold {
+            get { return eventThreshold; }
+            set { eventThreshold = value;
+                Check();
+            }
+        }
+
 
         void Check() {
             if (finished || eventLocked) return;

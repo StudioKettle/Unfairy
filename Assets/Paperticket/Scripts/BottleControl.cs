@@ -8,20 +8,23 @@ using Paperticket;
 
 public class BottleControl : MonoBehaviour {
 
-    [SerializeField] TextMeshPro tableText = null;
     [SerializeField] VideoController videoController = null;
-
     [SerializeField] VideoClip bottleVideo = null;
+
+    [Space(10)]
+    [Header("BAZ AUDIO 4")]
+    [SerializeField] float bazAudio4Marker = 4;
+    [SerializeField] float bazAudio4Delay = 3;
+    [SerializeField] UnityEvent2 bazAudio4Event = null;
+
     //[SerializeField] AK.Wwise.Event bottleAudio = null;//
     //[SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
 
-    //[Space(5)]
-    //[SerializeField] bool cycleVideoEvent = true;
-    //[SerializeField] UnityEvent2 onCycleVideo = null;
 
-    uint audioPlayingId = 0;
-
-    bool videoReady = false;
+    //uint audioPlayingId = 0;
+    [Space(10)]
+    [Header("READ ONLY")]
+    [SerializeField] bool videoReady = false;
 
     void Start() {
         StartCoroutine(StartVideo());
@@ -57,34 +60,20 @@ public class BottleControl : MonoBehaviour {
     }
 
 
-    //void UpdateText() {
-    //    //tableText.text = "<b>Current Video</b>" + System.Environment.NewLine + clips[clipsInt].name + " (" + clipsInt + ")";
-    //}
+    public void StartBazAudio4() {
+
+        if (videoController.currentVideoTime < bazAudio4Marker) {
+            StartCoroutine(WaitingForBazAudio4());
+            return;
+        }
+
+        if (bazAudio4Event != null) bazAudio4Event.Invoke();
+    }
+
+    IEnumerator WaitingForBazAudio4() {
+        yield return new WaitForSeconds(bazAudio4Delay);
+
+        if (bazAudio4Event != null) bazAudio4Event.Invoke();
+    }
 
 }
-
-/// OLD
-/// 
-//public void CycleVideo() {
-//    Debug.Log("[BottleControl] Cycling video...");
-
-//    clipsInt = (clipsInt + 1) % clips.Length;
-
-//    videoController.videoPlayer.clip = clips[clipsInt];
-//    videoController.videoPlayer.Play();
-
-//    UpdateText();
-
-//    if (cycleVideoEvent && onCycleVideo != null) onCycleVideo.Invoke();
-//}
-
-//public void CycleRoom() {
-//    Debug.Log("[BottleControl] Cycling room...");
-
-//    rooms[roomsInt].SetActive(false);
-//    roomsInt = (roomsInt + 1) % rooms.Length;
-//    rooms[roomsInt].SetActive(true);
-
-//    UpdateText();
-
-//}
