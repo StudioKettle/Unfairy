@@ -26,6 +26,8 @@ public class CrossSceneEventHelper : MonoBehaviour {
     [System.Serializable]
     public enum TrackingType { Head, LeftController, RightController, BetweenControllers }
 
+    public enum ControllerType { LeftHand, RightHand, Head }
+
 
 
     //#region Careplays calls
@@ -773,12 +775,97 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void PostAudioEvent(string audioEvent, GameObject go) {
         AkSoundEngine.PostEvent(audioEvent, go);
     }
+    public void PostAudioEventOnController(AK.Wwise.Event audioEvent, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not PostAudioEventOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
+        PTUtilities.instance.PostAudioEvent(audioEvent, go);
+    }
+    public void PostAudioEventOnController(string audioEvent, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not PostAudioEventOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
+        AkSoundEngine.PostEvent(audioEvent, go);
+    }
 
 
     public void SetAudioSwitch(AK.Wwise.Switch audioSwitch, GameObject go) {
         PTUtilities.instance.SetAudioSwitch(audioSwitch, go);  
     }
     public void SetAudioSwitch(string switchGroup, string switchState, GameObject go) {
+        AkSoundEngine.SetSwitch(switchGroup, switchState, go);
+    }
+
+    public void SetAudioSwitchOnController(AK.Wwise.Switch audioSwitch, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not SetAudioSwitchOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
+        PTUtilities.instance.SetAudioSwitch(audioSwitch, go);
+    }
+    public void SetAudioSwitchOnController(string switchGroup, string switchState, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not SetAudioSwitchOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
         AkSoundEngine.SetSwitch(switchGroup, switchState, go);
     }
 

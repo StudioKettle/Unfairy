@@ -61,17 +61,14 @@ public class BottleControl : MonoBehaviour {
 
 
     public void StartBazAudio4() {
-
-        if (videoController.currentVideoTime < bazAudio4Marker) {
-            StartCoroutine(WaitingForBazAudio4());
-            return;
-        }
-
-        if (bazAudio4Event != null) bazAudio4Event.Invoke();
+        StartCoroutine(WaitingForBazAudio4());
     }
 
     IEnumerator WaitingForBazAudio4() {
-        yield return new WaitForSeconds(bazAudio4Delay);
+
+        if (videoController.currentVideoTime < bazAudio4Marker) {
+            yield return new WaitForSeconds(bazAudio4Delay);
+        }
 
         if (bazAudio4Event != null) bazAudio4Event.Invoke();
     }

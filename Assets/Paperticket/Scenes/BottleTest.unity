@@ -238,6 +238,106 @@ MonoBehaviour:
           m_SByteArgument: 0
           m_ShortArgument: 0
           m_UShortArgument: 0
+          m_IntArgument: 1
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 568256749}
+        m_MethodName: SendEvent
+        m_Modes: 08000000
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 568256748}
+        m_MethodName: SetActive
+        m_Modes: 0e000000
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Int32, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
           m_IntArgument: 0
           m_UIntArgument: 0
           m_LongArgument: 0
@@ -543,7 +643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &15227288
 MonoBehaviour:
@@ -563,11 +663,20 @@ MonoBehaviour:
     audioEvent:
       idInternal: 0
       valueGuidInternal: 
-      WwiseObjectReference: {fileID: 11400000, guid: 10c51d6bbf68af44eab2954d07b49b73,
+      WwiseObjectReference: {fileID: 11400000, guid: 061d2d4c34fb71c41a8a0a25827f6eb2,
         type: 2}
     callbackFlags:
       value: 0
-    optionalSource: {fileID: 0}
+    optionalSource: {fileID: 1318144333}
+  - timeBeforeEvent: 0
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: f956a5bcacbe448478585495bac33cd2,
+        type: 2}
+    callbackFlags:
+      value: 0
+    optionalSource: {fileID: 1318144333}
   audioSwitches: []
 --- !u!1 &15460994
 GameObject:
@@ -1321,7 +1430,7 @@ Transform:
   m_Children:
   - {fileID: 1263774616}
   m_Father: {fileID: 259504728}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &44792347
 GameObject:
@@ -8920,7 +9029,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 259504728}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259504727
 GameObject:
@@ -8950,6 +9059,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 380312740}
   - {fileID: 882505628}
   - {fileID: 720180801}
   - {fileID: 353053396}
@@ -9614,7 +9724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &292303471
 Transform:
   m_ObjectHideFlags: 0
@@ -9622,13 +9732,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292303470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1415290369}
-  m_RootOrder: 0
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &292303472
 MonoBehaviour:
@@ -10642,7 +10752,7 @@ Transform:
   - {fileID: 692542452}
   - {fileID: 269101759}
   m_Father: {fileID: 729327788}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
 --- !u!1 &310423631
 GameObject:
@@ -10910,7 +11020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &323642731
 Transform:
   m_ObjectHideFlags: 0
@@ -10924,7 +11034,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 729327788}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!65 &323642732
 BoxCollider:
@@ -11038,7 +11148,7 @@ Transform:
   - {fileID: 1644774731}
   - {fileID: 1561127795}
   m_Father: {fileID: 259504728}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 63.853, y: -25.776, z: -27.631}
 --- !u!1 &366930153
 GameObject:
@@ -11089,7 +11199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &375564137
 Transform:
   m_ObjectHideFlags: 0
@@ -11107,7 +11217,7 @@ Transform:
   - {fileID: 1390359289}
   - {fileID: 1295141401}
   m_Father: {fileID: 729327788}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &375564138
 Rigidbody:
@@ -11292,6 +11402,69 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: fb30bb83eb78f034fa7e01594545bec9,
       type: 2}
   source: {fileID: 1295141400}
+--- !u!1 &380312739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380312740}
+  - component: {fileID: 380312742}
+  - component: {fileID: 380312741}
+  m_Layer: 11
+  m_Name: '[PP] Default'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &380312740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380312739}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 11.069312, y: -3.0285153, z: -9.337096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 259504728}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380312741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380312739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 277a1617de7ae2e4aac17ff5da2d1e03, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 1
+--- !u!65 &380312742
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380312739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &387091608
 GameObject:
   m_ObjectHideFlags: 0
@@ -12220,7 +12393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &512260285
 Transform:
   m_ObjectHideFlags: 0
@@ -12228,13 +12401,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512260284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1415290369}
-  m_RootOrder: 4
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &512260286
 MonoBehaviour:
@@ -13559,7 +13732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92c79dfe19f7564299eb0a4a0bc82cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugging: 0
+  debugging: 1
   audioEvents:
   - timeBeforeEvent: 0
     audioEvent:
@@ -13574,7 +13747,7 @@ MonoBehaviour:
     audioEvent:
       idInternal: 0
       valueGuidInternal: 
-      WwiseObjectReference: {fileID: 11400000, guid: 8a79db5d453ecce45be9e49475a7052e,
+      WwiseObjectReference: {fileID: 11400000, guid: 6bcc3ca39a44ceb46a4074eb1c7a7ca4,
         type: 2}
     callbackFlags:
       value: 0
@@ -13599,6 +13772,106 @@ MonoBehaviour:
   OnEventTriggered:
     m_PersistentCalls:
       m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Int32, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 1
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 1489686577}
+        m_MethodName: SendEvent
+        m_Modes: 08000000
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 1489686575}
+        m_MethodName: SetActive
+        m_Modes: 0e000000
       - m_Arguments:
         - m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: System.Int32, mscorlib
@@ -13712,7 +13985,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573342013
 GameObject:
@@ -14838,7 +15111,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &640215342
 MonoBehaviour:
@@ -14919,6 +15192,8 @@ GameObject:
   m_Component:
   - component: {fileID: 648413488}
   - component: {fileID: 648413485}
+  - component: {fileID: 648413489}
+  - component: {fileID: 648413490}
   - component: {fileID: 648413487}
   - component: {fileID: 648413486}
   m_Layer: 10
@@ -15051,7 +15326,19 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1692209261}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -15182,9 +15469,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648413484}
-  m_LocalRotation: {x: 0.052250803, y: -0.034044415, z: 0.99542135, w: -0.072438054}
-  m_LocalPosition: {x: 1.4971638, y: 0.83344615, z: -0.43552065}
-  m_LocalScale: {x: 0.020843048, y: 0.020843057, z: 0.02084306}
+  m_LocalRotation: {x: 0.052250825, y: -0.034044396, z: 0.9954213, w: -0.07243811}
+  m_LocalPosition: {x: 1.4731007, y: 0.78349996, z: -0.46039975}
+  m_LocalScale: {x: 0.020843055, y: 0.02084307, z: 0.020843063}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1922807921}
@@ -15194,6 +15481,126 @@ Transform:
   m_Father: {fileID: 302150074}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648413489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648413484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb14665a5dd5bec4897b62b6e7666e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugging: 0
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  targetTag: FloorTrigger
+  targetName: 
+  triggerBehaviour: 1
+  timeBeforeEvent: 0
+  eventBehaviour: 0
+  triggerEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 568256748}
+        m_MethodName: SetActive
+        m_Modes: 0e000000
+--- !u!114 &648413490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648413484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85824319f2ea0a84a86889e044949e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugging: 0
+  optionalOrigin: {fileID: 888722968}
+  positionOffset: {x: 0, y: 0, z: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
+  space: 1
+  resetDelay: 1
+  resetDuration: 1
+  resetCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  keepKinematic: 0
+  keepGravity: 0
+  resetting: 0
 --- !u!1 &657744043
 GameObject:
   m_ObjectHideFlags: 0
@@ -16483,7 +16890,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716445919
 MonoBehaviour:
@@ -16706,7 +17113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &720180801
 Transform:
   m_ObjectHideFlags: 0
@@ -16720,7 +17127,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 259504728}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &720180802
 MonoBehaviour:
@@ -16738,7 +17145,7 @@ MonoBehaviour:
   isGlobal: 1
   blendDistance: 0
   weight: 1
-  priority: 0
+  priority: 1
 --- !u!65 &720180803
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16933,6 +17340,7 @@ Transform:
   m_Children:
   - {fileID: 35925950}
   - {fileID: 709123562}
+  - {fileID: 5497786482164306369}
   - {fileID: 302150074}
   - {fileID: 375564137}
   - {fileID: 1002368019}
@@ -17200,7 +17608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &747175344
 Transform:
   m_ObjectHideFlags: 0
@@ -17208,13 +17616,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747175343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1415290369}
-  m_RootOrder: 3
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &747175345
 MonoBehaviour:
@@ -19485,7 +19893,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 259504728}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &882505629
 MonoBehaviour:
@@ -19517,6 +19925,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &888722967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888722968}
+  m_Layer: 0
+  m_Name: EarpieceOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &888722968
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888722967}
+  m_LocalRotation: {x: -0.5296887, y: 0.5890361, z: 0.52292186, w: -0.31467316}
+  m_LocalPosition: {x: -0.38, y: 2.322, z: 1.262}
+  m_LocalScale: {x: 0.05566233, y: 0.16613895, z: 0.14433947}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5497786482164306369}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892722017
 GameObject:
   m_ObjectHideFlags: 0
@@ -20076,7 +20515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1002368019
 Transform:
   m_ObjectHideFlags: 0
@@ -20096,7 +20535,7 @@ Transform:
   - {fileID: 2235675667786839575}
   - {fileID: 4039261998347279868}
   m_Father: {fileID: 729327788}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -83.911, y: -74.45, z: 78.554}
 --- !u!1 &1003881408
 GameObject:
@@ -20842,7 +21281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1059070821
 Transform:
   m_ObjectHideFlags: 0
@@ -20850,13 +21289,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059070820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1415290369}
-  m_RootOrder: 1
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1059070822
 MonoBehaviour:
@@ -22948,7 +23387,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 729327788}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 21.026, z: 0}
 --- !u!54 &1102826455
 Rigidbody:
@@ -23367,7 +23806,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 729327788}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -23.326, y: 131.668, z: 178.263}
 --- !u!114 &1137350557
 MonoBehaviour:
@@ -24533,7 +24972,7 @@ Transform:
   - {fileID: 2324663596342919966}
   - {fileID: 2234896671284786393}
   m_Father: {fileID: 729327788}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1189601946
 MonoBehaviour:
@@ -25639,6 +26078,523 @@ Transform:
   m_Father: {fileID: 1505223888}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287513328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287513329}
+  - component: {fileID: 1287513330}
+  m_Layer: 0
+  m_Name: '[ME] Crystal light loop'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287513329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287513328}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287513330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287513328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39eb9af33481f2458e65d185e5efba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugging: 0
+  timeBeforeEvent: 0.5
+  eventBehaviour: 2
+  timeBehaviour: 0
+  multiEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 384353975758020884}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.MeshRenderer, UnityEngine.CoreModule
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.String, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: _EmissionColor
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Color, UnityEngine.CoreModule
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0.15765221, g: 0.059521753, b: 0.185, a: 1}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Single, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 5
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Single, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 1
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 1318144335}
+        m_MethodName: FadeMeshColor
+        m_Modes: 020000000d000000160000000b0000000b000000
+  - m_PersistentCalls:
+      m_Calls: []
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 384353975758020884}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.MeshRenderer, UnityEngine.CoreModule
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.String, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: _EmissionColor
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Color, UnityEngine.CoreModule
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 1}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Single, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 1
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Single, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 1
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 1318144335}
+        m_MethodName: FadeMeshColor
+        m_Modes: 020000000d000000160000000b0000000b000000
+  - m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1295141400
 GameObject:
   m_ObjectHideFlags: 0
@@ -31258,7 +32214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1385773870
 Transform:
   m_ObjectHideFlags: 0
@@ -31266,13 +32222,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385773869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1415290369}
-  m_RootOrder: 2
+  m_Father: {fileID: 1692209263}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1385773871
 MonoBehaviour:
@@ -32978,6 +33934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415290369}
   - component: {fileID: 1415290370}
+  - component: {fileID: 1415290372}
   - component: {fileID: 1415290371}
   m_Layer: 0
   m_Name: '[DE] Baz Audio 1 ("Good morning there!")'
@@ -32997,12 +33954,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 292303471}
-  - {fileID: 1059070821}
-  - {fileID: 1385773870}
-  - {fileID: 747175344}
-  - {fileID: 512260285}
+  m_Children: []
   m_Father: {fileID: 2130263765}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33075,6 +34027,49 @@ MonoBehaviour:
         m_Target: {fileID: 1415290371}
         m_MethodName: SendEvent
         m_Modes: 08000000
+--- !u!114 &1415290371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415290368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92c79dfe19f7564299eb0a4a0bc82cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugging: 0
+  audioEvents:
+  - timeBeforeEvent: 0
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 8d7b31b1ba22fdc469307714f97e1663,
+        type: 2}
+    callbackFlags:
+      value: 0
+    optionalSource: {fileID: 551144950}
+  audioSwitches: []
+--- !u!114 &1415290372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415290368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeEvent: 12
+  eventBehaviour: 0
+  timeBehaviour: 0
+  debug: 0
+  OnEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
       - m_Arguments:
         - m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
@@ -33122,33 +34117,9 @@ MonoBehaviour:
           m_ColorArrayArgument: []
           m_QuaternionArrayArgument: []
         m_CallState: 2
-        m_Target: {fileID: 648413485}
-        m_MethodName: set_enabled
+        m_Target: {fileID: 1692209261}
+        m_MethodName: SetActive
         m_Modes: 0e000000
---- !u!114 &1415290371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415290368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92c79dfe19f7564299eb0a4a0bc82cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugging: 0
-  audioEvents:
-  - timeBeforeEvent: 0
-    audioEvent:
-      idInternal: 0
-      valueGuidInternal: 
-      WwiseObjectReference: {fileID: 11400000, guid: 8d7b31b1ba22fdc469307714f97e1663,
-        type: 2}
-    callbackFlags:
-      value: 0
-    optionalSource: {fileID: 551144950}
-  audioSwitches: []
 --- !u!1 &1420729922
 GameObject:
   m_ObjectHideFlags: 0
@@ -33180,7 +34151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1420729924
 MonoBehaviour:
@@ -33201,6 +34172,56 @@ MonoBehaviour:
   OnEventTriggered:
     m_PersistentCalls:
       m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Int32, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 1
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 15227288}
+        m_MethodName: SendEvent
+        m_Modes: 08000000
       - m_Arguments:
         - m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: System.Int32, mscorlib
@@ -33663,7 +34684,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1489686577
 MonoBehaviour:
@@ -33677,13 +34698,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92c79dfe19f7564299eb0a4a0bc82cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugging: 0
+  debugging: 1
   audioEvents:
   - timeBeforeEvent: 0
     audioEvent:
       idInternal: 0
       valueGuidInternal: 
       WwiseObjectReference: {fileID: 11400000, guid: 10c51d6bbf68af44eab2954d07b49b73,
+        type: 2}
+    callbackFlags:
+      value: 0
+    optionalSource: {fileID: 551144950}
+  - timeBeforeEvent: 0
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 8ad6c2cdf4002bd4991e5679a54d3c89,
         type: 2}
     callbackFlags:
       value: 0
@@ -33701,7 +34731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeEvent: 4
+  timeBeforeEvent: 6.5
   eventBehaviour: 0
   timeBehaviour: 0
   debug: 0
@@ -33758,56 +34788,6 @@ MonoBehaviour:
         m_Target: {fileID: 1489686577}
         m_MethodName: SendEvent
         m_Modes: 08000000
-      - m_Arguments:
-        - m_ObjectArgument: {fileID: 1489686577}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Component, UnityEngine.CoreModule
-          m_CharArgument: 0
-          m_ByteArgument: 0
-          m_SByteArgument: 0
-          m_ShortArgument: 0
-          m_UShortArgument: 0
-          m_IntArgument: 0
-          m_UIntArgument: 0
-          m_LongArgument: 0
-          m_FloatArgument: 0
-          m_DoubleArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-          m_Vector2Argument: {x: 0, y: 0}
-          m_Vector2IntArgument: {x: 0, y: 0}
-          m_Vector3Argument: {x: 0, y: 0, z: 0}
-          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
-          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
-          m_LayerMaskArgument:
-            serializedVersion: 2
-            m_Bits: 0
-          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
-          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
-          m_ObjectArrayArgument: []
-          m_CharArrayArgument: 
-          m_ByteArrayArgument: 
-          m_SByteArrayArgument: 
-          m_ShortArrayArgument: 
-          m_UShortArrayArgument: 
-          m_IntArrayArgument: 
-          m_UIntArrayArgument: 
-          m_LongArrayArgument: 
-          m_FloatArrayArgument: []
-          m_DoubleArrayArgument: []
-          m_StringArrayArgument: []
-          m_BoolArrayArgument: 
-          m_Vector2ArrayArgument: []
-          m_Vector2IntArrayArgument: []
-          m_Vector3ArrayArgument: []
-          m_Vector3IntArrayArgument: []
-          m_Vector4ArrayArgument: []
-          m_LayerMaskArrayArgument: []
-          m_ColorArrayArgument: []
-          m_QuaternionArrayArgument: []
-        m_CallState: 2
-        m_Target: {fileID: 1318144335}
-        m_MethodName: DestroyComponent
-        m_Modes: 02000000
 --- !u!1 &1505223887
 GameObject:
   m_ObjectHideFlags: 0
@@ -35888,7 +36868,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1637239203
 MonoBehaviour:
@@ -36843,6 +37823,168 @@ Transform:
   m_Father: {fileID: 35925950}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -0.091, z: 0}
+--- !u!1 &1692209261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692209263}
+  - component: {fileID: 1692209262}
+  m_Layer: 0
+  m_Name: '[DE] Activate earpiece'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1692209262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692209261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f0afc4592aed347a919bab6de3ec37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeEvent: 0
+  eventBehaviour: 0
+  timeBehaviour: 0
+  debug: 0
+  OnEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 648413485}
+        m_MethodName: set_enabled
+        m_Modes: 0e000000
+      - m_Arguments:
+        - m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
+          m_CharArgument: 0
+          m_ByteArgument: 0
+          m_SByteArgument: 0
+          m_ShortArgument: 0
+          m_UShortArgument: 0
+          m_IntArgument: 0
+          m_UIntArgument: 0
+          m_LongArgument: 0
+          m_FloatArgument: 0
+          m_DoubleArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+          m_Vector2Argument: {x: 0, y: 0}
+          m_Vector2IntArgument: {x: 0, y: 0}
+          m_Vector3Argument: {x: 0, y: 0, z: 0}
+          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
+          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
+          m_LayerMaskArgument:
+            serializedVersion: 2
+            m_Bits: 0
+          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
+          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
+          m_ObjectArrayArgument: []
+          m_CharArrayArgument: 
+          m_ByteArrayArgument: 
+          m_SByteArrayArgument: 
+          m_ShortArrayArgument: 
+          m_UShortArrayArgument: 
+          m_IntArrayArgument: 
+          m_UIntArrayArgument: 
+          m_LongArrayArgument: 
+          m_FloatArrayArgument: []
+          m_DoubleArrayArgument: []
+          m_StringArrayArgument: []
+          m_BoolArrayArgument: 
+          m_Vector2ArrayArgument: []
+          m_Vector2IntArrayArgument: []
+          m_Vector3ArrayArgument: []
+          m_Vector3IntArrayArgument: []
+          m_Vector4ArrayArgument: []
+          m_LayerMaskArrayArgument: []
+          m_ColorArrayArgument: []
+          m_QuaternionArrayArgument: []
+        m_CallState: 2
+        m_Target: {fileID: 1489686575}
+        m_MethodName: SetActive
+        m_Modes: 0e000000
+      - m_Arguments: []
+        m_CallState: 2
+        m_Target: {fileID: 648413490}
+        m_MethodName: Activate
+        m_Modes: 01000000
+--- !u!4 &1692209263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692209261}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1287513329}
+  - {fileID: 292303471}
+  - {fileID: 1059070821}
+  - {fileID: 1385773870}
+  - {fileID: 747175344}
+  - {fileID: 512260285}
+  m_Father: {fileID: 2130263765}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1720249319
 GameObject:
   m_ObjectHideFlags: 0
@@ -39346,7 +40488,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1980308064}
   - component: {fileID: 1980308065}
-  - component: {fileID: 1980308066}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -39383,80 +40524,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5693890226569573184, guid: b9ba1076dd42d9a4d9da484746c26ab7, type: 3}
---- !u!114 &1980308066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980308063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb14665a5dd5bec4897b62b6e7666e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugging: 0
-  targetLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  targetTag: FloorTrigger
-  targetName: 
-  triggerBehaviour: 1
-  timeBeforeEvent: 0
-  eventBehaviour: 0
-  triggerEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Arguments:
-        - m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: System.Boolean, mscorlib
-          m_CharArgument: 0
-          m_ByteArgument: 0
-          m_SByteArgument: 0
-          m_ShortArgument: 0
-          m_UShortArgument: 0
-          m_IntArgument: 0
-          m_UIntArgument: 0
-          m_LongArgument: 0
-          m_FloatArgument: 0
-          m_DoubleArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-          m_Vector2Argument: {x: 0, y: 0}
-          m_Vector2IntArgument: {x: 0, y: 0}
-          m_Vector3Argument: {x: 0, y: 0, z: 0}
-          m_Vector3IntArgument: {x: 0, y: 0, z: 0}
-          m_Vector4Argument: {x: 0, y: 0, z: 0, w: 0}
-          m_LayerMaskArgument:
-            serializedVersion: 2
-            m_Bits: 0
-          m_ColorArgument: {r: 0, g: 0, b: 0, a: 0}
-          m_QuaternionArgument: {x: 0, y: 0, z: 0, w: 0}
-          m_ObjectArrayArgument: []
-          m_CharArrayArgument: 
-          m_ByteArrayArgument: 
-          m_SByteArrayArgument: 
-          m_ShortArrayArgument: 
-          m_UShortArrayArgument: 
-          m_IntArrayArgument: 
-          m_UIntArrayArgument: 
-          m_LongArrayArgument: 
-          m_FloatArrayArgument: []
-          m_DoubleArrayArgument: []
-          m_StringArrayArgument: []
-          m_BoolArrayArgument: 
-          m_Vector2ArrayArgument: []
-          m_Vector2IntArrayArgument: []
-          m_Vector3ArrayArgument: []
-          m_Vector3IntArrayArgument: []
-          m_Vector4ArrayArgument: []
-          m_LayerMaskArrayArgument: []
-          m_ColorArrayArgument: []
-          m_QuaternionArrayArgument: []
-        m_CallState: 2
-        m_Target: {fileID: 568256748}
-        m_MethodName: SetActive
-        m_Modes: 0e000000
 --- !u!1 &1984650706
 GameObject:
   m_ObjectHideFlags: 0
@@ -41625,7 +42692,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2130263765}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2065224406
 MonoBehaviour:
@@ -47312,6 +48379,7 @@ Transform:
   - {fileID: 1248598849}
   - {fileID: 1930383755}
   - {fileID: 1415290369}
+  - {fileID: 1692209263}
   - {fileID: 1489686576}
   - {fileID: 568256751}
   - {fileID: 15227287}
@@ -51587,7 +52655,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 201
+  m_RootOrder: 200
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &907302961002953967
 Transform:
@@ -51900,7 +52968,7 @@ Transform:
   m_Children:
   - {fileID: 3949034962791203880}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 205
+  m_RootOrder: 204
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &992639254310274696
 GameObject:
@@ -52029,7 +53097,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 222
+  m_RootOrder: 221
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1013793169572298832
 MeshRenderer:
@@ -53827,7 +54895,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 186
+  m_RootOrder: 185
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1350609618900622829
 GameObject:
@@ -54433,8 +55501,9 @@ GameObject:
   - component: {fileID: 5497786482164306369}
   - component: {fileID: 9094223173657644838}
   - component: {fileID: 384353975758020884}
+  - component: {fileID: 9094223173657644839}
   m_Layer: 0
-  m_Name: Rock_earpiece holder
+  m_Name: '[CrystalEarpieceHolder]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54486,7 +55555,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 223
+  m_RootOrder: 222
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1466900269167843079
 Transform:
@@ -54616,7 +55685,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 196
+  m_RootOrder: 195
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1528805078482533959
 MeshRenderer:
@@ -54773,7 +55842,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 200
+  m_RootOrder: 199
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1563604487344202523
 MeshFilter:
@@ -54886,7 +55955,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 194
+  m_RootOrder: 193
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599479025149658571
 GameObject:
@@ -55858,7 +56927,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 202
+  m_RootOrder: 201
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1785209003818179872
 Transform:
@@ -57148,7 +58217,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 226
+  m_RootOrder: 225
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2149699321659816464
 Transform:
@@ -57711,7 +58780,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 228
+  m_RootOrder: 227
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2238724622388398471
 MeshRenderer:
@@ -57940,7 +59009,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 187
+  m_RootOrder: 186
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2274273695794865131
 MeshFilter:
@@ -59388,7 +60457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 199
+  m_RootOrder: 198
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2592622384284191305
 MeshRenderer:
@@ -60002,7 +61071,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 191
+  m_RootOrder: 190
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2790254586248625809
 Transform:
@@ -60018,7 +61087,7 @@ Transform:
   m_Children:
   - {fileID: 4172774726492182100}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 203
+  m_RootOrder: 202
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2790330295456776449
 Transform:
@@ -60034,7 +61103,7 @@ Transform:
   m_Children:
   - {fileID: 7321783048868869788}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 217
+  m_RootOrder: 216
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2797877996603168249
 GameObject:
@@ -60561,7 +61630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 195
+  m_RootOrder: 194
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2903952325832363237
 GameObject:
@@ -62011,7 +63080,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 214
+  m_RootOrder: 213
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3235597944669388973
 MeshRenderer:
@@ -63996,7 +65065,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 216
+  m_RootOrder: 215
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3663659145545935862
 MeshFilter:
@@ -64590,7 +65659,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 198
+  m_RootOrder: 197
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3823141426471498558
 MeshRenderer:
@@ -66512,7 +67581,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 215
+  m_RootOrder: 214
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4153953808567390367
 MeshFilter:
@@ -67165,7 +68234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 219
+  m_RootOrder: 218
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4277736867387468618
 MeshFilter:
@@ -68122,7 +69191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 213
+  m_RootOrder: 212
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4532293209084134132
 MeshFilter:
@@ -68834,7 +69903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 220
+  m_RootOrder: 219
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4673006243373419762
 Transform:
@@ -69247,7 +70316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 197
+  m_RootOrder: 196
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4768389612436993141
 Transform:
@@ -69592,7 +70661,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 221
+  m_RootOrder: 220
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &4820649462531239311
 MeshRenderer:
@@ -71038,7 +72107,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 218
+  m_RootOrder: 217
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5144189555790557313
 Transform:
@@ -71152,7 +72221,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 225
+  m_RootOrder: 224
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5170651630616048576
 MeshRenderer:
@@ -71209,7 +72278,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 211
+  m_RootOrder: 210
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5183073880269266401
 GameObject:
@@ -71497,7 +72566,7 @@ Transform:
   m_Children:
   - {fileID: 8390495384156423511}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 206
+  m_RootOrder: 205
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5241484189761843113
 Transform:
@@ -71832,7 +72901,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 189
+  m_RootOrder: 188
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5293653525884881057
 GameObject:
@@ -72182,7 +73251,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 230
+  m_RootOrder: 229
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5449389119924966051
 MeshRenderer:
@@ -72494,13 +73563,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449510008273183578}
-  m_LocalRotation: {x: -0.10986582, y: 0.72998947, z: -0.09271352, w: 0.6681685}
-  m_LocalPosition: {x: 0.42779964, y: 0.049496606, z: -0.060715687}
-  m_LocalScale: {x: 0.038192105, y: 0.12496386, z: 0.0381921}
+  m_LocalRotation: {x: -0.109865814, y: 0.72998947, z: -0.09271351, w: 0.6681685}
+  m_LocalPosition: {x: 1.3689592, y: 0.005389139, z: -0.19429028}
+  m_LocalScale: {x: 0.122214735, y: 0.39988434, z: 0.122214735}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 183
+  m_Children:
+  - {fileID: 888722968}
+  m_Father: {fileID: 729327788}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5504123710318613888
 GameObject:
@@ -72718,7 +73788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 185
+  m_RootOrder: 184
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5583558434360737130
 MeshFilter:
@@ -74300,7 +75370,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 224
+  m_RootOrder: 223
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5950947688292510033
 Transform:
@@ -74640,7 +75710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 207
+  m_RootOrder: 206
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6030476388918182517
 GameObject:
@@ -75901,7 +76971,6 @@ Transform:
   - {fileID: 545321671246953418}
   - {fileID: 9163494553196361874}
   - {fileID: 5471232800698592405}
-  - {fileID: 5497786482164306369}
   - {fileID: 7825513665291890762}
   - {fileID: 5567451113431253830}
   - {fileID: 1347193450730234488}
@@ -76470,7 +77539,7 @@ Transform:
   m_Children:
   - {fileID: 8685733759238595516}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 209
+  m_RootOrder: 208
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6320958037591335156
 GameObject:
@@ -77481,7 +78550,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 208
+  m_RootOrder: 207
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6535943652884237148
 MeshRenderer:
@@ -77561,7 +78630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 210
+  m_RootOrder: 209
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6563772133261809773
 MeshFilter:
@@ -78637,7 +79706,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 229
+  m_RootOrder: 228
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6823914971837041829
 MeshFilter:
@@ -79173,7 +80242,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 193
+  m_RootOrder: 192
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6956884935782784284
 MeshFilter:
@@ -79348,7 +80417,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 188
+  m_RootOrder: 187
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6988994538111822749
 Transform:
@@ -80981,7 +82050,7 @@ Transform:
   m_Children:
   - {fileID: 916704939156616848}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 204
+  m_RootOrder: 203
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &7363707842812424130
 MeshRenderer:
@@ -83674,7 +84743,7 @@ Transform:
   m_Children:
   - {fileID: 2354033703699803891}
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 184
+  m_RootOrder: 183
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7836696535767632985
 MeshFilter:
@@ -87499,7 +88568,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 190
+  m_RootOrder: 189
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8787970036747428083
 MeshRenderer:
@@ -87789,7 +88858,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 212
+  m_RootOrder: 211
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8859063429009692276
 GameObject:
@@ -88192,7 +89261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 192
+  m_RootOrder: 191
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8918490418699483077
 MeshFilter:
@@ -88972,6 +90041,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449510008273183578}
   m_Mesh: {fileID: 9029315490378507711, guid: b9ba1076dd42d9a4d9da484746c26ab7, type: 3}
+--- !u!64 &9094223173657644839
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449510008273183578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9029315490378507711, guid: b9ba1076dd42d9a4d9da484746c26ab7, type: 3}
 --- !u!33 &9099167755632098709
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -89298,7 +90381,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6233480463680453598}
-  m_RootOrder: 227
+  m_RootOrder: 226
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9184179948250958980
 GameObject:

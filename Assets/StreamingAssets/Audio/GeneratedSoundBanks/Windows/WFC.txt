@@ -1,0 +1,15 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1667592582	WFC_Event_BazSection2_Stop			\Default Work Unit\3_WFC\WFC_Event_BazSection2_Stop	
+	1729393136	WFC_Ambient_Video			\Default Work Unit\3_WFC\WFC_Ambient_Video	
+	2955361564	WFC_Event_BazSection2_Play			\Default Work Unit\3_WFC\WFC_Event_BazSection2_Play	
+	3170617657	WFC_Event_BazSection3_Stop			\Default Work Unit\3_WFC\WFC_Event_BazSection3_Stop	
+	3708343560	WFC_Event_BazSection1			\Default Work Unit\3_WFC\WFC_Event_BazSection1	
+	4040598867	WFC_Event_BazSection3_Play			\Default Work Unit\3_WFC\WFC_Event_BazSection3_Play	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	319763159	WFC_BDA6_shes gonna keep going	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC_BDA6_shes gonna keep going_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BAZ_BDA\WFC_BDA6_shes gonna keep going		202138
+	544952524	WFC AMBI MIX_TEMP_v2	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC AMBI MIX_TEMP_v2_DAC62D07.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC AMBI MIX_TEMP_v2		107832624
+	739749489	WFC_BDA5_ lets give her her wish	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC_BDA5_ lets give her her wish _10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BAZ_BDA\WFC_BDA5_ lets give her her wish		346526
+	857387236	WFC_BAZ_LINEAR from apperance point	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC_BAZ_LINEAR from apperance point_82181C16.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\Baz_WFC_ Audio\WFC_BAZ_LINEAR from apperance point		8725802
+	955646942	WFC_BDA7_alright ;lets activate wand	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\WFC_BDA7_alright ;lets activate wand_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BAZ_BDA\WFC_BDA7_alright ;lets activate wand		234704
+
