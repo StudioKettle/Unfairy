@@ -2,11 +2,11 @@
 <PlatformInfo>
 	<Platform Name="Windows" BasePlatform="Windows" Generator="2022.1.7.8290"/>
 	<RootPaths>
-		<ProjectRoot>G:/.shortcut-targets-by-id/1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1/Unfairy_Main</ProjectRoot>
-		<SourceFilesRoot>G:/.shortcut-targets-by-id/1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1/Unfairy_Main/.cache/Windows</SourceFilesRoot>
+		<ProjectRoot>../../../../../../../GS DoS LOCAL SD/ GD SD COMP/Unfairy Wwise project/Unfairy Wwise Project/Unfairy_Main</ProjectRoot>
+		<SourceFilesRoot>../../../../../../../GS DoS LOCAL SD/ GD SD COMP/Unfairy Wwise project/Unfairy Wwise Project/Unfairy_Main/.cache/Windows</SourceFilesRoot>
 		<SoundBanksRoot>.</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>G:/.shortcut-targets-by-id/1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1/Unfairy_Main/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>../../../../../../../GS DoS LOCAL SD/ GD SD COMP/Unfairy Wwise project/Unfairy Wwise Project/Unfairy_Main/GeneratedSoundBanks/Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DefaultAlign>16</DefaultAlign>
 	<Settings>
@@ -28,5 +28,5 @@
 		<PrintObjectGuid>false</PrintObjectGuid>
 		<PrintObjectPath>false</PrintObjectPath>
 	</Settings>
-	<FileHash>{28076583-FBBB-9914-0E78-43E367A637BB}</FileHash>
+	<FileHash>{51C018C1-A695-7A3F-8592-75E444BA6AFD}</FileHash>
 </PlatformInfo>

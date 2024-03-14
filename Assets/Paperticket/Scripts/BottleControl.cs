@@ -8,14 +8,20 @@ using Paperticket;
 
 public class BottleControl : MonoBehaviour {
 
+    public enum Panning { Center, Left, Right }
+    [SerializeField] bool debugging = false;
+    [Space(10)]
+    [Header("REFERENCES")]
     [SerializeField] VideoController videoController = null;
     [SerializeField] VideoClip bottleVideo = null;
-
     [Space(10)]
-    [Header("BAZ AUDIO 4")]
+    [Header("CONTROLS")]
     [SerializeField] float bazAudio4Marker = 4;
     [SerializeField] float bazAudio4Delay = 3;
     [SerializeField] UnityEvent2 bazAudio4Event = null;
+    [Space(5)]
+    [SerializeField] AK.Wwise.RTPC rTPC_EarpiecePan = null;
+    
 
     //[SerializeField] AK.Wwise.Event bottleAudio = null;//
     //[SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
@@ -71,6 +77,27 @@ public class BottleControl : MonoBehaviour {
         }
 
         if (bazAudio4Event != null) bazAudio4Event.Invoke();
+    }
+
+
+    public void SetEarpiecePan(Panning panning) {
+
+        switch (panning) {
+            case Panning.Center:
+                rTPC_EarpiecePan.SetGlobalValue(0);
+                break;
+            case Panning.Left:
+                rTPC_EarpiecePan.SetGlobalValue(-1);
+                break;
+            case Panning.Right:
+                rTPC_EarpiecePan.SetGlobalValue(1);
+                break;
+            default:
+                Debug.LogError("[BottleControl] Could not SetEapiecePan! Bad Panning value set, ignoring.");
+                return;
+        }
+        
+        if (debugging) Debug.Log("[BottleControl] SetEapiecePan to " + panning.ToString());
     }
 
 }

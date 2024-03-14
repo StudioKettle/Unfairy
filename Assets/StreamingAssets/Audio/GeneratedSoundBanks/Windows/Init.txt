@@ -1,9 +1,3 @@
-State Group	ID	Name			Wwise Object Path	Notes
-	565408389	Earbud_Right_Left			\Default Work Unit\Earbud_Right_Left	
-
-State	ID	Name	State Group			Notes
-	748895195	None	Earbud_Right_Left			
-
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
@@ -17,11 +11,13 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
 	3195498748	Cork_Tiles			\Factory Acoustic Textures\Textures\Cork_Tiles	
 	3670307564	Drywall			\Factory Acoustic Textures\Textures\Drywall	
+	3991467910	RTPC_EarpiecePan			\Default Work Unit\RTPC_EarpiecePan	
 	4168643977	Acoustic_Banner			\Factory Acoustic Textures\Textures\Acoustic_Banner	
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	673085190	Bus_Earpiece			\Default Work Unit\Bus_Master\Bus_Earpiece	
+	3964155266	Bus_Master			\Default Work Unit\Bus_Master	
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

@@ -1,8 +1,8 @@
 Shader "Paperticket/AlphaTransColorCutout" {
     Properties{
         _Color("Color", Color) = (1,1,1,1)
-        _TransparentColor("Transparent Color", Color) = (1,1,1,1)
-        _Threshold("Threshhold", Float) = 0.1
+        //_TransparentColor("Transparent Color", Color) = (1,1,1,1)
+        //_Threshold("Threshhold", Float) = 0.1
         _MainTex("Albedo (RGB)", 2D) = "white" {}
 		_Alpha("Alpha", Float) = 1
 		_AlphaOffset("Alpha Offset", Vector) = (0,0,0,0)
@@ -27,8 +27,8 @@ Shader "Paperticket/AlphaTransColorCutout" {
             };
 
             fixed4 _Color;
-            fixed4 _TransparentColor;
-            half _Threshold;
+            //fixed4 _TransparentColor;
+            //half _Threshold;
 			half _Alpha;
 			half4 _AlphaOffset;
 			
@@ -54,13 +54,13 @@ Shader "Paperticket/AlphaTransColorCutout" {
 				float2 alphaUV = IN.uv_MainTex;
 				alphaUV.x = alphaUV.x + _AlphaOffset.x;
 				alphaUV.y = alphaUV.y + _AlphaOffset.y;
-				float alpha = tex2D(_MainTex, alphaUV).r;
+				float alphaCutout = tex2D(_MainTex, alphaUV).r;
 
                 //output albedo and alpha just like a normal shader
                 //o.Albedo = output_col.rgb;
                 o.Emission = output_col.rgb;
 				//o.texcoord.xy = i.texcoord.xy + frac(_Time.y * float2(_speedX, _speedY));
-				o.Alpha = alpha; // _Alpha; // output_col.a;
+				o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;
 				
 
             }
