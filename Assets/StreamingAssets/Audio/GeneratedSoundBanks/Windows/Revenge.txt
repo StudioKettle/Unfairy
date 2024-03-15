@@ -3,7 +3,10 @@ Event	ID	Name			Wwise Object Path	Notes
 	1847723629	Revenge_Event_ToothfairyMsg			\Default Work Unit\5_Revenge\Revenge_Event_ToothfairyMsg	
 	2584009824	Revenge_Ambient_Video			\Default Work Unit\5_Revenge\Revenge_Ambient_Video	
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3111836245	Global_RTPC_SceneVolume			\Default Work Unit\Global_RTPC_SceneVolume	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	705841554	Revenge BAz_Linear _need start TC	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revenge BAz_Linear _need start TC_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge BAz_Linear _need start TC		4623168
+	705841554	Revenge BAz_Linear _need start TC	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revenge BAz_Linear _need start TC_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Mixer_Earpiece\Revenge BAz_Linear _need start TC		4623168
 	804962809	Revenge240208_TEMPMIX	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revenge240208_TEMPMIX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\Revenge240208_TEMPMIX		14154336
 

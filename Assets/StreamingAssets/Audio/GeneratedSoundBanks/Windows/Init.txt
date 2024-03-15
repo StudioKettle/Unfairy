@@ -2,6 +2,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
 	841620460	Concrete			\Factory Acoustic Textures\Textures\Concrete	
+	1174557332	Global_RTPC_EarpiecePan			\Default Work Unit\Global_RTPC_EarpiecePan	
 	1755085759	Wood_Deep			\Factory Acoustic Textures\Textures\Wood_Deep	
 	1873957695	Anechoic			\Factory Acoustic Textures\Textures\Anechoic	
 	1970351858	Fabric			\Factory Acoustic Textures\Textures\Fabric	
@@ -11,13 +12,19 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
 	3195498748	Cork_Tiles			\Factory Acoustic Textures\Textures\Cork_Tiles	
 	3670307564	Drywall			\Factory Acoustic Textures\Textures\Drywall	
-	3991467910	RTPC_EarpiecePan			\Default Work Unit\RTPC_EarpiecePan	
 	4168643977	Acoustic_Banner			\Factory Acoustic Textures\Textures\Acoustic_Banner	
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	429516560	Bus_RockMusic			\Default Work Unit\Bus_Master\Bus_RockMusic	
 	673085190	Bus_Earpiece			\Default Work Unit\Bus_Master\Bus_Earpiece	
 	3964155266	Bus_Master			\Default Work Unit\Bus_Master	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	332260826	AuxBus_RockMusicFX			\Default Work Unit\Bus_Master\Bus_RockMusic\AuxBus_RockMusicFX	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1259256166	New_RoomVerb	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

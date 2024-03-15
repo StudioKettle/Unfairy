@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.173648, g: 0.2170949, b: 0.29921225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1896,6 +1896,11 @@ MonoBehaviour:
   playerRig: {fileID: 622211335}
   headGfx: {fileID: 750418}
   globalAudioSource: {fileID: 1660246117}
+  globalVolumeRTPC:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c20b2f5694b55664d9a4693ed998129a,
+      type: 2}
   masterMixerName: CareplaysMaster
   shakeTransformCurve:
     serializedVersion: 2

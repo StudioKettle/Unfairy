@@ -28,6 +28,7 @@ namespace Paperticket {
         public XROrigin playerRig = null;
         public SpriteRenderer headGfx = null;
         public AudioSource globalAudioSource = null;
+        public AK.Wwise.RTPC globalVolumeRTPC = null;
 
 
         [Header("CONTROLS")]        
@@ -400,12 +401,42 @@ namespace Paperticket {
 
 
 
+
+        /// <summary>
+        /// Post a wwise audio event
+        /// </summary>
+        /// <param name="audioEvent">The event to post</param>
+        /// <param name="go">The object to post the event on</param>
         public void PostAudioEvent(AK.Wwise.Event audioEvent, GameObject go) {
             audioEvent.Post(go);
         }
 
+        /// <summary>
+        /// Set a wwise audio switch value
+        /// </summary>
+        /// <param name="audioSwitch">The switch to set</param>
+        /// <param name="go">The object to post the event on</param>
         public void SetAudioSwitch(AK.Wwise.Switch audioSwitch, GameObject go) {
             audioSwitch.SetValue(go);
+        }
+
+        /// <summary>
+        /// Set a wwise audio RTPC value on a gameobject
+        /// </summary>
+        /// <param name="audioRTPC">The RTPC to set</param>
+        /// <param name="value">The value to set the RTPC to</param>
+        /// <param name="go">The object to set the RTPC on</param>
+        public void SetAudioRTPC(AK.Wwise.RTPC audioRTPC, float value, GameObject go) {
+            audioRTPC.SetValue(go, value);
+        }
+
+        /// <summary>
+        /// Set a wwise audio RTPC value globally
+        /// </summary>
+        /// <param name="audioRTPC">The RTPC to set</param>
+        /// <param name="value">The value to set the RTPC to</param>
+        public void SetAudioRTPC(AK.Wwise.RTPC rTPC, float value) {
+            rTPC.SetGlobalValue(value);
         }
 
         #endregion
@@ -996,7 +1027,29 @@ namespace Paperticket {
             if (_Debug) Debug.Log("Finished fading mixer '" + mixer.name + "', newDB = " + targetDB);
         }
 
+        // Helper coroutine for fading wwise RTPC globally
+        public IEnumerator FadeAudioRTPCTo(AK.Wwise.RTPC audioRTPC, float targetValue, float duration, TimeScale timeScale) {
+            float value = audioRTPC.GetGlobalValue();
 
+            for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                float newValue = Mathf.Lerp(value, targetValue, t);
+                audioRTPC.SetGlobalValue(newValue);
+                yield return null;
+            }
+            audioRTPC.SetGlobalValue(targetValue);
+        }
+
+        // Helper coroutine for fading wwise RTPC per gameobject
+        public IEnumerator FadeAudioRTPCTo(AK.Wwise.RTPC audioRTPC, GameObject go, float targetValue, float duration, TimeScale timeScale) {
+            float value = audioRTPC.GetValue(go);
+
+            for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                float newValue = Mathf.Lerp(value, targetValue, t);
+                audioRTPC.SetValue(go, newValue);
+                yield return null;
+            }
+            audioRTPC.SetValue(go, targetValue);
+        }
 
 
         // Helper coroutine for moving a transform
@@ -1205,6 +1258,46 @@ namespace Paperticket {
 
             if (_Debug) Debug.Log("FadeAudioListenerTo Finished");
             fadingAudioListener = false;
+        }
+
+
+
+        Coroutine fadingGlobalVolumeRTPCCo;
+
+        /// <summary>
+        /// Fades the global volume wwise RTPC to the target value over the duration
+        /// </summary>
+        /// <param name="volume">The target volume to fade to</param>
+        /// <param name="duration">The duration of the fade in seconds</param>
+        public void FadeGlobalVolumeRTPC(float volume, float duration, TimeScale timeScale) {
+
+            // If an audio listener fade is already happening, cancel it and start the new one
+            if (fadingGlobalVolumeRTPCCo != null) StopCoroutine(fadingGlobalVolumeRTPCCo);
+            fadingGlobalVolumeRTPCCo = StartCoroutine(FadingGlobalVolumeRTPC(volume, duration, timeScale));
+
+        }
+
+
+        // Helper coroutine for fading audio listener volume
+        IEnumerator FadingGlobalVolumeRTPC(float targetVolume, float duration, TimeScale timeScale) {
+
+
+            float volume = globalVolumeRTPC.GetGlobalValue();
+            //float volume = globalVolumeRTPC.GetValue(gameObject);
+            if (_Debug) Debug.Log("FadingGlobalVolumeRTPC Starting");
+
+            for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                float newVolume = Mathf.Lerp(volume, targetVolume, t);
+                globalVolumeRTPC.SetGlobalValue(newVolume);
+                //globalVolumeRTPC.SetValue(gameObject, newVolume);
+
+                if (_Debug) Debug.Log("Global Volume RTPC = " + globalVolumeRTPC.GetGlobalValue());
+                yield return null;
+            }
+            globalVolumeRTPC.SetGlobalValue(targetVolume); 
+            //globalVolumeRTPC.SetValue(gameObject, targetVolume);
+
+            if (_Debug) Debug.Log("FadingGlobalVolumeRTPC Finished");
         }
 
 

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1309ca45dc24e6042bb76a03165568d0, type: 3}
   m_Name: 4928D479-4F7F-4C9F-BC4A-3ABE0D9AB69F
   m_EditorClassIdentifier: 
-  objectName: Bottle_Ambient_BG
-  id: 3645114694
+  objectName: Bottle_Event_Exterior_BG
+  id: 3250719129
   guid: 4928D479-4F7F-4C9F-BC4A-3ABE0D9AB69F

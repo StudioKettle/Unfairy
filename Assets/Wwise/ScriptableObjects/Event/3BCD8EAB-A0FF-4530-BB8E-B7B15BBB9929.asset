@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1309ca45dc24e6042bb76a03165568d0, type: 3}
   m_Name: 3BCD8EAB-A0FF-4530-BB8E-B7B15BBB9929
   m_EditorClassIdentifier: 
-  objectName: Bottle_Event_BazSection2_Stop
-  id: 48704990
+  objectName: Bottle_Event_Earpiece_BazSection2_Stop
+  id: 942500293
   guid: 3BCD8EAB-A0FF-4530-BB8E-B7B15BBB9929

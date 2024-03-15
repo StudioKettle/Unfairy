@@ -8,9 +8,21 @@ using UnityEngine.Rendering.PostProcessing;
 using TMPro;
 using Paperticket;
 
+
+namespace Paperticket {
+
+    [System.Serializable] public class BoolRefEvent : UnityEvent2<bool> { }
+    [System.Serializable] public class FloatRefEvent : UnityEvent2<float> { }
+    [System.Serializable] public class IntRefEvent : UnityEvent2<int> { }
+    [System.Serializable] public class StringRefEvent : UnityEvent2<string> { }
+    [System.Serializable] public class GameObjectRefEvent : UnityEvent2<GameObject> { }
+    [System.Serializable] public class TransformRefEvent : UnityEvent2<Transform> { }
+
+}
+
+
 public class UnusedClass {
-
-
+    
     private UpdatableInvokableCall<string, float> _stringFloat;
     private UpdatableInvokableCall<Hand, float, float> _handFloatFloat;
     private UpdatableInvokableCall<Hand, LayerMask> _handLayermask;

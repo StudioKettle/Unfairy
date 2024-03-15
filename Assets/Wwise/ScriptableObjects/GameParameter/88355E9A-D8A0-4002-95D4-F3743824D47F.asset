@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3244305f176bfcd40afb977e70130878, type: 3}
   m_Name: 88355E9A-D8A0-4002-95D4-F3743824D47F
   m_EditorClassIdentifier: 
-  objectName: Main_RTPC_EarpiecePan
-  id: 1158455634
+  objectName: Global_RTPC_EarpiecePan
+  id: 1174557332
   guid: 88355E9A-D8A0-4002-95D4-F3743824D47F

@@ -1,14 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
-	1338429696	Main_Ambi_Pink_PosOri			\Default Work Unit\1_Main\Main_Ambi_Pink_PosOri	
-	1630103680	Test_Duck_Play			\Default Work Unit\Test_Old\Test_Duck_Play	
-	2109968806	Main_Ambi_Pink_Listener			\Default Work Unit\1_Main\Main_Ambi_Pink_Listener	
-	2617020722	Main_Event_RajSection4			\Default Work Unit\1_Main\Main_Event_RajSection4	
-	2971796700	Main_Ambi_Pink_Pos			\Default Work Unit\1_Main\Main_Ambi_Pink_Pos	
 	3375218391	Main_Event_BazSection1			\Default Work Unit\1_Main\Main_Event_BazSection1	
+	3572312364	Main_Collision_Cardboard			\Default Work Unit\1_Main\Main_Collision_Cardboard	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	209974336	25_MX_MAL_DUCK 1	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\25_MX_MAL_DUCK 1		34528
-	519569679	Raj_aysha_Section4_V1_Transition	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Raj_aysha_Section4_V1_Transition_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Raj_aysha_Section4_V1_Transition		2703456
-	775119477	Bottle_BAZ 3_Here she comes to bracing for impact_01	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_72CB90BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Bottle_BAZ 3_Here she comes to bracing for impact_01		881094
-	924388039	PINK CENTER_Pos	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\PINK CENTER1_DAC62D07.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\PINK CENTER_Pos		23297376
+	775119477	Bottle_BAZ 3_Here she comes to bracing for impact_01	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_72CB90BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Main_Mixer_BottleToWFC\Bottle_BAZ 3_Here she comes to bracing for impact_01		881094
 

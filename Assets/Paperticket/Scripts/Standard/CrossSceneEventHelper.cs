@@ -775,6 +775,7 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void PostAudioEvent(string audioEvent, GameObject go) {
         AkSoundEngine.PostEvent(audioEvent, go);
     }
+
     public void PostAudioEventOnController(AK.Wwise.Event audioEvent, ControllerType type) {
         GameObject go = null;
         switch (type) {
@@ -819,8 +820,9 @@ public class CrossSceneEventHelper : MonoBehaviour {
     }
 
 
+
     public void SetAudioSwitch(AK.Wwise.Switch audioSwitch, GameObject go) {
-        PTUtilities.instance.SetAudioSwitch(audioSwitch, go);  
+        PTUtilities.instance.SetAudioSwitch(audioSwitch, go);
     }
     public void SetAudioSwitch(string switchGroup, string switchState, GameObject go) {
         AkSoundEngine.SetSwitch(switchGroup, switchState, go);
@@ -871,6 +873,85 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
 
 
+    public void SetAudioRTPC(AK.Wwise.RTPC audioRTPC, float value) {
+        PTUtilities.instance.SetAudioRTPC(audioRTPC, value);
+    }
+    public void SetAudioRTPC(AK.Wwise.RTPC audioRTPC, float value, GameObject go) {
+        PTUtilities.instance.SetAudioRTPC(audioRTPC, value, go);
+    }
+    public void SetAudioRTPC(string audioRTPC, float value, GameObject go) {
+        AkSoundEngine.SetRTPCValue(audioRTPC, value, go);
+    }
+
+    public void SetAudioRTPCOnController(AK.Wwise.RTPC audioRTPC, float value, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not SetAudioRTPCOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
+        PTUtilities.instance.SetAudioRTPC(audioRTPC, value, go);
+    }
+    public void SetAudioRTPCOnController(string audioRTPC, float value, ControllerType type) {
+        GameObject go = null;
+        switch (type) {
+            case ControllerType.LeftHand:
+                go = PTUtilities.instance.leftController.gameObject;
+                break;
+            case ControllerType.RightHand:
+                go = PTUtilities.instance.rightController.gameObject;
+                break;
+            case ControllerType.Head:
+                go = PTUtilities.instance.headProxy.gameObject;
+                break;
+            default:
+                break;
+        }
+        if (go == null) {
+            Debug.LogError("[CrossSceneEventHelper] ERROR -> Could not SetAudioRTPCOnController due to bad ControllerType! Cancelling.");
+            return;
+        }
+        AkSoundEngine.SetRTPCValue(audioRTPC, value, go);
+    }
+
+
+
+
+    public void FadeAudioRTPC(AK.Wwise.RTPC audioRTPC, float targetValue, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAudioRTPCTo(audioRTPC, targetValue, duration, TimeScale.Scaled));
+    }
+    public void FadeAudioRTPC(AK.Wwise.RTPC audioRTPC, GameObject go, float targetValue, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAudioRTPCTo(audioRTPC, go, targetValue, duration, TimeScale.Scaled));
+    }
+
+    public void UnscaledFadeAudioRTPC(AK.Wwise.RTPC audioRTPC, float targetValue, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAudioRTPCTo(audioRTPC, targetValue, duration, TimeScale.Unscaled));
+    }
+    public void UnscaledFadeAudioRTPC(AK.Wwise.RTPC audioRTPC, GameObject go, float targetValue, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeAudioRTPCTo(audioRTPC, go, targetValue, duration, TimeScale.Unscaled));
+    }
+
+
+
+
+    public void FadeGlobalVolumeRTPC(float targetVolume, float duration) {
+        PTUtilities.instance.FadeGlobalVolumeRTPC(targetVolume, duration, TimeScale.Scaled);
+    }
+    public void UnscaledFadeAudioRTPC(float targetVolume, float duration) {
+        PTUtilities.instance.FadeGlobalVolumeRTPC(targetVolume, duration, TimeScale.Unscaled);
+    }
 
     #endregion
 

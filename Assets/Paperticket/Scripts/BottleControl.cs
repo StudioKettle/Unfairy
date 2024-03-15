@@ -14,13 +14,13 @@ public class BottleControl : MonoBehaviour {
     [Header("REFERENCES")]
     [SerializeField] VideoController videoController = null;
     [SerializeField] VideoClip bottleVideo = null;
+    [Space(5)]
+    [SerializeField] AK.Wwise.RTPC rTPC_EarpiecePan = null;
     [Space(10)]
     [Header("CONTROLS")]
     [SerializeField] float bazAudio4Marker = 4;
     [SerializeField] float bazAudio4Delay = 3;
     [SerializeField] UnityEvent2 bazAudio4Event = null;
-    [Space(5)]
-    [SerializeField] AK.Wwise.RTPC rTPC_EarpiecePan = null;
     
 
     //[SerializeField] AK.Wwise.Event bottleAudio = null;//
@@ -66,14 +66,22 @@ public class BottleControl : MonoBehaviour {
     }
 
 
-    public void StartBazAudio4() {
-        StartCoroutine(WaitingForBazAudio4());
+    public void StartBazAudio4(Transform earpiece) {
+        StartCoroutine(WaitingForBazAudio4(earpiece));
     }
 
-    IEnumerator WaitingForBazAudio4() {
+    IEnumerator WaitingForBazAudio4(Transform earpiece) {
 
+        // Offset based on where in the video loop we are
         if (videoController.currentVideoTime < bazAudio4Marker) {
             yield return new WaitForSeconds(bazAudio4Delay);
+        }
+
+        // Work out which side to pan earpiece audio
+        if (PTUtilities.instance.headProxy.InverseTransformPoint(earpiece.position).x < 0) {
+            SetEarpiecePan(Panning.Left);
+        } else {
+            SetEarpiecePan(Panning.Right);
         }
 
         if (bazAudio4Event != null) bazAudio4Event.Invoke();
