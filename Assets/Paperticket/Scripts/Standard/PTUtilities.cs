@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.XR;
+using UnityEngine.XR.Management;
 using Unity.XR.CoreUtils;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
@@ -20,7 +21,6 @@ namespace Paperticket {
     public enum Hand { Left, Right, Both }
 
     public class PTUtilities : MonoBehaviour {
-        //enum Handedness { Left, Right, Both }
 
         public static PTUtilities instance = null;
 
@@ -31,9 +31,11 @@ namespace Paperticket {
         public AK.Wwise.RTPC globalVolumeRTPC = null;
 
 
-        [Header("CONTROLS")]        
+        [Header("CONTROLS")]
         [Space(10)]
-        public string masterMixerName = "CareplaysMaster";
+        //public string masterMixerName = "CareplaysMaster";
+        //[Space(5)]
+        [SerializeField] float boundaryFetchTimeout = 5;
         [Space(5)]
         [SerializeField] AnimationCurve shakeTransformCurve = AnimationCurve.Linear(0, 0, 1, 1);
         [Space(5)]
@@ -41,8 +43,10 @@ namespace Paperticket {
         public AnimationCurve easeOutCurve = AnimationCurve.Linear(0, 0, 1, 1);
         [Space(5)]
         //[SerializeField] AnimationCurve audioMixerRolloff;
-        [SerializeField] bool _Debug = false;
-
+        [SerializeField] bool debugging = false;
+        [SerializeField] bool showGizmos = false;
+        [SerializeField] float gizmoSize = 1;
+        [SerializeField][Range(0,1)] float gizmoOpacity = 1;
 
 
         [Header("LIVE VARIABLES")]
@@ -51,9 +55,9 @@ namespace Paperticket {
         [Space(5)]
         public XRController leftController = null;
         public XRController rightController = null;
-        [Space(5)]
-        XRRayInteractor rightRayInteractor = null;
-        XRInteractorLineVisual rightRayVisual = null;
+        //[Space(5)]
+        //XRRayInteractor rightRayInteractor = null;
+        //XRInteractorLineVisual rightRayVisual = null;
         [Space(5)]
         public bool ControllerTriggerButton = false;
         public bool ControllerPrimaryButton = false;
@@ -64,12 +68,16 @@ namespace Paperticket {
         public Vector3 ControllerAcceleration = Vector3.zero;
         public Vector3 ControllerAngularAcceleration = Vector3.zero;
         [Space(5)]
-        public AudioMixer audioMaster = null;
+        public List<Vector3> BoundaryPoints = new List<Vector3>();
+        //[Space(5)]
+        //public AudioMixer audioMaster = null;
 
 
-        [HideInInspector] public bool SetupComplete = false;        
+        [HideInInspector] public bool SetupComplete = false;
 
 
+        private XRInputSubsystem xRInputSubSystem = null;
+        private Mesh boundaryMesh = null;
 
 
         #region Public variables
@@ -90,24 +98,25 @@ namespace Paperticket {
             return new Vector3(0, headProxy.rotation.eulerAngles.y, 0);
         }
 
-        public bool ControllerBeamActive {
-            get {
-                return rightRayInteractor.enabled;
-            }
-            set {
-                rightRayInteractor.enabled = value;
-                rightRayVisual.enabled = value;
-            }
-        }
 
-        public LayerMask ControllerBeamLayerMask {
-            get {
-                return rightRayInteractor.raycastMask;
-            }
-            set {
-                rightRayInteractor.raycastMask = value;
-            }
-        }
+        //public bool ControllerBeamActive {
+        //    get {
+        //        return rightRayInteractor.enabled;
+        //    }
+        //    set {
+        //        rightRayInteractor.enabled = value;
+        //        rightRayVisual.enabled = value;
+        //    }
+        //}
+
+        //public LayerMask ControllerBeamLayerMask {
+        //    get {
+        //        return rightRayInteractor.raycastMask;
+        //    }
+        //    set {
+        //        rightRayInteractor.raycastMask = value;
+        //    }
+        //}
 
         public float TimeScale {
             get {
@@ -116,7 +125,7 @@ namespace Paperticket {
             set {
                 Time.timeScale = value;
                 Time.fixedDeltaTime = fixedTimeScaleDefault * Time.timeScale;
-                if (_Debug) Debug.Log("[PTUtilities] Time scale set to: " + Time.timeScale + "\n Fixed Deltatime set to: "+Time.fixedDeltaTime);
+                if (debugging) Debug.Log("[PTUtilities] Time scale set to: " + Time.timeScale + "\n Fixed Deltatime set to: "+Time.fixedDeltaTime);
             }
         }
 
@@ -124,6 +133,8 @@ namespace Paperticket {
 
 
         public static event Action OnSetupComplete = delegate { };
+
+
 
         #endregion
 
@@ -146,7 +157,7 @@ namespace Paperticket {
             
         }
         IEnumerator Setup() {
-            if (_Debug) Debug.Log("[PTUtilities] Starting setup...");
+            if (debugging) Debug.Log("[PTUtilities] Starting setup...");
 
             // Make sure our player rig is defined
             while (playerRig == null) {
@@ -154,77 +165,66 @@ namespace Paperticket {
                 yield return null;
             }
 
+            // Grab the inputsubsystem for getting play area boundary            
+            float timeSpentHere = 0;
+            while (xRInputSubSystem == null) {
+                // Timeout if its been too long (since boundary isnt necessary for testing)
+                if (timeSpentHere > boundaryFetchTimeout) {
+                    Debug.LogError("[PTUtilities] ERROR -> Could not find XRInputSubSystem for play area boundary. Ignoring");
+                    break;
+                }
+
+                if (debugging) Debug.Log("[PTUtilities] Looking for XRInputSubSystem for play area boundary...");
+                var loader = XRGeneralSettings.Instance?.Manager?.activeLoader;
+                if (loader != null) xRInputSubSystem = loader.GetLoadedSubsystem<XRInputSubsystem>();
+
+                if (xRInputSubSystem == null) Debug.LogWarning("[PTUtilities] WARNING -> No XRInputSubSystem found yet, gonna keep trying but this is unusual...");                    
+                yield return null;
+                timeSpentHere += Time.deltaTime;
+            }
+            if (xRInputSubSystem != null) {
+                xRInputSubSystem.boundaryChanged += RefreshBoundaries;
+                if (debugging) Debug.Log("[PTUtilities] XRInputSubSystem for play area boundary found!");
+            }
 
             // Grab the player's head camera            
             while (headProxy == null) {
-                if (_Debug) Debug.Log("[PTUtilities] Looking for Head Proxy object...");
+                if (debugging) Debug.Log("[PTUtilities] Looking for Head Proxy object...");
                 headProxy = playerRig.Camera.transform;
                 yield return null;
                 //enabled = false;
             }
-            if (_Debug) Debug.Log("[PTUtilities] Head Proxy found!");
+            if (debugging) Debug.Log("[PTUtilities] Head Proxy found!");
 
 
             // Grab the right controller
             while (rightController == null) {
-                if (_Debug) Debug.Log("[PTUtilities] Looking for Right Controller object...");
+                if (debugging) Debug.Log("[PTUtilities] Looking for Right Controller object...");
                 foreach (XRController cont in playerRig.GetComponentsInChildren<XRController>()) {
                     if (cont.controllerNode == XRNode.RightHand) rightController = cont;
                 }
                 yield return null;
             }
-            if (_Debug) Debug.Log("[PTUtilities] Right Controller found!");
+            if (debugging) Debug.Log("[PTUtilities] Right Controller found!");
 
             // Grab the left controller
             while (leftController == null) {
-                if (_Debug) Debug.Log("[PTUtilities] Looking for Left Controller object...");
+                if (debugging) Debug.Log("[PTUtilities] Looking for Left Controller object...");
                 foreach (XRController cont in playerRig.GetComponentsInChildren<XRController>()) {
                     if (cont.controllerNode == XRNode.LeftHand) leftController = cont;
                 }
                 yield return null;
             }
-            if (_Debug) Debug.Log("[PTUtilities] Left Controller found!");
+            if (debugging) Debug.Log("[PTUtilities] Left Controller found!");
+                      
+                        
 
-            //// Grab the right controller's XR ray interactor            
-            //while (rightRayInteractor == null) {
-            //    if (_Debug) Debug.Log("[PTUtilities] Looking for Right Ray Interactor object...");
-            //    rightRayInteractor = rightController.GetComponent<XRRayInteractor>();
-            //    yield return null;
-            //}
-            //if (_Debug) Debug.Log("[PTUtilities] Right Ray Interactor found!");
-
-            //// Grab the right controller's XR ray visual          
-            //while (rightRayVisual == null) {
-            //    if (_Debug) Debug.Log("[PTUtilities] Looking for Right Ray Visual object...");
-            //    rightRayVisual = rightController.GetComponent<XRInteractorLineVisual>();
-            //    yield return null;
-            //}
-            //if (_Debug) Debug.Log("[PTUtilities] Right Ray Visual found!");
-
-
-            /// NOTE: Re-enable this when DataUtilities is implemented
-            //// Grab the audio mixer after the Main bundle has been loaded
-            //while (audioMaster == null) {
-            //    if (_Debug) Debug.Log("[PTUtilities] Looking for Audio Master mixer object...");
-            //    if (DataUtilities.instance.finishedInitialising) {
-
-            //        // Load the asset from the Main bundle and wait until it's finished
-            //        var assetLoadRequest = DataUtilities.instance.mainBundle.LoadAssetAsync<AudioMixer>(masterMixerName);
-            //        yield return assetLoadRequest;
-
-            //        // Save the asset as an audio mixer
-            //        audioMaster = assetLoadRequest.asset as AudioMixer;
-            //    } 
-            //    yield return null;
-            //}
-            //if (_Debug) Debug.Log("[PTUtilities] Audio Master mixer found!");
-
-            // Grab the original fixed delta time for hen we are applying changes to time scale
+            // Grab the original fixed delta time for when we are applying changes to time scale
             fixedTimeScaleDefault = Time.fixedDeltaTime;
 
             // Finish setup
             SetupComplete = true;
-            if (_Debug) Debug.Log("[PTUtilities] Setup complete!");
+            if (debugging) Debug.Log("[PTUtilities] Setup complete!");
 
             if (OnSetupComplete != null) OnSetupComplete.Invoke();
         }
@@ -279,7 +279,7 @@ namespace Paperticket {
             if (rightController.inputDevice.TryGetFeatureValue(CommonUsages.triggerButton, out ControllerTriggerButton) && ControllerTriggerButton) {                
                 if (!lastTriggerState) {
                     // send event          
-                    if (_Debug) Debug.Log("[PTUtilities] Trigger button was just pressed.");
+                    if (debugging) Debug.Log("[PTUtilities] Trigger button was just pressed.");
                 }
             }
             lastTriggerState = ControllerTriggerButton;
@@ -288,7 +288,7 @@ namespace Paperticket {
             if (rightController.inputDevice.TryGetFeatureValue(CommonUsages.primaryButton, out ControllerPrimaryButton) && ControllerPrimaryButton) {
                 if (!lastPrimaryState) {
                     // send event          
-                    if (_Debug) Debug.Log("[PTUtilities] Primary button was just pressed.");
+                    if (debugging) Debug.Log("[PTUtilities] Primary button was just pressed.");
                 }
             }
             lastPrimaryState = ControllerPrimaryButton;
@@ -297,11 +297,29 @@ namespace Paperticket {
             if (leftController.inputDevice.TryGetFeatureValue(CommonUsages.menuButton, out ControllerMenuButton) && ControllerMenuButton) {
                 if (!lastMenuState) {
                     // send event          
-                    if (_Debug) Debug.Log("[PTUtilities] Menu button was just pressed.");
+                    if (debugging) Debug.Log("[PTUtilities] Menu button was just pressed.");
                 }
             }
             lastMenuState = ControllerMenuButton;
 
+        }
+
+
+        private void OnDrawGizmos() {
+            if (showGizmos && Application.isPlaying) {
+                if (BoundaryPoints == null) { Debug.LogWarning("[PTUtilities] BoundaryPoints is null! Cannot draw gizmos."); return; }
+                if (BoundaryPoints.Count == 0) { Debug.LogWarning("[PTUtilities] Zero BoundaryPoints! Cannot draw gizmos."); return; }
+
+                Gizmos.color = Color.red;
+                foreach (Vector3 point in BoundaryPoints) {
+                    Gizmos.DrawSphere(point, 0.1f * gizmoSize);
+                }
+
+                Gizmos.color = Color.magenta.WithAlpha(gizmoOpacity);
+                Gizmos.DrawWireMesh(boundaryMesh, playerRig.transform.position, playerRig.transform.rotation);
+                Gizmos.color = Color.magenta.WithAlpha(0.5f * gizmoOpacity);
+                Gizmos.DrawMesh(boundaryMesh, playerRig.transform.position, playerRig.transform.rotation);
+            }
         }
 
         #endregion
@@ -349,12 +367,73 @@ namespace Paperticket {
             else TeleportPlayer(target.position);
         }
 
+        public void SmartTeleportPlayer(Vector3 position) {
+            // Get vector to closest boundary wall (real)
+            // Get vector to closest level margin (unity)
+            // Place rig to align player pos + rot between real and unity
+        }
+
+        /// <summary>
+        /// Refresh the play area boundaries (mainly done automatically but can be triggered if want)
+        /// </summary>
+        /// <param name="inputSubsystem">The XRInputSubsystem to check again - should be set automatically but you do you</param>
+        public void RefreshBoundaries(XRInputSubsystem inputSubsystem) {
+            inputSubsystem = xRInputSubSystem ?? inputSubsystem;
+            if (inputSubsystem == null) { Debug.LogError("[PTUtilities] ERROR -> Tried to refresh play area boundary but no XRInputSubsystem could be found! Ignoring."); return; }
+            
+            List<Vector3> currentBoundaries = new List<Vector3>();
+            if (inputSubsystem.TryGetBoundaryPoints(currentBoundaries)) {
+                if (currentBoundaries == null) { Debug.LogWarning("[PTUtilities] Tried to refresh play area boundary but no points found? Weird, ignoring."); return; }
+
+                // Update the boundaries only if the points (or the number of points) actually changed
+                if (BoundaryPoints != currentBoundaries || BoundaryPoints.Count != currentBoundaries.Count) {
+                    BoundaryPoints = currentBoundaries;
+                    UpdateBoundaryMesh();
+                    Debug.Log("[PTUtilities] Play area boundary successfully updated!");
+                }
+            } else { Debug.LogError("[PTUtilities] ERROR -> Tried to refresh play area boundary but could not find any points! Ignoring."); return; }
+        }
+        void UpdateBoundaryMesh() {
+            Vector3[] vertices = {
+                        BoundaryPoints[0],
+                        BoundaryPoints[1],
+                        BoundaryPoints[1].WithY(2),
+                        BoundaryPoints[0].WithY(2),
+                        BoundaryPoints[3].WithY(2),
+                        BoundaryPoints[2].WithY(2),
+                        BoundaryPoints[2],
+                        BoundaryPoints[3],
+                    };
+
+            int[] triangles = {
+                        0, 2, 1, //face front
+			            0, 3, 2,
+                        2, 3, 4, //face top
+			            2, 4, 5,
+                        1, 2, 5, //face right
+			            1, 5, 6,
+                        0, 7, 4, //face left
+			            0, 4, 3,
+                        5, 4, 7, //face back
+			            5, 7, 6,
+                        0, 6, 7, //face bottom
+			            0, 1, 6
+                    };
+
+            if (boundaryMesh == null) boundaryMesh = new Mesh();
+            else boundaryMesh.Clear();
+            boundaryMesh.vertices = vertices;
+            boundaryMesh.triangles = triangles;
+            boundaryMesh.Optimize();
+            boundaryMesh.RecalculateNormals();
+        }
+
 
 
         HapticCapabilities capabilities;
 
         public void DoHaptics( Hand hand, float strength, float duration ) {
-            if (_Debug) Debug.Log("[PTUTilities] Starting haptics on '"+hand.ToString()+"' hand(s). Strength = " + strength + ", duration = " + duration);
+            if (debugging) Debug.Log("[PTUTilities] Starting haptics on '"+hand.ToString()+"' hand(s). Strength = " + strength + ", duration = " + duration);
 
             if (hand != Hand.Right) {
                 if (leftController.inputDevice.TryGetHapticCapabilities(out capabilities)) {
@@ -454,7 +533,7 @@ namespace Paperticket {
 
             if (sprite.color.a != targetAlpha) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Sprite " + sprite.name + " to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] Fading Sprite " + sprite.name + " to alpha " + targetAlpha);
 
                 if (!sprite.enabled) {
                     sprite.enabled = true;
@@ -472,10 +551,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Sprite " + sprite.name + " successfully faded to alpha " + alpha);
+                if (debugging) Debug.Log("[PTUtilities] Sprite " + sprite.name + " successfully faded to alpha " + alpha);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Sprite " + sprite.name + " already at alpha " + targetAlpha + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Sprite " + sprite.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
 
         }
@@ -484,7 +563,7 @@ namespace Paperticket {
 
             if (textmesh.color.a != targetAlpha) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading TextMesh " + textmesh.name + "to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] Fading TextMesh " + textmesh.name + "to alpha " + targetAlpha);
 
                 if (!textmesh.enabled) {
                     textmesh.enabled = true;
@@ -502,10 +581,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] TextMesh " + textmesh.name + "successfully faded to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] TextMesh " + textmesh.name + "successfully faded to alpha " + targetAlpha);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] TextMesh " + textmesh.name + " already at alpha " + targetAlpha + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] TextMesh " + textmesh.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
 
         }
@@ -524,7 +603,7 @@ namespace Paperticket {
 
             if (col.a != targetAlpha) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + "to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + "to alpha " + targetAlpha);
 
                 if (!mRenderer.enabled) {
                     mRenderer.enabled = true;
@@ -544,10 +623,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded to alpha " + targetAlpha);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
         }
         // Helper coroutine for fading the alpha of mesh renderer
@@ -564,7 +643,7 @@ namespace Paperticket {
 
             if (col.a != targetAlpha) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + "to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + "to alpha " + targetAlpha);
 
                 if (!mRenderer.enabled) {
                     mRenderer.enabled = true;
@@ -584,10 +663,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded to alpha " + targetAlpha);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
         }
         // Helper coroutine for fading the alpha of an image
@@ -595,7 +674,7 @@ namespace Paperticket {
 
             if (image.color.a != targetAlpha) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Image " + image.name + " to alpha " + targetAlpha);
+                if (debugging) Debug.Log("[PTUtilities] Fading Image " + image.name + " to alpha " + targetAlpha);
 
                 if (!image.enabled) {
                     image.enabled = true;
@@ -613,10 +692,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Image " + image.name + " successfully faded to alpha " + alpha);
+                if (debugging) Debug.Log("[PTUtilities] Image " + image.name + " successfully faded to alpha " + alpha);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Image " + image.name + " already at alpha " + targetAlpha + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Image " + image.name + " already at alpha " + targetAlpha + ", cancelling fade");
             }
 
         }
@@ -627,7 +706,7 @@ namespace Paperticket {
 
             if (sprite.color != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Sprite " + sprite.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading Sprite " + sprite.name + "to color " + targetColor);
 
                 if (!sprite.enabled) {
                     sprite.enabled = true;
@@ -645,10 +724,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Sprite " + sprite.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] Sprite " + sprite.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Sprite " + sprite.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Sprite " + sprite.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -665,7 +744,7 @@ namespace Paperticket {
 
             if (mat.GetColor(propertyName) != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Sprite " + mRenderer.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading Sprite " + mRenderer.name + "to color " + targetColor);
 
                 if (!mRenderer.enabled) {
                     mRenderer.enabled = true;
@@ -685,10 +764,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -704,7 +783,7 @@ namespace Paperticket {
 
             if (mat.GetColor(propertyName) != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Sprite " + mRenderer.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading Sprite " + mRenderer.name + "to color " + targetColor);
 
                 if (!mRenderer.enabled) {
                     mRenderer.enabled = true;
@@ -724,10 +803,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -736,7 +815,7 @@ namespace Paperticket {
 
             if (textMesh.color != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Text " + textMesh.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading Text " + textMesh.name + "to color " + targetColor);
 
                 if (!textMesh.enabled) {
                     textMesh.enabled = true;
@@ -754,10 +833,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Text " + textMesh.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] Text " + textMesh.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Text " + textMesh.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Text " + textMesh.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -766,7 +845,7 @@ namespace Paperticket {
 
             if (image.color != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading Image " + image.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading Image " + image.name + "to color " + targetColor);
 
                 if (!image.enabled) {
                     image.enabled = true;
@@ -784,10 +863,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Image " + image.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] Image " + image.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Image " + image.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Image " + image.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -808,7 +887,7 @@ namespace Paperticket {
 
             if (currentValue != targetValue) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + " property '" + propertyName + "' to value " + targetValue);
+                if (debugging) Debug.Log("[PTUtilities] Fading MeshRenderer " + mRenderer.name + " property '" + propertyName + "' to value " + targetValue);
 
                 if (!mRenderer.enabled) {
                     mRenderer.enabled = true;
@@ -822,10 +901,10 @@ namespace Paperticket {
 
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded property '" + propertyName + "' to value " + targetValue);
+                if (debugging) Debug.Log("[PTUtilities] MeshRenderer " + mRenderer.name + " successfully faded property '" + propertyName + "' to value " + targetValue);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " property '" + propertyName + "' already at value " + targetValue + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] MeshRenderer " + mRenderer.name + " property '" + propertyName + "' already at value " + targetValue + ", cancelling fade");
             }
         }
 
@@ -875,7 +954,7 @@ namespace Paperticket {
 
             if (light.intensity != targetIntensity) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading light " + light.name + " to intensity " + targetIntensity);
+                if (debugging) Debug.Log("[PTUtilities] Fading light " + light.name + " to intensity " + targetIntensity);
 
                 if (!light.enabled) {
                     light.enabled = true;
@@ -893,10 +972,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + " successfully faded to intensity " + targetIntensity);
+                if (debugging) Debug.Log("[PTUtilities] Light " + light.name + " successfully faded to intensity " + targetIntensity);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at intensity " + targetIntensity + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at intensity " + targetIntensity + ", cancelling fade");
             }
 
         }
@@ -906,7 +985,7 @@ namespace Paperticket {
 
             if (light.range != targetRange) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Shifting light " + light.name + " to range " + targetRange);
+                if (debugging) Debug.Log("[PTUtilities] Shifting light " + light.name + " to range " + targetRange);
 
                 if (!light.enabled) {
                     light.enabled = true;
@@ -924,10 +1003,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + " successfully shifted to range " + targetRange);
+                if (debugging) Debug.Log("[PTUtilities] Light " + light.name + " successfully shifted to range " + targetRange);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at range " + targetRange + ", cancelling shift");
+                if (debugging) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at range " + targetRange + ", cancelling shift");
             }
 
         }
@@ -937,7 +1016,7 @@ namespace Paperticket {
 
             if (light.color != targetColor) {
 
-                if (_Debug) Debug.Log("[PTUtilities] Fading light " + light.name + "to color " + targetColor);
+                if (debugging) Debug.Log("[PTUtilities] Fading light " + light.name + "to color " + targetColor);
 
                 if (!light.enabled) {
                     light.enabled = true;
@@ -955,10 +1034,10 @@ namespace Paperticket {
                 }
                 yield return null;
 
-                if (_Debug) Debug.Log("[PTUtilities] Light " + light.name + "successfully faded to " + color);
+                if (debugging) Debug.Log("[PTUtilities] Light " + light.name + "successfully faded to " + color);
 
             } else {
-                if (_Debug) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at color " + targetColor + ", cancelling fade");
+                if (debugging) Debug.LogWarning("[PTUtilities] Light " + light.name + " already at color " + targetColor + ", cancelling fade");
             }
 
         }
@@ -981,53 +1060,54 @@ namespace Paperticket {
             }
 
         }
-        // Helper coroutine for fading the master audio mixer volume
-        public IEnumerator FadeAudioMasterTo( float targetVolume, float duration, TimeScale timeScale ) {
+        //// Helper coroutine for fading the master audio mixer volume
+        //public IEnumerator FadeAudioMasterTo( float targetVolume, float duration, TimeScale timeScale ) {
 
-            if (_Debug) Debug.Log("Fading master volume...");
+        //    if (_Debug) Debug.Log("Fading master volume...");
 
-            yield return FadeAudioMixerTo(audioMaster, "MasterVolume", targetVolume, duration, timeScale);
+        //    yield return FadeAudioMixerTo(audioMaster, "MasterVolume", targetVolume, duration, timeScale);
 
-            if (_Debug) Debug.Log("Finished fading master volume...");
+        //    if (_Debug) Debug.Log("Finished fading master volume...");
 
-            //audioMaster.GetFloat("MasterVolume", out float currentDB);
-            //float targetDB = (targetVolume - 1) * 80;
+        //    //audioMaster.GetFloat("MasterVolume", out float currentDB);
+        //    //float targetDB = (targetVolume - 1) * 80;
 
-            //if (_Debug) Debug.Log("Fading Master audio mixer, currentDB = "+currentDB+", targetDB = " + targetDB);
+        //    //if (_Debug) Debug.Log("Fading Master audio mixer, currentDB = "+currentDB+", targetDB = " + targetDB);
 
-            //for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration) {
-            //    float newDB = Mathf.Lerp(currentDB, targetDB, t);
-            //    audioMaster.SetFloat("MasterVolume", newDB);
-            //    if (_Debug) Debug.Log("MasterVolume = " + newDB);
-            //    yield return null;
-            //}
-            //audioMaster.SetFloat("MasterVolume", targetDB);
+        //    //for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration) {
+        //    //    float newDB = Mathf.Lerp(currentDB, targetDB, t);
+        //    //    audioMaster.SetFloat("MasterVolume", newDB);
+        //    //    if (_Debug) Debug.Log("MasterVolume = " + newDB);
+        //    //    yield return null;
+        //    //}
+        //    //audioMaster.SetFloat("MasterVolume", targetDB);
 
-            //if (_Debug) Debug.Log("Finished fading Master audio mixer, newDB = " + targetDB);
+        //    //if (_Debug) Debug.Log("Finished fading Master audio mixer, newDB = " + targetDB);
 
-        }
+        //}
 
         // Helper coroutine for fading an audio mixer parametre
-        public IEnumerator FadeAudioMixerTo( AudioMixer mixer, string floatName, float targetValue, float duration, TimeScale timeScale ) {
+        //public IEnumerator FadeAudioMixerTo( AudioMixer mixer, string floatName, float targetValue, float duration, TimeScale timeScale ) {
 
-            mixer.GetFloat(floatName, out float currentDB);
-            AnimationCurve volumeCurve = AnimationCurve.Linear(0, -80, 1, 2f);
-            float targetDB = volumeCurve.Evaluate(targetValue); // (targetValue - 1) * 80;
+        //    mixer.GetFloat(floatName, out float currentDB);
+        //    AnimationCurve volumeCurve = AnimationCurve.Linear(0, -80, 1, 2f);
+        //    float targetDB = volumeCurve.Evaluate(targetValue); // (targetValue - 1) * 80;
 
-            if (_Debug) Debug.Log("Fading mixer '" + mixer.name + "', currentDB = " + currentDB + ", targetDB = " + targetDB);
+        //    if (_Debug) Debug.Log("Fading mixer '" + mixer.name + "', currentDB = " + currentDB + ", targetDB = " + targetDB);
 
-            for (float t = 0.0f; t < 1.0f; t += timeScale==0?Time.deltaTime:Time.unscaledDeltaTime / duration) {
-                float newDB = Mathf.Lerp(currentDB, targetDB, t);
-                mixer.SetFloat(floatName, newDB);
-                //if (_Debug) Debug.Log(floatName + " = " + newDB);
-                yield return null;
-            }
-            audioMaster.SetFloat(floatName, targetDB);
+        //    for (float t = 0.0f; t < 1.0f; t += timeScale==0?Time.deltaTime:Time.unscaledDeltaTime / duration) {
+        //        float newDB = Mathf.Lerp(currentDB, targetDB, t);
+        //        mixer.SetFloat(floatName, newDB);
+        //        //if (_Debug) Debug.Log(floatName + " = " + newDB);
+        //        yield return null;
+        //    }
+        //    mixer.SetFloat(floatName, targetDB);
 
-            if (_Debug) Debug.Log("Finished fading mixer '" + mixer.name + "', newDB = " + targetDB);
-        }
+        //    if (_Debug) Debug.Log("Finished fading mixer '" + mixer.name + "', newDB = " + targetDB);
+        //}
 
         // Helper coroutine for fading wwise RTPC globally
+
         public IEnumerator FadeAudioRTPCTo(AK.Wwise.RTPC audioRTPC, float targetValue, float duration, TimeScale timeScale) {
             float value = audioRTPC.GetGlobalValue();
 
@@ -1059,7 +1139,7 @@ namespace Paperticket {
             Vector3 initialPos = target.localPosition;
             //float curveTime = shakeTransformCurve.keys[shakeTransformCurve.length - 1].time;
 
-            if (_Debug) Debug.Log("[PTUtilities] Moving transform " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Moving transform " + target.name);
 
             while (t < duration) {
                 yield return null;
@@ -1068,7 +1148,7 @@ namespace Paperticket {
             }
             target.localPosition = initialPos + moveAmount;
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished moving " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished moving " + target.name);
 
         }
         // Helper coroutine for moving a transform
@@ -1078,7 +1158,7 @@ namespace Paperticket {
             Vector3 initialPos = target.position;
             Vector3 matchPos = matchTransform.position;
 
-            if (_Debug) Debug.Log("[PTUtilities] Moving transform " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Moving transform " + target.name + " to match transform " + matchTransform.name);
 
             while (t < duration) {
                 yield return null;
@@ -1087,7 +1167,7 @@ namespace Paperticket {
             }
             target.position = matchPos;
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished moving " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished moving " + target.name + " to match transform " + matchTransform.name);
 
         }
         // Helper coroutine for rotating a transform
@@ -1096,7 +1176,7 @@ namespace Paperticket {
             float t = 0;
             Vector3 initialRot = target.localRotation.eulerAngles;
 
-            if (_Debug) Debug.Log("[PTUtilities] Rotating transform " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Rotating transform " + target.name);
 
             while (t < duration) {
                 yield return null;
@@ -1105,7 +1185,7 @@ namespace Paperticket {
             }
             target.localRotation = Quaternion.Euler(initialRot + rotateAmount);
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished rotating " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished rotating " + target.name);
 
         }
         // Helper coroutine for rotating a transform
@@ -1115,7 +1195,7 @@ namespace Paperticket {
             Quaternion initialRot = target.rotation;
             Quaternion matchRot = matchTransform.rotation;
 
-            if (_Debug) Debug.Log("[PTUtilities] Rotating transform " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Rotating transform " + target.name + " to match transform " + matchTransform.name);
 
             while (t < duration) {
                 yield return null;
@@ -1124,7 +1204,7 @@ namespace Paperticket {
             }
             target.rotation = matchRot;
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished rotating " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished rotating " + target.name + " to match transform " + matchTransform.name);
 
         }
         // Helper coroutine for scaling a transform
@@ -1135,7 +1215,7 @@ namespace Paperticket {
             Vector3 finalScale = Vector3.Scale(initialScale, scaleAmount);
             //float curveTime = shakeTransformCurve.keys[shakeTransformCurve.length - 1].time;
 
-            if (_Debug) Debug.Log("[PTUtilities] Scaling transform " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Scaling transform " + target.name);
 
             while (t < duration) {
                 yield return null;
@@ -1145,7 +1225,7 @@ namespace Paperticket {
             }
             target.localScale = finalScale;
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished scaling " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished scaling " + target.name);
 
         }
         // Helper coroutine for scaling a transform
@@ -1155,7 +1235,7 @@ namespace Paperticket {
             Vector3 initialScale = target.localScale;
             Vector3 matchScale = matchTransform.localScale;
 
-            if (_Debug) Debug.Log("[PTUtilities] Scaling transform " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Scaling transform " + target.name + " to match transform " + matchTransform.name);
 
             while (t < duration) {
                 yield return null;
@@ -1164,7 +1244,7 @@ namespace Paperticket {
             }
             target.localScale = matchScale;
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished scaling " + target.name + " to match transform " + matchTransform.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished scaling " + target.name + " to match transform " + matchTransform.name);
 
         }
 
@@ -1176,7 +1256,7 @@ namespace Paperticket {
             Vector3 initialRot = target.localRotation.eulerAngles;
             //float curveTime = shakeTransformCurve.keys[shakeTransformCurve.length - 1].time;
 
-            if (_Debug) Debug.Log("[PTUtilities] Shaking transform " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Shaking transform " + target.name);
 
             while (t < duration) {
                 yield return null;
@@ -1187,7 +1267,7 @@ namespace Paperticket {
             target.localPosition = initialPos;
             target.localRotation = Quaternion.Euler(initialRot);
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished shaking " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished shaking " + target.name);
 
         }
 
@@ -1198,7 +1278,7 @@ namespace Paperticket {
             Vector3 initialRot = target.localRotation.eulerAngles;
             //float curveTime = shakeTransformCurve.keys[shakeTransformCurve.length - 1].time;
 
-            if (_Debug) Debug.Log("[PTUtilities] Shaking rotation of transform " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Shaking rotation of transform " + target.name);
 
             while (t < duration) {
                 yield return null;
@@ -1207,7 +1287,7 @@ namespace Paperticket {
             }
             target.localRotation = Quaternion.Euler(initialRot);
 
-            if (_Debug) Debug.Log("[PTUtilities] Finished shaking rotation of " + target.name);
+            if (debugging) Debug.Log("[PTUtilities] Finished shaking rotation of " + target.name);
 
         }
 
@@ -1244,19 +1324,19 @@ namespace Paperticket {
 
 
             float volume = AudioListener.volume;
-            if (_Debug) Debug.Log("FadeAudioListenerTo Starting");
+            if (debugging) Debug.Log("FadeAudioListenerTo Starting");
 
             for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration) {
                 float newVolume = Mathf.Lerp(volume, targetVolume, t);
                 AudioListener.volume = newVolume;
 
-                if (_Debug) Debug.Log("AudioListener.volume = " + AudioListener.volume);
+                if (debugging) Debug.Log("AudioListener.volume = " + AudioListener.volume);
                 yield return null;
             }
             AudioListener.volume = targetVolume;
 
 
-            if (_Debug) Debug.Log("FadeAudioListenerTo Finished");
+            if (debugging) Debug.Log("FadeAudioListenerTo Finished");
             fadingAudioListener = false;
         }
 
@@ -1284,20 +1364,20 @@ namespace Paperticket {
 
             float volume = globalVolumeRTPC.GetGlobalValue();
             //float volume = globalVolumeRTPC.GetValue(gameObject);
-            if (_Debug) Debug.Log("FadingGlobalVolumeRTPC Starting");
+            if (debugging) Debug.Log("FadingGlobalVolumeRTPC Starting");
 
             for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
                 float newVolume = Mathf.Lerp(volume, targetVolume, t);
                 globalVolumeRTPC.SetGlobalValue(newVolume);
                 //globalVolumeRTPC.SetValue(gameObject, newVolume);
 
-                if (_Debug) Debug.Log("Global Volume RTPC = " + globalVolumeRTPC.GetGlobalValue());
+                if (debugging) Debug.Log("Global Volume RTPC = " + globalVolumeRTPC.GetGlobalValue());
                 yield return null;
             }
             globalVolumeRTPC.SetGlobalValue(targetVolume); 
             //globalVolumeRTPC.SetValue(gameObject, targetVolume);
 
-            if (_Debug) Debug.Log("FadingGlobalVolumeRTPC Finished");
+            if (debugging) Debug.Log("FadingGlobalVolumeRTPC Finished");
         }
 
 
@@ -1321,5 +1401,7 @@ namespace Paperticket {
         }
 
     }
+
+
 
 }

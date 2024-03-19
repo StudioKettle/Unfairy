@@ -147,13 +147,13 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     #region Headset / controller calls
 
-    public void SetControllerBeam(bool toggle) {
-        PTUtilities.instance.ControllerBeamActive = toggle;
-    }
+    //public void SetControllerBeam(bool toggle) {
+    //    PTUtilities.instance.ControllerBeamActive = toggle;
+    //}
 
-    public void SetControllerInteractionLayers(LayerMask layerMask) {
-        PTUtilities.instance.ControllerBeamLayerMask = layerMask;
-    }
+    //public void SetControllerInteractionLayers(LayerMask layerMask) {
+    //    PTUtilities.instance.ControllerBeamLayerMask = layerMask;
+    //}
 
 
     /// <summary>

@@ -76,8 +76,8 @@ namespace Paperticket {
         public void ActivateMenu() {
             if (debugging) Debug.Log("[ExitMenu] Exit Menu activated! Pausing experience.");
 
-            controllerBeamState = PTUtilities.instance.ControllerBeamActive;
-            PTUtilities.instance.ControllerBeamActive = true;
+            //controllerBeamState = PTUtilities.instance.ControllerBeamActive;
+            //PTUtilities.instance.ControllerBeamActive = true;
 
 
             if (videoController == null) Debug.LogWarning("[ExitMenu] WARNING -> No VideoController set! Cannot get VideoPlayingState.");
@@ -109,7 +109,7 @@ namespace Paperticket {
             //AudioListener.pause = false;
 
 
-            PTUtilities.instance.ControllerBeamActive = controllerBeamState;
+            //PTUtilities.instance.ControllerBeamActive = controllerBeamState;
 
             menuActive = false;
         }
@@ -120,8 +120,8 @@ namespace Paperticket {
             if (locked) return;
 
             if (menuActive) {
-                if (activateOnButton) PTUtilities.instance.ControllerBeamActive = true;
-                else DeactivateMenu();
+                //if (activateOnButton) PTUtilities.instance.ControllerBeamActive = true;
+                //else DeactivateMenu();
             }
         }
 
@@ -131,7 +131,7 @@ namespace Paperticket {
             if (!menuActive) {
                 ActivateMenu();
             }            
-            PTUtilities.instance.ControllerBeamActive = false;
+            //PTUtilities.instance.ControllerBeamActive = false;
         }
 
 

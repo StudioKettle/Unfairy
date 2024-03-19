@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_Camera: {fileID: 371921765}
   m_OriginBaseGameObject: {fileID: 622211334}
   m_CameraFloorOffsetObject: {fileID: 873812860}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 1.1176
 --- !u!4 &622211336
 Transform:
@@ -1901,7 +1901,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c20b2f5694b55664d9a4693ed998129a,
       type: 2}
-  masterMixerName: CareplaysMaster
+  boundaryFetchTimeout: 5
   shakeTransformCurve:
     serializedVersion: 2
     m_Curve:
@@ -2676,7 +2676,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _Debug: 0
+  debugging: 0
+  showGizmos: 1
+  gizmoSize: 0.5
+  gizmoOpacity: 0.25
   headProxy: {fileID: 0}
   leftController: {fileID: 0}
   rightController: {fileID: 0}
@@ -2687,7 +2690,7 @@ MonoBehaviour:
   ControllerAngularVelocity: {x: 0, y: 0, z: 0}
   ControllerAcceleration: {x: 0, y: 0, z: 0}
   ControllerAngularAcceleration: {x: 0, y: 0, z: 0}
-  audioMaster: {fileID: 0}
+  BoundaryPoints: []
   SetupComplete: 0
 --- !u!4 &705474985
 Transform:
