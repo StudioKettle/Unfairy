@@ -2677,7 +2677,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   debugging: 0
-  showGizmos: 1
+  showGizmos: 0
   gizmoSize: 0.5
   gizmoOpacity: 0.25
   headProxy: {fileID: 0}

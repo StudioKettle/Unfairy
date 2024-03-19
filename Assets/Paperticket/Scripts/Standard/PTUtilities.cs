@@ -383,7 +383,7 @@ namespace Paperticket {
             
             List<Vector3> currentBoundaries = new List<Vector3>();
             if (inputSubsystem.TryGetBoundaryPoints(currentBoundaries)) {
-                if (currentBoundaries == null) { Debug.LogWarning("[PTUtilities] Tried to refresh play area boundary but no points found? Weird, ignoring."); return; }
+                if (currentBoundaries == null) { /*Debug.LogWarning("[PTUtilities] Tried to refresh play area boundary but no points found? Weird, ignoring.");*/ return; }
 
                 // Update the boundaries only if the points (or the number of points) actually changed
                 if (BoundaryPoints != currentBoundaries || BoundaryPoints.Count != currentBoundaries.Count) {
