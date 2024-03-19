@@ -11,6 +11,8 @@ public class MusicPlayer : MonoBehaviour {
     [SerializeField] AK.Wwise.Event stopEvent = null;
     [Space(5)]
     [SerializeField] GameObject source = null;
+    [Space(10)]
+    [SerializeField] bool debugging = false;
 
     int switchIndex = 0;
 
@@ -21,6 +23,16 @@ public class MusicPlayer : MonoBehaviour {
         if (switches.Length == 0) {
             Debug.LogError("[MusicPlayer] ERROR -> No switches defined! Disabling.");
         }
+    }
+
+    public void Play() {
+        if (debugging) Debug.Log("[MusicPlayer] Playing music");
+        playEvent.Post(source);
+    }
+
+    public void Stop() {
+        if (debugging) Debug.Log("[MusicPlayer] Stopping music");
+        stopEvent.Post(source);
     }
 
 
@@ -48,14 +60,16 @@ public class MusicPlayer : MonoBehaviour {
 
     IEnumerator PickingSong(int index) {
 
-        stopEvent.Post(source);
+        Stop();
 
         var audioSwitch = switches[index];
         audioSwitch.SetValue(source);
 
+        if (debugging) Debug.Log("[MusicPlayer] Picking song {"+index+"}...");
+
         yield return new WaitForSeconds(delay);
 
-        playEvent.Post(source);
+        Play();
 
     }
 
