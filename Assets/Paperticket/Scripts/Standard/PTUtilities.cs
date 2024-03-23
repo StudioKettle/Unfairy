@@ -178,7 +178,7 @@ namespace Paperticket {
                 var loader = XRGeneralSettings.Instance?.Manager?.activeLoader;
                 if (loader != null) xRInputSubSystem = loader.GetLoadedSubsystem<XRInputSubsystem>();
 
-                if (xRInputSubSystem == null) Debug.LogWarning("[PTUtilities] WARNING -> No XRInputSubSystem found yet, gonna keep trying but this is unusual...");                    
+                //if (xRInputSubSystem == null) Debug.LogWarning("[PTUtilities] WARNING -> No XRInputSubSystem found yet, gonna keep trying but this is unusual...");                    
                 yield return null;
                 timeSpentHere += Time.deltaTime;
             }
@@ -700,7 +700,34 @@ namespace Paperticket {
 
         }
 
+        // Helper coroutine for fading the color of a sprite
+        public IEnumerator FadeColorTo(Material mat, string propertyName, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale) {
 
+            propertyName = mat.HasProperty(propertyName) ? propertyName : "";
+            if (propertyName == "") {
+                Debug.LogError("[PTUtilities] ERROR -> Could not find property '"+propertyName+"' in Material '"+mat+"' to fade! Cancelling...");
+            }
+
+            if (mat.GetColor(propertyName) != targetColor) {
+
+                if (debugging) Debug.Log("[PTUtilities] Fading Material '" + mat.name + "' property '"+propertyName+"' to " + targetColor);
+
+                Color color = mat.GetColor(propertyName);
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    Color newColor = Color.Lerp(color, targetColor, animCurve.Evaluate(t));
+                    mat.SetColor(propertyName, newColor);
+                    yield return null;
+                }
+                mat.SetColor(propertyName, targetColor);
+                yield return null;
+
+                if (debugging) Debug.Log("[PTUtilities] Material '"+mat.name+"' property '"+propertyName+"' successfully faded to "+color);
+
+            } else {
+                if (debugging) Debug.LogWarning("[PTUtilities] Material '"+mat.name+"' property '"+propertyName+"'  already at color "+targetColor+", cancelling fade");
+            }
+
+        }
         // Helper coroutine for fading the color of a sprite
         public IEnumerator FadeColorTo( SpriteRenderer sprite, Color targetColor, float duration, AnimationCurve animCurve, TimeScale timeScale ) {
 
@@ -872,6 +899,35 @@ namespace Paperticket {
         }
 
 
+        // Helper coroutine for fading the float property of mesh renderer
+        public IEnumerator FadeMaterialFloatPropTo(Material mat, string propertyName, float targetValue, float duration, AnimationCurve animCurve, TimeScale timeScale) {
+
+            propertyName = mat.HasProperty(propertyName) ? propertyName : "";
+            if (propertyName == "") {
+                Debug.LogError("[PTUtilities] ERROR -> Could not find property '"+propertyName+"' in Material '"+mat+"' to fade! Cancelling...");
+            }
+
+            float currentValue = mat.GetFloat(propertyName);
+
+            if (currentValue != targetValue) {
+
+                if (debugging) Debug.Log("[PTUtilities] Fading Material '" + mat.name + "' property '" + propertyName + "' to value " + targetValue);
+
+
+                for (float t = 0.0f; t < 1.0f; t += (timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime) / duration) {
+                    mat.SetFloat(propertyName, Mathf.Lerp(currentValue, targetValue, animCurve.Evaluate(t)));
+                    yield return null;
+                }
+                mat.SetFloat(propertyName, targetValue);
+
+                yield return null;
+
+                if (debugging) Debug.Log("[PTUtilities] Material '" + mat.name + "' property '" + propertyName + "' successfully faded to value " + targetValue);
+
+            } else {
+                if (debugging) Debug.LogWarning("[PTUtilities] Material " + mat.name + " property '" + propertyName + "' already at value " + targetValue + ", cancelling fade");
+            }
+        }
 
         // Helper coroutine for fading the float property of mesh renderer
         public IEnumerator FadeMeshFloatPropTo(MeshRenderer mRenderer, string propertyName, float targetValue, float duration, AnimationCurve animCurve, TimeScale timeScale) {

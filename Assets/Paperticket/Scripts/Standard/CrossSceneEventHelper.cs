@@ -189,6 +189,29 @@ public class CrossSceneEventHelper : MonoBehaviour {
 
     }
 
+    public void MatchControllerTransform(Transform target, ControllerType type) {
+
+        switch (type) {
+            case ControllerType.LeftHand:
+                target.position = PTUtilities.instance.leftController.transform.position;
+                target.rotation = PTUtilities.instance.leftController.transform.rotation;
+                break;
+            case ControllerType.RightHand:
+                target.position = PTUtilities.instance.rightController.transform.position;
+                target.rotation = PTUtilities.instance.rightController.transform.rotation;
+                break;
+            case ControllerType.Head:
+                target.position = PTUtilities.instance.HeadsetPosition();
+                target.rotation = PTUtilities.instance.HeadsetRotation();
+                break;
+            default:
+                Debug.LogWarning("[CrossSceneEventHelper] Cannot MatchControllerTransform > Bad ControllerType! Ignoring.");
+                break;
+        }
+
+
+    }
+
     public void FaceHeadsetTransform(Transform target, float distance) {
 
         target.position = PTUtilities.instance.HeadsetPosition();
@@ -449,6 +472,15 @@ public class CrossSceneEventHelper : MonoBehaviour {
     #endregion
 
 
+    #region Material calls
+
+    public void FadeMaterialColor(Material mat, string propertyName, Color color, float intensity, float duration) {
+        StartCoroutine(PTUtilities.instance.FadeColorTo(mat, propertyName, color * intensity, duration, AnimationCurve.Linear(0, 0, 1, 1), TimeScale.Scaled));
+    }
+    public void FadeMaterialFloatPropTo(Material mat, string propertyName, float targetValue, float duration, CurveType curveType) {
+        StartCoroutine(PTUtilities.instance.FadeMaterialFloatPropTo(mat, propertyName, targetValue, duration, convertedCurve(curveType), TimeScale.Scaled));
+    }
+    #endregion
 
 
     #region Mesh calls

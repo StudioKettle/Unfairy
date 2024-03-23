@@ -1,0 +1,11 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1630103680	Test_Duck_Play			\Default Work Unit\Test_Old\Test_Duck_Play	
+	3149958558	Main_Event_WandSpell			\Default Work Unit\1_Main\Main_Event_WandSpell	
+	3375218391	Main_Event_BazSection1			\Default Work Unit\1_Main\Main_Event_BazSection1	
+	3572312364	Main_Collision_Cardboard			\Default Work Unit\1_Main\Main_Collision_Cardboard	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	209974336	25_MX_MAL_DUCK 1	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\25_MX_MAL_DUCK 1		34528
+	775119477	Bottle_BAZ 3_And weve made contact	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_72CB90BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Main_Mixer_BottleToWFC\Bottle_BAZ 3_And weve made contact		881094
+	969695831	Rockscene_240315_SpellTempJOF	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rockscene_240315_SpellTempJOF_EBE927B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Main_Mixer_RockToRevenge\Rockscene_240315_SpellTempJOF		1645540
+

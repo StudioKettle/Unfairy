@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771b3ee7016204649948e13bb28ff75b, type: 3}
   m_Name: C3787B1D-76E9-46FC-9E15-F4E5B061DF71
   m_EditorClassIdentifier: 
-  objectName: UnfairyMain
-  id: 822352576
+  objectName: Main
+  id: 3161908922
   guid: C3787B1D-76E9-46FC-9E15-F4E5B061DF71

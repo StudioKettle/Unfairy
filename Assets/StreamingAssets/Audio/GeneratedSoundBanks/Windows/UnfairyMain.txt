@@ -1,7 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	3375218391	Main_Event_BazSection1			\Default Work Unit\1_Main\Main_Event_BazSection1	
-	3572312364	Main_Collision_Cardboard			\Default Work Unit\1_Main\Main_Collision_Cardboard	
-
-In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	775119477	Bottle_BAZ 3_Here she comes to bracing for impact_01	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_72CB90BD.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\Main_Mixer_BottleToWFC\Bottle_BAZ 3_Here she comes to bracing for impact_01		881094
-

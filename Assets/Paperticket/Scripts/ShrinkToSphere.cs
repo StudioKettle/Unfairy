@@ -13,6 +13,8 @@ public class ShrinkToSphere : MonoBehaviour {
     [SerializeField] AnimationCurve constraintCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [Space(10)]
     [SerializeField] UnityEvent2 startEvents;
+    [Space(10)]
+    [SerializeField] bool debugging = false;
 
     ParentConstraint constraint = null;
     Coroutine shrinkingCo = null;
@@ -35,11 +37,19 @@ public class ShrinkToSphere : MonoBehaviour {
 
         if (startEvents != null) startEvents.Invoke();
 
+        foreach(Collider col in GetComponentsInChildren<Collider>()) {
+            Destroy(col);
+        }
+        foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>()) {
+            Destroy(rb);
+        }
+
         // Reset the position of the target to the sphere, but leave children where they are
-        Debug.Log("[ShrinkToSphere] constraint = " + constraint);
-        Debug.Log("[ShrinkToSphere] GetSource(0) = " + constraint.GetSource(0));
-        Debug.Log("[ShrinkToSphere] SourceTransform = " + constraint.GetSource(0).sourceTransform);
-        Debug.Log("[ShrinkToSphere] Position = " + constraint.GetSource(0).sourceTransform.position);
+        if (debugging) Debug.Log("[ShrinkToSphere] constraint = " + constraint);
+        if (debugging) Debug.Log("[ShrinkToSphere] GetSource(0) = " + constraint.GetSource(0));
+        if (debugging) Debug.Log("[ShrinkToSphere] SourceTransform = " + constraint.GetSource(0).sourceTransform);
+        if (debugging) Debug.Log("[ShrinkToSphere] Position = " + constraint.GetSource(0).sourceTransform.position);
+
         var movement = constraint.GetSource(0).sourceTransform.position - transform.position;        
         transform.position += movement;
         foreach (Transform child in transform) {

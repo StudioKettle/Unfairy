@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	26345199	Rock_Event_PlayCrowd			\Default Work Unit\4_Rock\Rock_Event_PlayCrowd	
+	493595885	Rock_Event_AmpCrash			\Default Work Unit\4_Rock\Rock_Event_AmpCrash	
 	544591955	Rock_Event_BazSection2_Stop			\Default Work Unit\4_Rock\Rock_Event_BazSection2_Stop	
 	690873912	Rock_Event_BazSection3_Stop			\Default Work Unit\4_Rock\Rock_Event_BazSection3_Stop	
 	712355292	Rock_RageChannel03			\Default Work Unit\4_Rock\Rage_Channels\Rock_RageChannel03	
@@ -15,6 +16,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	904092506	Rock_INT_hitkeyDUCK2			\Default Work Unit\4_Rock\INSTRUMENT NOTES\Rock_INT_hitkeyDUCK2	
 	1220003658	Rock_Failstate_PlaySmallBoo			\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlaySmallBoo	
 	1298401736	Rock_Winstate_PlayCheer			\Default Work Unit\4_Rock\Crowd_States\Rock_Winstate_PlayCheer	
+	1533878226	Rock_Event_RageSpiral			\Default Work Unit\4_Rock\Rock_Event_RageSpiral	
+	1741967887	Rock_Event_PlayCrowd2			\Default Work Unit\4_Rock\Rock_Event_PlayCrowd2	
 	2028207771	Rock_Failstate_PlayBigBoo			\Default Work Unit\4_Rock\Crowd_States\Rock_Failstate_PlayBigBoo	
 	2377595765	Rock_Event_BazSection2_Play			\Default Work Unit\4_Rock\Rock_Event_BazSection2_Play	
 	2733779535	Rock_Ambient_Video			\Default Work Unit\4_Rock\Rock_Ambient_Video	
@@ -29,21 +32,22 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4153388590	Rock_RTPC_Popularity			\Default Work Unit\Rock_RTPC_Popularity	
 
 Effect plug-ins	ID	Name	Type				Notes
-	2667647788	Single_Band_1Khz_Wide	Wwise Parametric EQ			
+	1259256166	New_RoomVerb	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	24137789	Rock_Failstate_PlayBigBoo	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_Failstate_PlayBigBoo_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Crowd\Rock_Failstate_PlayBigBoo		3616924
 	49730313	RageChannel01_V2_AUDIO	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\RageChannel01_V2_AUDIO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\RageChannel01_V2_AUDIO		25543776
 	60879852	MX_INT OP5_1_E3	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\MX_INT OP5_1_E3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Music\Rock_Mixer_Instrument\MX_INT OP5_1_E3		294180
 	144442135	25_MX_MAL_DUCK 2	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Music\Rock_Mixer_Instrument\25_MX_MAL_DUCK 2		72366
-	209974336	25_MX_MAL_DUCK 1	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\25_MX_MAL_DUCK 1		34528
+	209974336	25_MX_MAL_DUCK 1	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\25_MX_MAL_DUCK 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\1_Main\25_MX_MAL_DUCK 1		34528
 	244619219	Rock_BDA9_Rock on Frankie	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_BDA9_Rock on Frankie_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Earpiece\Rock_BDA9_Rock on Frankie		165636
-	310404125	Rockscene_240315_Spiral_CrowdAlarmTone (1)	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rockscene_240315_Spiral_CrowdAlarmTone (1)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Rage\Rockscene_240315_Spiral_CrowdAlarmTone (1)		25528416
+	310404125	Rockscene_240315_Spiral_CrowdAlarmTone (1)	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rockscene_240315_Spiral_CrowdAlarmTone (1)_E7B1753C.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Rage\Rockscene_240315_Spiral_CrowdAlarmTone (1)		7678892
 	390541387	MX_INT OP5_6_G4	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\MX_INT OP5_6_G4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Music\Rock_Mixer_Instrument\MX_INT OP5_6_G4		301862
 	434996859	Rock_MusicTrack_Mono	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_MusicTrack_Mono_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Music\Rock_MusicTrack_Mono		24307296
 	443642825	Rock_BAz-Linear audio_need time code start_1	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_BAz-Linear audio_need time code start _53CC769D.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Earpiece\Rock_BAz-Linear audio_need time code start_1		2696080
 	486839872	Rock_Dae_DX_v1	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_Dae_DX_v1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Stage\Rock_Dae_DX_v1		12768096
 	493929085	RageChannel02_V2_AUDIO	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\RageChannel02_V2_AUDIO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\RageChannel02_V2_AUDIO		25543776
+	581369852	Rock_AMP_Crashv1_0	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_AMP_Crashv1.0_48E53F4F.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Stage\Rock_AMP_Crashv1_0		1162892
 	641262755	Rock_BDA8_ Why don’t you pick up the sticks	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_BDA8_ Why don’t you pick up the sticks_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Earpiece\Rock_BDA8_ Why don’t you pick up the sticks		225932
 	665143855	Rock_BAz-Linear audio_need time code start	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Rock_BAz-Linear audio_need time code start _32A580FD.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Earpiece\Rock_BAz-Linear audio_need time code start		516348
 	777617892	MX_INT OP5_5_E4	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\MX_INT OP5_5_E4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\4_Rock\Rock_Mixer_Music\Rock_Mixer_Instrument\MX_INT OP5_5_E4		273944

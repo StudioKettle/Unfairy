@@ -5,6 +5,8 @@ Shader "Paperticket/AlphaTransColorCutout" {
         //_Threshold("Threshhold", Float) = 0.1
         _MainTex("Albedo (RGB)", 2D) = "white" {}
 		_Alpha("Alpha", Float) = 1
+        //[Toggle(USE_ALPHA_OFFSET)]
+        _UseAlphaOffset("Use Alpha Offset?", Float) = 0
 		_AlphaOffset("Alpha Offset", Vector) = (0,0,0,0)
 		//_AlphaTex("Alpha Texture", 2D) = "white" {}
     }
@@ -20,6 +22,10 @@ Shader "Paperticket/AlphaTransColorCutout" {
 			//allow instancing
 			#pragma multi_compile_instancing
 
+
+            //#pragma shader_feature USE_ALPHA_OFFSET
+
+
             sampler2D _MainTex;
 
             struct Input {
@@ -30,7 +36,9 @@ Shader "Paperticket/AlphaTransColorCutout" {
             //fixed4 _TransparentColor;
             //half _Threshold;
 			half _Alpha;
-			half4 _AlphaOffset;
+            half _UseAlphaOffset;
+            half4 _AlphaOffset;
+            
 			
             void surf(Input IN, inout SurfaceOutput o) {
 
@@ -60,8 +68,14 @@ Shader "Paperticket/AlphaTransColorCutout" {
                 //o.Albedo = output_col.rgb;
                 o.Emission = output_col.rgb;
 				//o.texcoord.xy = i.texcoord.xy + frac(_Time.y * float2(_speedX, _speedY));
-				o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;
-				
+                //o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;
+                o.Alpha = (_UseAlphaOffset * alphaCutout * _Alpha) + (1 - _UseAlphaOffset);
+
+                //#ifdef USE_ALPHA_OFFSET
+                //    o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;
+                //#else
+                //    o.Alpha = _Alpha; // _Alpha; // output_col.a;
+                //#endif
 
             }
             ENDCG

@@ -26,6 +26,7 @@ public class UnusedClass {
     private UpdatableInvokableCall<string, float> _stringFloat;
     private UpdatableInvokableCall<Hand, float, float> _handFloatFloat;
     private UpdatableInvokableCall<Hand, LayerMask> _handLayermask;
+    private UpdatableInvokableCall<Transform, CrossSceneEventHelper.ControllerType> _transformControllertype; 
     private UpdatableInvokableCall<Color, float> _colorFloat;
     private UpdatableInvokableCall<Color, float, CrossSceneEventHelper.CurveType> _colorFloatCurvetype;
     private UpdatableInvokableCall<float, CrossSceneEventHelper.CurveType> _floatCurvetype;
@@ -50,12 +51,14 @@ public class UnusedClass {
 
 
 
+    private UpdatableInvokableCall<Material, string, Color, float, float> _materialStringColorFloatFloat;
+    private UpdatableInvokableCall<Material, string, float, float, CrossSceneEventHelper.CurveType> _materialStringFloatFloatCurvetype;
     private UpdatableInvokableCall<MeshRenderer, float> _meshrendererFloat;
     private UpdatableInvokableCall<MeshRenderer, float, float> _meshrendererFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, float, float> _meshrendererStringFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, Color, float> _meshrendererStringColorFloat;
-    private UpdatableInvokableCall<MeshRenderer, string, Color, float, float> _meshrendererStringColorFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, Color, float> _meshrendererColorFloat;
+    private UpdatableInvokableCall<MeshRenderer, string, Color, float, float> _meshrendererStringColorFloatFloat;
     private UpdatableInvokableCall<MeshRenderer, string, float, float, CrossSceneEventHelper.CurveType> _meshrendererStringFloatFloatCurvetype;
     private UpdatableInvokableCall<SpriteRenderer, float> spriterendererFloat;
     private UpdatableInvokableCall<SpriteRenderer, float, float> _spriterendererFloatFloat;

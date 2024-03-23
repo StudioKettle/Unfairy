@@ -16,6 +16,7 @@ public class Video3DHeadAdjust : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (!PTUtilities.instance.SetupComplete) return;
 
         var headPos = PTUtilities.instance.HeadsetPosition();
 
@@ -25,8 +26,6 @@ public class Video3DHeadAdjust : MonoBehaviour {
         videoSphere.localPosition = offset + (Vector3.right * (headPos.x * -xMultiplier)) 
                                          + Vector3.up * (headPos.y * -yMultiplier)
                                          + Vector3.forward * (headPos.z * -zMultiplier);
-
-
 
     }
 }

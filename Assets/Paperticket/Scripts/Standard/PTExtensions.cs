@@ -141,6 +141,37 @@ namespace Paperticket {
         }
 
         /// <summary>
+        /// Return the float with a random sign
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="negativeProbability">Optionally, set the probability that the result will be negative</param>
+        public static float WithRandomSign(this float value, float negativeProbability = 0.5f) {
+            return UnityEngine.Random.value < negativeProbability ? -value : value;
+        }
+
+
+        /// <summary>
+        /// Return the float to a minimum
+        /// </summary>
+        public static float Min(this float value, float min) {
+            return Mathf.Max(value, min);
+        }
+
+        /// <summary>
+        /// Return the float to a maximum
+        /// </summary>
+        public static float Max(this float value, float max) {
+            return Mathf.Min(value, max);
+        }
+
+        /// <summary>
+        /// Return the float clamped between a minimum and maximum
+        /// </summary>
+        public static float Clamp(this float value, float min, float max) {
+            return Mathf.Clamp(value, min, max);
+        }
+
+        /// <summary>
         /// Return the float as a (1,1,1) vector 
         /// </summary>
         public static Vector3 ToVector(this float value) {

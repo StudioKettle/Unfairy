@@ -46,6 +46,12 @@ public class Wand : MonoBehaviour {
 
     Rigidbody rb = null;
 
+    //public delegate void WandResetStart();
+    //public event WandResetStart OnWandResetStart;
+    //public delegate void WandResetFinish();
+    //public event WandResetFinish OnWandResetFinish;
+
+
     void OnEnable() {
 
         if (wandObject == null) wandObject = gameObject;
@@ -91,17 +97,22 @@ public class Wand : MonoBehaviour {
         if (deactivateOnUnselect) Deactivate();
         if (deprogressOnUnselect) velocityEvent.Progress = 0;
         if (resetOnUnselect) {
-            if (resettingCo == null && origin != null) resettingCo = StartCoroutine(Resetting());
+            if (resettingCo == null && origin != null) resettingCo = StartCoroutine(Resetting(false));
         }
 
         if (active) mat.SetColor(propertyName, gradient.Evaluate(velocityEvent.Progress) * intensity);
         else mat.SetColor(propertyName, startingColor);
     }
 
-    IEnumerator Resetting() {
+    public void ForceReset() {
+        if (resettingCo == null && origin != null) resettingCo = StartCoroutine(Resetting(true));
+    }
+
+    IEnumerator Resetting(bool forced) {                
+        //if (OnWandResetStart != null) OnWandResetStart();
 
         // wait and then move to origin
-        yield return new WaitForSeconds(resetDelay);
+        if (!forced) yield return new WaitForSeconds(resetDelay);
 
 
         // Turn off the colliders and rigidbody
@@ -125,8 +136,9 @@ public class Wand : MonoBehaviour {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-
         resettingCo = null;
+
+        //if (OnWandResetFinish != null) OnWandResetFinish();
     }
 
 
