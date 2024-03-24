@@ -348,9 +348,15 @@ public class CrossSceneEventHelper : MonoBehaviour {
     public void DestroyGameObject(GameObject objectToDestroy) {
         Destroy(objectToDestroy);
     }
+    public void DestroyGameObject(GameObject objectToDestroy, float delay) {        
+        Destroy(objectToDestroy, delay);
+    }   
 
     public void DestroyComponent(Component componentToDestroy) {
         Destroy(componentToDestroy);
+    }
+    public void DestroyComponent(Component componentToDestroy, float delay) {
+        Destroy(componentToDestroy, delay);
     }
 
 

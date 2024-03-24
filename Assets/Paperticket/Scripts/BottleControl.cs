@@ -19,7 +19,8 @@ public class BottleControl : MonoBehaviour {
     [Space(10)]
     [Header("CONTROLS")]
     [Space(5)]
-    [SerializeField] UnityEvent2 earpieceEvent = null;
+    [SerializeField] UnityEvent2 earInsertEvent = null;
+    [SerializeField] UnityEvent2 earConnectEvent = null;
     [SerializeField] float earGap = 0.8f;
     [SerializeField] float earMod = 0.075f;
     [Space(5)]
@@ -163,12 +164,12 @@ public class BottleControl : MonoBehaviour {
 
 
 
-        if (earpieceEvent != null) earpieceEvent.Invoke();
+        if (earInsertEvent != null) earInsertEvent.Invoke();
         if (debugging) Debug.Log("[BottleControl] Earpiece go in");
         yield return new WaitForSeconds(earGap + (earMod * videoOffset));
 
         if (debugging) Debug.Log("[BottleControl] Earpiece connect");
-        if (earpieceEvent != null) earpieceEvent.Invoke();
+        if (earConnectEvent != null) earConnectEvent.Invoke();
         yield return new WaitForSeconds(earGap + (earMod * videoOffset));
 
 
