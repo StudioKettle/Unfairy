@@ -69,7 +69,7 @@ Shader "Paperticket/AlphaTransColorCutout" {
                 o.Emission = output_col.rgb;
 				//o.texcoord.xy = i.texcoord.xy + frac(_Time.y * float2(_speedX, _speedY));
                 //o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;
-                o.Alpha = (_UseAlphaOffset * alphaCutout * _Alpha) + (1 - _UseAlphaOffset);
+                o.Alpha = ((alphaCutout * _UseAlphaOffset) + (1 - _UseAlphaOffset)) * _Alpha;
 
                 //#ifdef USE_ALPHA_OFFSET
                 //    o.Alpha = alphaCutout * _Alpha; // _Alpha; // output_col.a;

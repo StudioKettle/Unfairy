@@ -18,6 +18,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	429516560	Bus_RockMusic			\Default Work Unit\Bus_Master\Bus_RockMusic	
 	673085190	Bus_Earpiece			\Default Work Unit\Bus_Master\Bus_Earpiece	
+	3639065514	Bus_Ambisonics			\Default Work Unit\Bus_Master\Bus_Ambisonics	
 	3964155266	Bus_Master			\Default Work Unit\Bus_Master	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes

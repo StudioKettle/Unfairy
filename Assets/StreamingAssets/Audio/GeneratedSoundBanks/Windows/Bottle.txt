@@ -1,7 +1,10 @@
 Event	ID	Name			Wwise Object Path	Notes
 	942500293	Bottle_Event_Earpiece_BazSection2_Stop			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection2_Stop	
+	1190821642	Bottle_Event_Earpiece_BazSection4a_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4a_Play	
 	1346393183	Bottle_Event_Earpiece_BazSection4_Stop			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4_Stop	
+	1494539195	Bottle_Event_Earpiece_BazSection4b_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4b_Play	
 	1504318608	Bottle_Event_Earpiece_BazSection3_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection3_Play	
+	1627313397	Bottle_Event_Earpiece_BazSection4d_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4d_Play	
 	1828367352	Bottle_Event_RadioStop			\Default Work Unit\2_Bottle\Bottle_Event_RadioStop	
 	1870324730	Bottle_Event_Exterior_Dae			\Default Work Unit\2_Bottle\Bottle_Event_Exterior_Dae	
 	2014117265	Bottle_Event_Earpiece_BazSection5			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection5	
@@ -10,7 +13,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2023133508	Bottle_Event_RadioStart			\Default Work Unit\2_Bottle\Bottle_Event_RadioStart	
 	2254057879	Bottle_Event_Earpiece_BazSection2_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection2_Play	
 	2385393156	Bottle_Event_CrystalScreen_RingStart			\Default Work Unit\2_Bottle\Bottle_Event_CrystalScreen_RingStart	
-	3050295577	Bottle_Event_Earpiece_BazSection4_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4_Play	
+	2402586276	Bottle_Event_Earpiece_BazSection4c_Play			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection4c_Play	
 	3250719129	Bottle_Event_Exterior_BG			\Default Work Unit\2_Bottle\Bottle_Event_Exterior_BG	
 	3860987415	Bottle_Event_CrystalScreen_RingEnd			\Default Work Unit\2_Bottle\Bottle_Event_CrystalScreen_RingEnd	
 	4147871026	Bottle_Event_Earpiece_BazSection3_Stop			\Default Work Unit\2_Bottle\Bottle_Event_Earpiece_BazSection3_Stop	
@@ -27,7 +30,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	3111836245	Global_RTPC_SceneVolume			\Default Work Unit\Global_RTPC_SceneVolume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	3222660	Bottle_BAZ 2_Auido up to here she comes	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_Auido up to here she comes		3774090
+	3222660	Bottle_BAZ 2_b_Now your paperwork	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_69E9CB2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_b_Now your paperwork		273528
 	17633711	Hot Rod Elegants - Amaro Bino	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\Hot Rod Elegants - Amaro Bino_81238AE1.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\Hot Rod Elegants - Amaro Bino		24239572
 	17819116	Lance Conrad - Pinewood Jig	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\Lance Conrad - Pinewood Jig_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\Lance Conrad - Pinewood Jig		29417900
 	75641990	Phone_Ring	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Iphone ring 3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Phone_Ring		932040
@@ -38,5 +41,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	476534886	Bottle_BDA2_take your time	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BDA2_take your time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Bottle_BDA2_take your time		264302
 	496629777	Bottle_BDA3_Oop don’t worry	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BDA3_Oop don’t worry_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Bottle_BDA3_Oop don’t worry		372836
 	644580949	Bottle_Ambient_AMBI_BG	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_Ambient_AMBI_BG_0D9E4ED9.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Exterior\Bottle_Ambient_AMBI_BG		16698856
+	697151152	Bottle_BAZ 2_c_Oh and I see it says	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_31A67994.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_c_Oh and I see it says		1027720
+	717860394	Bottle_BAZ 2_d_Now frankie we are here	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_6E93B34E.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_d_Now frankie we are here		1122620
+	736090304	Bottle_BAZ 2_a_Great now frankie after today	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_4A8B8E2E.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_a_Great now frankie after today		931252
 	751118539	River Lume - Jumping Bean	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\River Lume - Jumping Bean_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\River Lume - Jumping Bean		29229636
 

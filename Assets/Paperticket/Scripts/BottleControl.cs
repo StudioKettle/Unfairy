@@ -18,25 +18,41 @@ public class BottleControl : MonoBehaviour {
     [SerializeField] AK.Wwise.RTPC rTPC_EarpiecePan = null;
     [Space(10)]
     [Header("CONTROLS")]
-    //[SerializeField] float bazAudio4Marker = 4;
-    //[SerializeField] float bazAudio4Delay = 3;
-    [SerializeField] UnityEvent2 bazAudio4Event = null;
-    [SerializeField] UnityEvent2 unlockEvent = null;
+    [Space(5)]
+    [SerializeField] UnityEvent2 earpieceEvent = null;
+    [SerializeField] float earGap = 0.8f;
+    [SerializeField] float earMod = 0.075f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio4aEvent = null;
+    [SerializeField] float baz4aLength = 9.7f;
+    [SerializeField] float baz4aGap = 1.5f;
+    [SerializeField] float baz4aMod = 0.09f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio4bEvent = null;
+    [SerializeField] float baz4bLength = 2.85f;
+    [SerializeField] float baz4bGap = 1.5f;
+    [SerializeField] float baz4bMod = 0.19f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio4cEvent = null;
+    [SerializeField] float baz4cLength = 10.7f;
+    [SerializeField] float baz4cGap = 2f;
+    [SerializeField] float baz4cMod = 0.19f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio4dEvent = null;
+    [SerializeField] float baz4dLength = 11.68f;
+    [SerializeField] float baz4dGap = 2.5f;
+    [SerializeField] float baz4dMod = 0.38f;
+    [Space(5)]
     [SerializeField] UnityEvent2 bazAudio5Event = null;
-    [SerializeField] AK.Wwise.Event earpieceConnect = null;
 
     [Space(10)]
     [Header("READ ONLY")]
     [Space(5)]
-    [SerializeField] float delay = 0;
+    [SerializeField] float videoOffset = 0;
     [SerializeField] bool startCounting = false;
     [SerializeField] int counter = 0;
 
-    //[SerializeField] AK.Wwise.Event bottleAudio = null;//
-    //[SerializeField] AK.Wwise.CallbackFlags callbackFlags = null;
 
-
-    //uint audioPlayingId = 0;
     [Space(10)]
     [Header("READ ONLY")]
     [SerializeField] bool videoReady = false;
@@ -86,107 +102,189 @@ public class BottleControl : MonoBehaviour {
         earpiece.gameObject.DestroyMe();
 
         // Start waiting for voice lines
-        StartCoroutine(DelayingBazAudio());
+        StartCoroutine(AdjustingBazAudio());
     }
 
+    
+    //void StartCheckingUnlock() {
+    //    StartCoroutine(CheckingUnlock());
+    //}
 
-   
-    public void AddToVideoLoopCounter() {
-        //if (!startCounting) return;
-        //counter += 1;
-        //if (debugging) Debug.Log("[BottleControl] AddToVideoLoopCounter incremented, counter = " + counter);
-    }
+    //IEnumerator CheckingUnlock() {
+    //    float timeRemaining = baz4dLength;
+    //    while (timeRemaining > 0) {
 
-    IEnumerator DelayingBazAudio() {
+    //    }
+
+    //}
 
 
-        //if (delay < 1.9)
-        //    wait 0.95, connect, wait 0.95
-        //else if (delay < 5.3)
-        //    wait 0.25, connect, wait 0.25
-        //else
-        //    wait(9.1 - delay) / 2, connect, wait(9.1 - delay) / 2
-
-        //baz4 + start count
-        //end count + unlock
-        //wait 3.3
-        //wait 2
+    //public void AddToVideoLoopCounter() {
+    //    if (!startCounting) return;
+    //    counter += 1;
+    //    //if (debugging) Debug.Log("[BottleControl] AddToVideoLoopCounter incremented, counter = " + counter);
+    //}
 
 
 
-        // Set delay based on where in the video loop we are
-        delay = videoController.currentVideoTime.Clamp(0, 7.19f);
 
-        if (debugging) Debug.Log("[BottleControl] Start of DelayingBazAudio, loop time = " + videoController.currentVideoTime + ", delay = " + delay);
 
-        earpieceConnect.Post(PTUtilities.instance.gameObject);
+    IEnumerator AdjustingBazAudio() {
 
-        if (delay < 1.9f) {
-            yield return new WaitForSeconds(0.95f);
-            earpieceConnect.Post(PTUtilities.instance.gameObject);
-            if (debugging) Debug.Log("[BottleControl] Delay < 1.9, loop time = " + videoController.currentVideoTime);
-            yield return new WaitForSeconds(0.95f);
-        } else if (delay < 5.3f) {
-            yield return new WaitForSeconds(0.25f);
-            earpieceConnect.Post(PTUtilities.instance.gameObject);
-            if (debugging) Debug.Log("[BottleControl] 1.9 < Delay < 5.3, loop time = " + videoController.currentVideoTime);
-            yield return new WaitForSeconds(0.25f);
+        // VideoOffset to work out how fast / slow we are
+        videoOffset = videoController.currentVideoTime;
+
+        string debugString = "";
+        if (debugging) debugString += "[BottleControl] Start of AdjustingBazAudio, video time = " + videoController.currentVideoTime + System.Environment.NewLine;
+
+
+        // If x< 1.3 || x > 4.9, speed up by up to 3.6 sec
+
+        // if (x < 1.3) x += 7.2(makes 4.9 - 8.5)
+        // x = LinearRemap(4.9, 8.5, 0, 1)
+        //  else slow down by up to 3.6 sec
+        // x = LinearRemap(1.3, 4.9, -1, 0)
+
+        // Set videoOffset to how far from 4.9 we are in either direction (-1 to 1)? <- nah do real numbers i.e. -3.6 to 3.6
+        if (videoOffset < 1.3f || videoOffset > 4.9) {
+            videoOffset += (videoOffset < 1.3f) ? 7.2f : 0;
+            //videoOffset.LinearRemap(4.9f, 8.5f, 0, 1);
+            if (debugging) debugString += "< 1.3 or > 4.9, I.e. we need to speed up ";
         } else {
-            yield return new WaitForSeconds((9.1f - delay)/2);
-            earpieceConnect.Post(PTUtilities.instance.gameObject);
-            if (debugging) Debug.Log("[BottleControl] Delay > 5.3, loop time = " + videoController.currentVideoTime);
-            yield return new WaitForSeconds((9.1f - delay) / 2);
+            //videoOffset.LinearRemap(1.3f, 4.9f, -1, 0);
+            if (debugging) debugString += "Between 1.3 and 4.9, I.e. we need to slow down ";
+        }
+        videoOffset -= 4.9f;
+
+        if (debugging) {
+            debugString += "by " + videoOffset;
+            Debug.Log(debugString);
         }
 
-        // Play BazAudio4
-        //var baz4Time = videoController.currentVideoTime;
-        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4Event, baz4time = " + videoController.currentVideoTime + ", delay = " + delay);
-        if (bazAudio4Event != null) bazAudio4Event.Invoke();
 
-        // Unlock video after 5 cycles of the video
-        //startCounting = true;
-        //yield return new WaitUntil(() => counter == 5);
-        yield return new WaitForSeconds(39.3f);
 
-        if (debugging) Debug.Log("[BottleControl] BazAudio4 finish at loop time = " + videoController.currentVideoTime);
+        if (earpieceEvent != null) earpieceEvent.Invoke();
+        if (debugging) Debug.Log("[BottleControl] Earpiece go in");
+        yield return new WaitForSeconds(earGap + (earMod * videoOffset));
 
-        //if (baz4Time + 3.3f > 5.3f) {
-        //    yield return new WaitUntil(() => counter == 6);
-        // yield return new WaitForSeconds(baz4Time + 3.3f);
-        //} 
+        if (debugging) Debug.Log("[BottleControl] Earpiece connect");
+        if (earpieceEvent != null) earpieceEvent.Invoke();
+        yield return new WaitForSeconds(earGap + (earMod * videoOffset));
 
-        if (videoController.currentVideoTime > 5.3f) {
-            if (debugging) Debug.Log("[BottleControl] Unlocking after this loop, loop time = " + videoController.currentVideoTime + " is > 5.3");
-            yield return new WaitUntil(() => videoController.currentVideoTime < 5.3f);
-            if (unlockEvent != null) unlockEvent.Invoke();
-            yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(5.3f, 7.2f, 1.5f, 2f));
-        } else {
-            if (debugging) Debug.Log("[BottleControl] Unlocking now, loop time = " + videoController.currentVideoTime + " is < 5.3");
-            if (unlockEvent != null) unlockEvent.Invoke();
-            yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(0, 5.3f, 2f, 1.5f));
-        }
 
-        //startCounting = false;
-        //if (debugging) Debug.Log("[BottleControl] Counters finished, loop time = " + videoController.currentVideoTime);
+        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4aEvent then waiting "+baz4aGap+" + an extra " + (baz4aMod * videoOffset));
+        if (bazAudio4aEvent != null) bazAudio4aEvent.Invoke();
+        yield return new WaitForSeconds(baz4aLength + baz4aGap + (baz4aMod * videoOffset));
 
-        //yield return new WaitForSeconds(baz4Time + 3.3f);
-        //if (debugging) Debug.Log("[BottleControl] BazAudio4 finish at loop time = " + videoController.currentVideoTime);
+        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4bEvent then waiting " + baz4bGap + " + an extra " + (baz4bMod * videoOffset));
+        if (bazAudio4bEvent != null) bazAudio4bEvent.Invoke();
+        yield return new WaitForSeconds(baz4bLength + baz4bGap + (baz4bMod * videoOffset));
 
-        if (debugging) Debug.Log("[BottleControl] Unlocking after 5 vid cycles, loop time = " + videoController.currentVideoTime + ", waiting 2 sec"); 
-        if (unlockEvent != null) unlockEvent.Invoke();
-                
-        // Linear remap (0, 7.2) > (1.5, 3.5)
+        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4cEvent then waiting " + baz4cGap + " + an extra " + (baz4cMod * videoOffset));
+        if (bazAudio4cEvent != null) bazAudio4cEvent.Invoke();
+        yield return new WaitForSeconds(baz4cLength + baz4cGap + (baz4cMod * videoOffset));
 
-        yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(0, 7.2f, 1.5f, 2.5f));
-        //yield return new WaitForSeconds(2f);
+        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4dEvent then waiting " + baz4dGap + " + an extra " + (baz4dMod * videoOffset));
+        if (bazAudio4dEvent != null) bazAudio4dEvent.Invoke();
+        yield return new WaitForSeconds(baz4dLength + baz4dGap + (baz4dMod * videoOffset));
 
-        // Play BazAudio5 at least 2 seconds after unlock
-        //yield return new WaitForSeconds(1f);
-        //if (debugging) Debug.Log("[BottleControl] Sending BazAudio5Event after 2 seconds, loop time = " + videoController.currentVideoTime);
-        if (debugging) Debug.Log("[BottleControl] BazAudio5 go");
+
         if (bazAudio5Event != null) bazAudio5Event.Invoke();
 
     }
+
+
+
+    //IEnumerator DelayingBazAudio() {
+
+
+    //    //if (delay < 1.9)
+    //    //    wait 0.95, connect, wait 0.95
+    //    //else if (delay < 5.3)
+    //    //    wait 0.25, connect, wait 0.25
+    //    //else
+    //    //    wait(9.1 - delay) / 2, connect, wait(9.1 - delay) / 2
+
+    //    //baz4 + start count
+    //    //end count + unlock
+    //    //wait 3.3
+    //    //wait 2
+
+
+
+    //    // Set delay based on where in the video loop we are
+    //    videoOffset = videoController.currentVideoTime.Clamp(0, 7.19f);
+
+    //    if (debugging) Debug.Log("[BottleControl] Start of DelayingBazAudio, loop time = " + videoController.currentVideoTime + ", delay = " + videoOffset);
+
+    //    earpieceConnect.Post(PTUtilities.instance.gameObject);
+
+    //    if (videoOffset < 1.9f) {
+    //        yield return new WaitForSeconds(0.95f);
+    //        earpieceConnect.Post(PTUtilities.instance.gameObject);
+    //        if (debugging) Debug.Log("[BottleControl] Delay < 1.9, loop time = " + videoController.currentVideoTime);
+    //        yield return new WaitForSeconds(0.95f);
+    //    } else if (videoOffset < 5.3f) {
+    //        yield return new WaitForSeconds(0.25f);
+    //        earpieceConnect.Post(PTUtilities.instance.gameObject);
+    //        if (debugging) Debug.Log("[BottleControl] 1.9 < Delay < 5.3, loop time = " + videoController.currentVideoTime);
+    //        yield return new WaitForSeconds(0.25f);
+    //    } else {
+    //        yield return new WaitForSeconds((9.1f - videoOffset)/2);
+    //        earpieceConnect.Post(PTUtilities.instance.gameObject);
+    //        if (debugging) Debug.Log("[BottleControl] Delay > 5.3, loop time = " + videoController.currentVideoTime);
+    //        yield return new WaitForSeconds((9.1f - videoOffset) / 2);
+    //    }
+
+    //    // Play BazAudio4
+    //    //var baz4Time = videoController.currentVideoTime;
+    //    if (debugging) Debug.Log("[BottleControl] Sending BazAudio4Event, baz4time = " + videoController.currentVideoTime + ", delay = " + videoOffset);
+    //    if (bazAudio4Event != null) bazAudio4Event.Invoke();
+
+    //    // Unlock video after 5 cycles of the video
+    //    //startCounting = true;
+    //    //yield return new WaitUntil(() => counter == 5);
+    //    yield return new WaitForSeconds(39.3f);
+
+    //    if (debugging) Debug.Log("[BottleControl] BazAudio4 finish at loop time = " + videoController.currentVideoTime);
+
+    //    //if (baz4Time + 3.3f > 5.3f) {
+    //    //    yield return new WaitUntil(() => counter == 6);
+    //    // yield return new WaitForSeconds(baz4Time + 3.3f);
+    //    //} 
+
+    //    if (videoController.currentVideoTime > 5.3f) {
+    //        if (debugging) Debug.Log("[BottleControl] Unlocking after this loop, loop time = " + videoController.currentVideoTime + " is > 5.3");
+    //        yield return new WaitUntil(() => videoController.currentVideoTime < 5.3f);
+    //        if (unlockEvent != null) unlockEvent.Invoke();
+    //        yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(5.3f, 7.2f, 1.5f, 2f));
+    //    } else {
+    //        if (debugging) Debug.Log("[BottleControl] Unlocking now, loop time = " + videoController.currentVideoTime + " is < 5.3");
+    //        if (unlockEvent != null) unlockEvent.Invoke();
+    //        yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(0, 5.3f, 2f, 1.5f));
+    //    }
+
+    //    //startCounting = false;
+    //    //if (debugging) Debug.Log("[BottleControl] Counters finished, loop time = " + videoController.currentVideoTime);
+
+    //    //yield return new WaitForSeconds(baz4Time + 3.3f);
+    //    //if (debugging) Debug.Log("[BottleControl] BazAudio4 finish at loop time = " + videoController.currentVideoTime);
+
+    //    if (debugging) Debug.Log("[BottleControl] Unlocking after 5 vid cycles, loop time = " + videoController.currentVideoTime + ", waiting 2 sec"); 
+    //    if (unlockEvent != null) unlockEvent.Invoke();
+                
+    //    // Linear remap (0, 7.2) > (1.5, 3.5)
+
+    //    yield return new WaitForSeconds(videoController.currentVideoTime.LinearRemap(0, 7.2f, 1.5f, 2.5f));
+    //    //yield return new WaitForSeconds(2f);
+
+    //    // Play BazAudio5 at least 2 seconds after unlock
+    //    //yield return new WaitForSeconds(1f);
+    //    //if (debugging) Debug.Log("[BottleControl] Sending BazAudio5Event after 2 seconds, loop time = " + videoController.currentVideoTime);
+    //    if (debugging) Debug.Log("[BottleControl] BazAudio5 go");
+    //    if (bazAudio5Event != null) bazAudio5Event.Invoke();
+
+    //}
 
 
 
@@ -330,26 +428,4 @@ public class BottleControl : MonoBehaviour {
         
         if (debugging) Debug.Log("[BottleControl] SetEapiecePan to " + panning.ToString());
     }
-
-
-    //public void StartBazAudio4(Transform earpiece) {
-    //    StartCoroutine(WaitingForBazAudio4(earpiece));
-    //}
-
-    //IEnumerator WaitingForBazAudio4(Transform earpiece) {
-
-    //     Offset based on where in the video loop we are
-    //    if (videoController.currentVideoTime < bazAudio4Marker) {
-    //        yield return new WaitForSeconds(bazAudio4Delay);
-    //    }
-
-    //     Work out which side to pan earpiece audio
-    //    if (PTUtilities.instance.headProxy.InverseTransformPoint(earpiece.position).x < 0) {
-    //        SetEarpiecePan(Panning.Left);
-    //    } else {
-    //        SetEarpiecePan(Panning.Right);
-    //    }
-
-    //    if (bazAudio4Event != null) bazAudio4Event.Invoke();
-    //}
 }

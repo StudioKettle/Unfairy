@@ -30,9 +30,21 @@ namespace Paperticket {
 
         //List<Renderer> renderers = new List<Renderer>();
 
+        bool waitingForSetup = false;
 
         // Start is called before the first frame update
         void Start() {
+            if (!PTUtilities.instance.SetupComplete) {
+                PTUtilities.OnSetupComplete += Initialise;
+                waitingForSetup = true;
+                return;
+            }
+            Initialise();
+        }
+
+
+        void Initialise() {
+            if (waitingForSetup) PTUtilities.OnSetupComplete -= Initialise;
 
             if (debugging) Debug.Log("[ConstrainToController] Constraining + '" + gameObject.name + "' to " + controller.ToString());
 

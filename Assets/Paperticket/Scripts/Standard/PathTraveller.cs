@@ -11,6 +11,7 @@ public class PathTraveller : MonoBehaviour {
 
     [Space(10)]
     [Header("CONTROLS")]
+    [SerializeField] bool autoStart = true;
     [SerializeField] EndOfPathInstruction endOfPathInstruction;
     [Space(5)]
     [SerializeField] float baseSpeed = 5;
@@ -37,6 +38,7 @@ public class PathTraveller : MonoBehaviour {
 
     //float distanceTravelled;
 
+    bool started = false;
 
     public float BaseSpeed {
         set { baseSpeed = value; }
@@ -67,43 +69,45 @@ public class PathTraveller : MonoBehaviour {
             transform.position = startPos;
             OnPathChanged();
         }
+        if (autoStart) started = true;
     }
 
 
 
 
     void Update() {
-        if (pathCreator != null) {
+        if (pathCreator == null | !started) return;        
 
-            //distanceTravelled += speed * Time.deltaTime;
-            curveMultiplier = speedCurve.Evaluate(currentTime % 1);
-            finalSpeed = baseSpeed * curveMultiplier;
-            currentTime += finalSpeed * Time.deltaTime;
+        //distanceTravelled += speed * Time.deltaTime;
+        curveMultiplier = speedCurve.Evaluate(currentTime % 1);
+        finalSpeed = baseSpeed * curveMultiplier;
+        currentTime += finalSpeed * Time.deltaTime;
 
-            //transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
-            transform.position = pathCreator.path.GetPointAtTime(currentTime, endOfPathInstruction);
+        //transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled, endOfPathInstruction);
+        transform.position = pathCreator.path.GetPointAtTime(currentTime, endOfPathInstruction);
 
-            //if (followRotation) transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
-            if (followRotation) transform.rotation = pathCreator.path.GetRotation(currentTime, endOfPathInstruction);
+        //if (followRotation) transform.rotation = pathCreator.path.GetRotationAtDistance(distanceTravelled, endOfPathInstruction);
+        if (followRotation) transform.rotation = pathCreator.path.GetRotation(currentTime, endOfPathInstruction);
 
-            // Send an event if we've reached the end
-            if (pathFinished != null) {
-                //var currentTime = pathCreator.path.GetClosestTimeOnPath(transform.position);
-                if (!eventThisLoop && currentTime > 1 - finishMarginTime) {
-                    pathFinished.Invoke();
-                    eventThisLoop = true;
-                } else if (currentTime < lastTime) {
-                    eventThisLoop = false;
-                }
-                lastTime = currentTime;
+        // Send an event if we've reached the end
+        if (pathFinished != null) {
+            //var currentTime = pathCreator.path.GetClosestTimeOnPath(transform.position);
+            if (!eventThisLoop && currentTime > 1 - finishMarginTime) {
+                pathFinished.Invoke();
+                eventThisLoop = true;
+            } else if (currentTime < lastTime) {
+                eventThisLoop = false;
             }
+            lastTime = currentTime;
         }
+        
     }
 
 
     // If the path changes during the game, update the distance travelled so that the follower's position on the new path
     // is as close as possible to its position on the old path
     void OnPathChanged() {
+        if (pathCreator == null | !started) return;
         //distanceTravelled = pathCreator.path.GetClosestDistanceAlongPath(transform.position);
         currentTime = pathCreator.path.GetClosestTimeOnPath(transform.position);
     }
