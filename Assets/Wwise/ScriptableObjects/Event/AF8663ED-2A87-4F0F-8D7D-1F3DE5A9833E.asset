@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1309ca45dc24e6042bb76a03165568d0, type: 3}
   m_Name: AF8663ED-2A87-4F0F-8D7D-1F3DE5A9833E
   m_EditorClassIdentifier: 
-  objectName: WFC_Event_BazSection3_Stop
-  id: 3170617657
+  objectName: WFC_Event_BazSection4_Stop
+  id: 1560094464
   guid: AF8663ED-2A87-4F0F-8D7D-1F3DE5A9833E

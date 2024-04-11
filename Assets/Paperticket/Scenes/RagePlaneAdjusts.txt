@@ -1,0 +1,21 @@
+01 - turn off
+02 - much smaller, closer to dae
+03 - right hand side, bit bigger than 02, floating downwards a bit
+04 - move to left, start a bit closer
+05 - smaller, keep to right and move back + up (above ground)
+06 - from above dae, come forward / in front a bit
+07 - 
+08 - away further left and up a lil
+09 - NW a bit (just under the screen)
+10 - way smaller, above ground, to the right
+11 - far background, small, above + behind head
+12 - left hand side, low but not below floor
+13 - big centre, interpose dae, comes at you
+14 - NE a bit, bigger, come towards
+15 - transfer to BG, lower opacity, smaller, more above Dae
+16 - left mirror, near head, travelling towards slow
+17 - right mirror
+18 - 
+19 - slightly right, bit smaller
+20
+

@@ -81,7 +81,7 @@ namespace Paperticket {
 
 
         public void ApplySettings(SceneCameraSettingsContainer container) {
-            if (debugging) Debug.Log("[SceneCameraSettings] Applying matching settings '" + container.name + "'!");
+            if (debugging) Debug.Log("[SceneCameraSettings] Applying matching settings '" + container.name + "'! (Called from "+gameObject.name+")");
 
             if (container.changeClearFlags) Camera.main.clearFlags = container.clearFlags;
             if (container.changeBackground) Camera.main.backgroundColor = container.background;

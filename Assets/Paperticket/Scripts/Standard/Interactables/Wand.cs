@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Paperticket;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
 
 public class Wand : MonoBehaviour {
 
@@ -50,6 +51,10 @@ public class Wand : MonoBehaviour {
     //public event WandResetStart OnWandResetStart;
     //public delegate void WandResetFinish();
     //public event WandResetFinish OnWandResetFinish;
+
+
+    [SerializeField] UnityEvent2 OnWandResetStart;
+    [SerializeField] UnityEvent2 OnWandResetFinish;
 
 
     void OnEnable() {
@@ -115,6 +120,8 @@ public class Wand : MonoBehaviour {
         if (!forced) yield return new WaitForSeconds(resetDelay);
 
 
+        if (OnWandResetStart != null) OnWandResetStart.Invoke();
+
         // Turn off the colliders and rigidbody
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -138,7 +145,7 @@ public class Wand : MonoBehaviour {
 
         resettingCo = null;
 
-        //if (OnWandResetFinish != null) OnWandResetFinish();
+        if (OnWandResetFinish != null) OnWandResetFinish.Invoke();
     }
 
 
