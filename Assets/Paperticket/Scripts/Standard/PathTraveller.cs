@@ -23,7 +23,6 @@ public class PathTraveller : MonoBehaviour {
     public float finishMarginTime = 0.05f;
     public UnityEvent2 pathFinished;
 
-    Vector3 startPos;
 
     [Space(10)]
     [Header("READ ONLY")]
@@ -34,11 +33,23 @@ public class PathTraveller : MonoBehaviour {
     [Space(5)]
     [SerializeField] bool eventThisLoop = false;
 
+
+    [Space(10)]
+    [Header("INSPECTOR CONTROLS")]
+
+    public bool MoveToStartOfPath = false;
+    public bool MoveToEndOfPath = false;
+
+    [Range(0, 1)] public float _MoveToTime = 0;
+    float p_MoveToTime = 0;
+
+
+
+    Vector3 startPos;
     float lastTime = 0;
-
-    //float distanceTravelled;
-
     bool started = false;
+
+
 
     public float BaseSpeed {
         set { baseSpeed = value; }
@@ -48,7 +59,28 @@ public class PathTraveller : MonoBehaviour {
         get { return currentTime; }
     }
 
+    void OnValidate() {
+        if (Application.isPlaying) return;
+        //Debug.Log("Validated");
 
+        if (MoveToStartOfPath) {
+            transform.position = pathCreator.path.GetPointAtTime(0, EndOfPathInstruction.Stop);
+            OnPathChanged();
+            MoveToStartOfPath = false;
+        }
+        else if (MoveToEndOfPath) {
+            transform.position = pathCreator.path.GetPointAtTime(1, EndOfPathInstruction.Stop);
+            OnPathChanged();
+            MoveToEndOfPath = false;
+        }
+        else if (_MoveToTime != p_MoveToTime) {
+            transform.position = pathCreator.path.GetPointAtTime(_MoveToTime, EndOfPathInstruction.Stop);
+            OnPathChanged();
+            p_MoveToTime = _MoveToTime;
+        }
+        
+
+    }
 
     void Awake() {
         if (pathCreator == null) { Debug.LogError("[PathTraveller] No Pathcreator found! Disabling."); return; }
