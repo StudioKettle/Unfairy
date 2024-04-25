@@ -13,6 +13,8 @@ public class RagePlane : MonoBehaviour {
     [SerializeField] bool useAlpha = false;
     [SerializeField] Vector2 alphaOffset = Vector2.zero;
     [Space(10)]
+    [SerializeField] float scaleMultiplier = 1f;
+    [Space(10)]
     [SerializeField] float duration = 0;
     [SerializeField] AnimationCurve curve = AnimationCurve.Linear(0,0,1,1);
     [SerializeField] TimeScale timescale = TimeScale.Scaled;
@@ -25,8 +27,11 @@ public class RagePlane : MonoBehaviour {
 
     Coroutine activatingCo = null;
 
+    float inverseScaleMultiplier = 0f;
+
     // Start is called before the first frame update
     void Start() {
+        inverseScaleMultiplier = 1 / scaleMultiplier;
 
         if (autoActivate) Activate();
     }
@@ -42,6 +47,10 @@ public class RagePlane : MonoBehaviour {
 
     IEnumerator Activating() {
         if (startEvent != null) startEvent.Invoke();
+
+        mRenderer.transform.localScale = mRenderer.transform.localScale.Scaled(inverseScaleMultiplier.ToVector());
+        //Debug.Log("transform = " + gameObject.name + ", localScale = " + mRenderer.transform.localScale);
+        StartCoroutine(PTUtilities.instance.ScaleTransformViaCurve(mRenderer.transform, curve, scaleMultiplier.ToVector(), duration, timescale));
 
         yield return StartCoroutine(PTUtilities.instance.FadeMeshFloatPropTo(mRenderer, "_Alpha", opacity, fadeIn, curve, timescale));
 

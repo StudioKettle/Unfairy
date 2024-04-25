@@ -680,6 +680,15 @@ namespace Paperticket {
             return minVector;
         }
 
+        /// <summary>
+        /// Return the vector scaled by another vector, as with Vector3.Scale but return the vector (rather than void)
+        /// </summary>
+        /// <param name="vector"></param>
+        /// <param name="scaledBy">The vector to scale this one by</param>
+        /// <returns></returns>
+        public static Vector3 Scaled (this Vector3 vector, Vector3 scaledBy) {
+            return Vector3.Scale(vector, scaledBy);
+        }
 
         #endregion
 

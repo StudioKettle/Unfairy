@@ -6,14 +6,27 @@ Shader "Paperticket/MaskUnderShader"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+
+		_StencilMask("Mask Layer", Range(0, 255)) = 1
+		[Enum(CompareFunction)] _StencilComp("Mask Mode", Int) = 6
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" }
           Stencil {
-                Ref 2
-                Comp NotEqual
-                Pass Zero
+                //Ref 2
+                //Comp NotEqual
+                //Pass Zero
+
+				//Ref 1
+				//Comp Greater
+				//Pass Zero
+
+				Ref 255
+				ReadMask[_StencilMask]
+				Comp[_StencilComp]
+
+				
             }
 
         LOD 200

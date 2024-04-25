@@ -5,6 +5,7 @@ Shader "Paperticket/AlphaTransColorOver" {
         _Threshold("Threshhold", Float) = 0.1
         _MainTex("Albedo (RGB)", 2D) = "white" {}
 		_Alpha("Alpha", Float) = 1
+		_StencilMask("Mask Layer", Range(0, 255)) = 1
     }
         SubShader{
             Tags { "Queue" = "Transparent" "RenderType" = "Transparent"  }
@@ -21,9 +22,13 @@ Shader "Paperticket/AlphaTransColorOver" {
             //Offset -100, -100
 
             Stencil {
-                Ref 2
-                Comp Greater
-                Pass Replace
+				Ref 255
+				WriteMask[_StencilMask]
+				Comp Always
+				Pass Replace
+                //Ref 2
+                //Comp Greater
+                //Pass Replace
             }
 
 
