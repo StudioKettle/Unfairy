@@ -7,6 +7,9 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	3111836245	Global_RTPC_SceneVolume			\Default Work Unit\Global_RTPC_SceneVolume	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	705841554	Revenge BAz_Linear _need start TC	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revenge BAz_Linear _need start TC_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Mixer_Earpiece\Revenge BAz_Linear _need start TC		4623168
-	804962809	Revenge240208_TEMPMIX	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Revenge240208_TEMPMIX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\Revenge240208_TEMPMIX		14154336
+	206340032	Revenge_Post rage_comedown Frankie frankie	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge_Post rage_comedown Frankeio frankoie_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Post rage_comedown Frankie frankie		2732062
+	226021490	Revenge_Comms addtional _Sparks and fire	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge_Comms addtional _Sparks and fire_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Comms addtional _Sparks and fire		2732062
+	705841554	Revenge BAz_Linear _need start TC	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge BAz_Linear _need start TC_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Mixer_Earpiece\Revenge BAz_Linear _need start TC		4623168
+	804962809	Revenge240208_TEMPMIX	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge240208_TEMPMIX_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\7_zOLD\Video temps\Revenge240208_TEMPMIX		14154336
+	885835565	Revenge_Typing_Baz_Frankie can you hear me	G:\.shortcut-targets-by-id\1t0gc_2cB5MWtweD-6aq_ujV5DJRVFwZ1\Unfairy_Main\.cache\Windows\SFX\Revenge_Typing_Baz_Frankie can you hear me_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\5_Revenge\Revenge_Typing_Baz_Frankie can you hear me		4691138
 

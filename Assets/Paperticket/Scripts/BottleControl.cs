@@ -21,8 +21,28 @@ public class BottleControl : MonoBehaviour {
     [Space(5)]
     [SerializeField] UnityEvent2 earInsertEvent = null;
     [SerializeField] UnityEvent2 earConnectEvent = null;
-    [SerializeField] float earGap = 0.8f;
-    [SerializeField] float earMod = 0.075f;
+    [SerializeField] float earGap = 0.5f;
+    [SerializeField] float earMod = 0.2f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio4Event = null;
+    [SerializeField] float baz4Length = 39.3f;
+    [SerializeField] float baz4Gap = 1f;
+    [SerializeField] float baz4Mod = 0.8f;
+    [Space(5)]
+    [SerializeField] UnityEvent2 bazAudio5Event = null;
+
+    [Space(10)]
+    [Header("READ ONLY")]
+    [Space(5)]
+    [SerializeField] float videoOffset = 0;
+    [SerializeField] bool startCounting = false;
+    [SerializeField] int counter = 0;
+    [SerializeField] bool videoReady = false;
+
+    [Space(15)]
+    [Header("OLD")]
+    [SerializeField] float oldEarGap = 0.8f;
+    [SerializeField] float oldEarMod = 0.09f;
     [Space(5)]
     [SerializeField] UnityEvent2 bazAudio4aEvent = null;
     [SerializeField] float baz4aLength = 9.7f;
@@ -43,20 +63,6 @@ public class BottleControl : MonoBehaviour {
     [SerializeField] float baz4dLength = 11.68f;
     [SerializeField] float baz4dGap = 2.5f;
     [SerializeField] float baz4dMod = 0.38f;
-    [Space(5)]
-    [SerializeField] UnityEvent2 bazAudio5Event = null;
-
-    [Space(10)]
-    [Header("READ ONLY")]
-    [Space(5)]
-    [SerializeField] float videoOffset = 0;
-    [SerializeField] bool startCounting = false;
-    [SerializeField] int counter = 0;
-
-
-    [Space(10)]
-    [Header("READ ONLY")]
-    [SerializeField] bool videoReady = false;
 
     void Start() {
         StartCoroutine(StartVideo());
@@ -92,7 +98,7 @@ public class BottleControl : MonoBehaviour {
     }
 
 
-    public void StartBazAudio4(Transform earpiece) {
+    public void InsertEarpiece(Transform earpiece) {
 
         // Check which side to pan audio, then destroy earpiece
         if (PTUtilities.instance.headProxy.InverseTransformPoint(earpiece.position).x < 0) {
@@ -173,21 +179,27 @@ public class BottleControl : MonoBehaviour {
         yield return new WaitForSeconds(earGap + (earMod * videoOffset));
 
 
-        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4aEvent then waiting "+baz4aGap+" + an extra " + (baz4aMod * videoOffset));
-        if (bazAudio4aEvent != null) bazAudio4aEvent.Invoke();
-        yield return new WaitForSeconds(baz4aLength + baz4aGap + (baz4aMod * videoOffset));
 
-        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4bEvent then waiting " + baz4bGap + " + an extra " + (baz4bMod * videoOffset));
-        if (bazAudio4bEvent != null) bazAudio4bEvent.Invoke();
-        yield return new WaitForSeconds(baz4bLength + baz4bGap + (baz4bMod * videoOffset));
+        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4Event then waiting "+baz4Gap+" + an extra " + (baz4Mod * videoOffset));
+        if (bazAudio4Event != null) bazAudio4Event.Invoke();
+        yield return new WaitForSeconds(baz4Length + baz4Gap + (baz4Mod * videoOffset));
 
-        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4cEvent then waiting " + baz4cGap + " + an extra " + (baz4cMod * videoOffset));
-        if (bazAudio4cEvent != null) bazAudio4cEvent.Invoke();
-        yield return new WaitForSeconds(baz4cLength + baz4cGap + (baz4cMod * videoOffset));
 
-        if (debugging) Debug.Log("[BottleControl] Sending BazAudio4dEvent then waiting " + baz4dGap + " + an extra " + (baz4dMod * videoOffset));
-        if (bazAudio4dEvent != null) bazAudio4dEvent.Invoke();
-        yield return new WaitForSeconds(baz4dLength + baz4dGap + (baz4dMod * videoOffset));
+        //if (debugging) Debug.Log("[BottleControl] Sending BazAudio4aEvent then waiting "+baz4aGap+" + an extra " + (baz4aMod * videoOffset));
+        //if (bazAudio4aEvent != null) bazAudio4aEvent.Invoke();
+        //yield return new WaitForSeconds(baz4aLength + baz4aGap + (baz4aMod * videoOffset));
+
+        //if (debugging) Debug.Log("[BottleControl] Sending BazAudio4bEvent then waiting " + baz4bGap + " + an extra " + (baz4bMod * videoOffset));
+        //if (bazAudio4bEvent != null) bazAudio4bEvent.Invoke();
+        //yield return new WaitForSeconds(baz4bLength + baz4bGap + (baz4bMod * videoOffset));
+
+        //if (debugging) Debug.Log("[BottleControl] Sending BazAudio4cEvent then waiting " + baz4cGap + " + an extra " + (baz4cMod * videoOffset));
+        //if (bazAudio4cEvent != null) bazAudio4cEvent.Invoke();
+        //yield return new WaitForSeconds(baz4cLength + baz4cGap + (baz4cMod * videoOffset));
+
+        //if (debugging) Debug.Log("[BottleControl] Sending BazAudio4dEvent then waiting " + baz4dGap + " + an extra " + (baz4dMod * videoOffset));
+        //if (bazAudio4dEvent != null) bazAudio4dEvent.Invoke();
+        //yield return new WaitForSeconds(baz4dLength + baz4dGap + (baz4dMod * videoOffset));
 
 
         if (bazAudio5Event != null) bazAudio5Event.Invoke();
