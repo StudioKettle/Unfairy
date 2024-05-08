@@ -91,6 +91,10 @@ public class Wand : MonoBehaviour {
         }
     }
 
+    public void PretendSelect() {
+        var args = new SelectEnterEventArgs();
+        Selected(args);
+    }
 
     void Selected(SelectEnterEventArgs args) {
         if (resettingCo != null) return;

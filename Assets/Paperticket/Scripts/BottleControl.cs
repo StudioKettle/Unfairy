@@ -172,17 +172,17 @@ public class BottleControl : MonoBehaviour {
 
         if (earInsertEvent != null) earInsertEvent.Invoke();
         if (debugging) Debug.Log("[BottleControl] Earpiece go in");
-        yield return new WaitForSeconds(earGap + (earMod * videoOffset));
+        yield return new WaitForSeconds(earGap + (earMod * videoOffset).Min(0.15f));
 
         if (debugging) Debug.Log("[BottleControl] Earpiece connect");
         if (earConnectEvent != null) earConnectEvent.Invoke();
-        yield return new WaitForSeconds(earGap + (earMod * videoOffset));
+        yield return new WaitForSeconds(earGap + (earMod * videoOffset).Min(0.15f));
 
 
 
         if (debugging) Debug.Log("[BottleControl] Sending BazAudio4Event then waiting "+baz4Gap+" + an extra " + (baz4Mod * videoOffset));
         if (bazAudio4Event != null) bazAudio4Event.Invoke();
-        yield return new WaitForSeconds(baz4Length + baz4Gap + (baz4Mod * videoOffset));
+        yield return new WaitForSeconds(baz4Length + (baz4Gap + (baz4Mod * videoOffset)).Min(0.5f));
 
 
         //if (debugging) Debug.Log("[BottleControl] Sending BazAudio4aEvent then waiting "+baz4aGap+" + an extra " + (baz4aMod * videoOffset));

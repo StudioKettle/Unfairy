@@ -23,7 +23,7 @@ namespace Paperticket {
         public static event SceneMadeActive OnSceneMadeActive;
 
         enum StartBehaviour { None, LoadFirstScene, LoadFirstSceneOverride, SetFirstSceneActive, SetOpenSceneActive }
-        enum FirstSceneName { BottleTest, WFCTest, RockTest, RevengeTest }
+        enum FirstSceneName { MenuScene, BottleTest, WFCTest, RockTest, RevengeTest }
 
         [Header("Controls")]
 

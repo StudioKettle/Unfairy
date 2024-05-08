@@ -21968,7 +21968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &801421892
 Transform:
   m_ObjectHideFlags: 0
@@ -28575,7 +28575,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
@@ -47763,7 +47763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoController: {fileID: 601134944}
-  videoTimeBeforeEvent: 20.5
+  videoTimeBeforeEvent: 21.5
   eventBehaviour: 0
   debug: 0
   OnEventTriggered:
@@ -50640,7 +50640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoController: {fileID: 601134944}
-  videoTimeBeforeEvent: 71
+  videoTimeBeforeEvent: 62
   eventBehaviour: 0
   debug: 0
   OnEventTriggered:
@@ -61535,7 +61535,7 @@ MonoBehaviour:
         m_MethodName: SendEvent
         m_Modes: 08000000
   earGap: 0.5
-  earMod: 0.2
+  earMod: 0.3
   bazAudio4Event:
     m_PersistentCalls:
       m_Calls:
@@ -61591,7 +61591,7 @@ MonoBehaviour:
         m_Modes: 0e000000
   baz4Length: 39.3
   baz4Gap: 1.25
-  baz4Mod: 0.8
+  baz4Mod: 0.7
   bazAudio5Event:
     m_PersistentCalls:
       m_Calls:
