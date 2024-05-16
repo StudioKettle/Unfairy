@@ -54,7 +54,19 @@ namespace Paperticket {
             }
         }
 
-        
+
+        public void ForceEvent() {
+            // Trigger the event
+            if (OnEventTriggered != null) {
+                if (debug) Debug.Log("[VideoEvent] OnEventTriggered called");
+                OnEventTriggered.Invoke();
+            }
+
+            // Figure out what to do next
+            Resolve();
+
+        }
+
         void Resolve() {
             // Figure out what to do next
             switch (eventBehaviour) {

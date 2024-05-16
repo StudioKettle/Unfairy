@@ -2850,9 +2850,11 @@ MonoBehaviour:
   gizmoCornerColour: {r: 1, g: 0, b: 0, a: 1}
   gizmoWallsColour: {r: 1, g: 0, b: 1, a: 1}
   gizmoOpacity: 0.25
+  forceRefresh: 0
   boundaryActive: 0
   BoundaryPoints: []
   BoundaryCorners: []
+  boundaryMesh: {fileID: 0}
 --- !u!4 &815507093
 Transform:
   m_ObjectHideFlags: 0

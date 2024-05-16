@@ -55,6 +55,9 @@ public class Wand : MonoBehaviour {
 
     [SerializeField] UnityEvent2 OnWandResetStart;
     [SerializeField] UnityEvent2 OnWandResetFinish;
+    [Space(10)]
+    [SerializeField] UnityEvent2 OnWandSelectUnactivated;
+    [SerializeField] UnityEvent2 OnWandSelectActivated;
 
 
     void OnEnable() {
@@ -98,7 +101,12 @@ public class Wand : MonoBehaviour {
 
     void Selected(SelectEnterEventArgs args) {
         if (resettingCo != null) return;
-        selected = true;        
+        selected = true;
+
+        if (active && OnWandSelectActivated != null) OnWandSelectActivated.Invoke();
+        else if (!active && OnWandSelectUnactivated != null) OnWandSelectUnactivated.Invoke();
+
+
         if (activateOnSelect) Activate();
     }
     void Unselected(SelectExitEventArgs args) {
@@ -155,6 +163,8 @@ public class Wand : MonoBehaviour {
 
     public void Activate() {
         active = true;
+        
+        if (selected && OnWandSelectActivated != null) OnWandSelectActivated.Invoke();
 
         mat.SetColor(propertyName, gradient.Evaluate(velocityEvent.Progress) * intensity);
 
