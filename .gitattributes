@@ -13,3 +13,4 @@ Assets/Paperticket/Models/Rock/Rage/RageSpiral_03_240213.blend filter=lfs diff=l
 Assets/Paperticket/Exports/FairyBottleRedux.fbx filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Rock/MIFF/ROCK_ARENA_stadium.blend filter=lfs diff=lfs merge=lfs -text
 Assets/Paperticket/Models/Rock/MIFF/ROCK_ARENA_StageSolianaOnly.blend filter=lfs diff=lfs merge=lfs -text
+Assets/Paperticket/Models/WFC/WFC_Scene_16505_TestScene.blend filter=lfs diff=lfs merge=lfs -text
