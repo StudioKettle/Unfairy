@@ -1,0 +1,28 @@
+Event	ID	Name			Wwise Object Path	Notes
+	563778366	WFC_Event_BazSection4_Play			\Default Work Unit\3_WFC\WFC_Event_BazSection4_Play	
+	1560094464	WFC_Event_BazSection4_Stop			\Default Work Unit\3_WFC\WFC_Event_BazSection4_Stop	
+	1729393136	WFC_Ambient_Video			\Default Work Unit\3_WFC\WFC_Ambient_Video	
+	3170617657	WFC_Event_BazSection3_Stop			\Default Work Unit\3_WFC\WFC_Event_BazSection3_Stop	
+	3708343560	WFC_Event_BazSection1			\Default Work Unit\3_WFC\WFC_Event_BazSection1	
+	3708343563	WFC_Event_BazSection2			\Default Work Unit\3_WFC\WFC_Event_BazSection2	
+	4040598867	WFC_Event_BazSection3_Play			\Default Work Unit\3_WFC\WFC_Event_BazSection3_Play	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3111836245	Global_RTPC_SceneVolume			\Default Work Unit\Global_RTPC_SceneVolume	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	44537550	WFC_SFX_Comms Extra expressions_Duck Smash_2	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_SFX_Comms Extra expressions_Duck Smash_485E0281.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_SFX_Comms Extra expressions_Duck Smash_2		232774
+	223806148	WFC_COMMSBG_BAZ_SEC2_Opinion	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_C8F76E21.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_COMMSBG_BAZ_SEC2_Opinion		1433122
+	238513857	WFC_SFX_Comms Extra expressions_your mum	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_SFX_Comms Extra expressions_your mum _10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_SFX_Comms Extra expressions_your mum		712140
+	319763159	WFC_BDA6_shes gonna keep going	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_BDA6_shes gonna keep going_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_BDA6_shes gonna keep going		202138
+	484245090	WFC_COMMSBG_4_Unhinged	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_DFAD7BFF.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_COMMSBG_4_Unhinged		524706
+	519326008	WFC_SFX_Comms Extra expressions_Duck Smash	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_SFX_Comms Extra expressions_Duck Smash_E1FAD71C.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_SFX_Comms Extra expressions_Duck Smash		193388
+	544952524	WFC AMBI MIX_TEMP_v2	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC AMBI MIX_TEMP_v2_DAC62D07.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Dae\WFC AMBI MIX_TEMP_v2		107832624
+	636675450	WFC_BAZ_session is now in progress	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_BAZ_LINEAR from apperance point_99EC849A.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_BAZ_session is now in progress		534204
+	664315514	WFC_SFX_Comms Extra expressions_Little Slave	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_SFX_Comms Extra expressions_Little Slave_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_SFX_Comms Extra expressions_Little Slave		612924
+	717428392	WFC_BDA5_ lets give her her wish	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_BDA5_ lets give her her wish _10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_BDA5_ lets give her her wish		346526
+	746997438	WFC_COMMSBG_3	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_26FB36CB.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_COMMSBG_3		1009468
+	857387236	WFC_BAZ_Thats your opinion	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_BAZ_LINEAR from apperance point_C644DFAD.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_BAZ_Thats your opinion		8514292
+	939257223	WFC_Baz typing and weve made contact_Session is now in progress_2	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_Baz typing and weve made contact_Session is now in progress_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_Baz typing and weve made contact_Session is now in progress_2		584730
+	955646942	WFC_BDA7_alright ;lets activate wand	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\WFC_BDA7_alright ;lets activate wand_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\3_WFC\WFC_Mixer_Earpiece\WFC_BDA7_alright ;lets activate wand		234704
+

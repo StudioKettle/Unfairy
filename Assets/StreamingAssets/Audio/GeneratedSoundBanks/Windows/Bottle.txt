@@ -1,0 +1,57 @@
+Event	ID	Name			Wwise Object Path	Notes
+	333766978	Bottle_Event_Earpiece_Connect			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_Connect	
+	942500293	Bottle_Event_Earpiece_BazSection2_Stop			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection2_Stop	
+	1209845022	Bottle_Event_Objects_GiftBoxMessage			\Default Work Unit\2_Bottle\Objects\Bottle_Event_Objects_GiftBoxMessage	
+	1346393183	Bottle_Event_Earpiece_BazSection4_Stop			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection4_Stop	
+	1504318608	Bottle_Event_Earpiece_BazSection3_Play			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection3_Play	
+	1828367352	Bottle_Event_RadioStop			\Default Work Unit\2_Bottle\Radio\Bottle_Event_RadioStop	
+	1870324730	Bottle_Event_Exterior_Dae			\Default Work Unit\2_Bottle\Exterior\Bottle_Event_Exterior_Dae	
+	2014117265	Bottle_Event_Earpiece_BazSection5			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection5	
+	2014117266	Bottle_Event_Earpiece_BazSection6			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection6	
+	2014117269	Bottle_Event_Earpiece_BazSection1			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection1	
+	2023133508	Bottle_Event_RadioStart			\Default Work Unit\2_Bottle\Radio\Bottle_Event_RadioStart	
+	2254057879	Bottle_Event_Earpiece_BazSection2_Play			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection2_Play	
+	2385393156	Bottle_Event_CrystalScreen_RingStart			\Default Work Unit\2_Bottle\CrystalScreen\Bottle_Event_CrystalScreen_RingStart	
+	3050295577	Bottle_Event_Earpiece_BazSection4_Play			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection4_Play	
+	3160651095	Bottle_Event_Earpiece_Insert			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_Insert	
+	3250719129	Bottle_Event_Exterior_BG			\Default Work Unit\2_Bottle\Exterior\Bottle_Event_Exterior_BG	
+	3860987415	Bottle_Event_CrystalScreen_RingEnd			\Default Work Unit\2_Bottle\CrystalScreen\Bottle_Event_CrystalScreen_RingEnd	
+	4147871026	Bottle_Event_Earpiece_BazSection3_Stop			\Default Work Unit\2_Bottle\Earpiece\Bottle_Event_Earpiece_BazSection3_Stop	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	2103866901	Bottle_Radio			\Default Work Unit\Bottle_Radio	
+
+Switch	ID	Name	Switch Group			Notes
+	3428420064	Song_3	Bottle_Radio			
+	3428420065	Song_2	Bottle_Radio			
+	3428420066	Song_1	Bottle_Radio			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3111836245	Global_RTPC_SceneVolume			\Default Work Unit\Global_RTPC_SceneVolume	
+
+Effect plug-ins	ID	Name	Type				Notes
+	59662939	Dialog_Too_Quiet	Wwise Compressor			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	3151559	Bottle_Comms Room_Here she comes	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_25AEDE38.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Comms Room_Here she comes		878722
+	17633711	Hot Rod Elegants - Amaro Bino	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\Hot Rod Elegants - Amaro Bino_81238AE1.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\Hot Rod Elegants - Amaro Bino		24239572
+	17819116	Lance Conrad - Pinewood Jig	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\Lance Conrad - Pinewood Jig_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\Lance Conrad - Pinewood Jig		29417900
+	75641990	Phone_Ring	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Iphone ring 3_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Phone_Ring		932040
+	93534078	Bottle_BAZ 3_And here she comes	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_81F264CA.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 3_And here she comes		767312
+	101782540	Bottle_Earpiece_Insert	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Earpiece_Insert_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Earpiece_Insert		41756
+	273094107	Bottle_Baz 3_TYPING_Here she comes_Training purposes	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Baz 3_TYPING_Here she comes_Training purposes_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Baz 3_TYPING_Here she comes_Training purposes		549796
+	281471679	Bottle_BAZ 3_Littering	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ3_Here she comes to bracing for impact_6183C3DA.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 3_Littering		401422
+	329069330	Bottle_SFX_ALARM_Control Center_M	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\General_SFX_ALARM_COntrol Center_M_7AEFE3F6.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_SFX_ALARM_Control Center_M		247910
+	407445587	Bottle_Ambient_DX_SFX_2	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Ambient_DX_SFX_2_DAC62D07.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Exterior\Bottle_Ambient_DX_SFX_2		26480736
+	450739175	Bottle_BAZ 1_FUTZ before earpiece	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 1_FUTZ before earpiece _F0A9930B.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Bottle_BAZ 1_FUTZ before earpiece		1391842
+	476534886	Bottle_BDA2_take your time	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BDA2_take your time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Bottle_BDA2_take your time		264302
+	486963568	GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO		11946344
+	496629777	Bottle_BDA3_Oop don’t worry	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BDA3_Oop don’t worry_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_CrystalScreen\Bottle_BDA3_Oop don’t worry		372836
+	502255321	TEMP giftbox message	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\24_MX_MAL_GLASS_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\TEMP giftbox message		81478
+	533479972	Bottle_Baz 2_TYPING_great now frankie_Good to Go	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Baz 2_TYPING_great now frankie_Good to Go_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Baz 2_TYPING_great now frankie_Good to Go		3927662
+	644580949	Bottle_Ambient_AMBI_BG	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Ambient_AMBI_BG_0D9E4ED9.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Exterior\Bottle_Ambient_AMBI_BG		16698856
+	736090304	Bottle_BAZ 2_Great now frankie after today	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_BAZ 2_Auido up to here she comes_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_BAZ 2_Great now frankie after today		3774090
+	751118539	River Lume - Jumping Bean	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Fairy bottle radio\River Lume - Jumping Bean_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_State_Radio\River Lume - Jumping Bean		29229636
+	816247190	Bottle_Earpiece_Connect	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\Bottle_Earpiece_Connect_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Earpiece_Connect		67736
+	1069914266	Bottle_Baz3_Comms_Littering	D:\GS DoS LOCAL SD\ GD SD COMP\Unfairy Wwise project\Unfairy Wwise Project\Unfairy_Main\.cache\Windows\SFX\GENERAL_UNNFAIRY_COMMS ROOM_BG_MONO_69ECC82F.wem		\Actor-Mixer Hierarchy\Default Work Unit\2_Bottle\Bottle_Mixer_Earpiece\Bottle_Baz3_Comms_Littering		416286
+
