@@ -33,6 +33,7 @@ namespace Paperticket {
         [Header("READ ONLY")]
         [Space(10)]
         [SerializeField] [Range(0, 1)] float progress;
+        [SerializeField] float progressMultiplier = 1;
         float velocity;
         float adjustedVelocity;
         bool disabled;
@@ -42,7 +43,13 @@ namespace Paperticket {
         [Space(10)]
         [SerializeField] List<ProgressEvent> progressEvents = new List<ProgressEvent>();
 
-        [HideInInspector] public float Progress { get {return progress; } set { progress = value; } }
+        [HideInInspector] public float Progress { get {return progress; } set { progress = value.Clamp(0,1); CheckProgressEvents(); } }
+        [HideInInspector] public float ProgressMultiplier { get { return progressMultiplier; } set { progressMultiplier = value; } }
+
+        public bool Disabled { get { return disabled; } set { disabled = value; } }
+
+
+
 
         void OnEnable() {
             rigidbody = (target == null) ? GetComponent<Rigidbody>() : target.GetComponent<Rigidbody>();
@@ -81,7 +88,7 @@ namespace Paperticket {
             // Save the current controller velocity and apply senitivity curve        
             adjustedVelocity = sensitivityCurve.Evaluate(velocity);
 
-            if (adjustedVelocity > minDeltaPerFrame) progress = Mathf.Clamp01(progress + (adjustedVelocity * progressSpeed * 0.0001f));
+            if (adjustedVelocity > minDeltaPerFrame) progress = Mathf.Clamp01(progress + (adjustedVelocity * progressSpeed * 0.0001f * progressMultiplier));
 
         }
 

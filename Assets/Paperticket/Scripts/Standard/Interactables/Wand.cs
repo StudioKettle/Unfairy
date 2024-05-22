@@ -10,7 +10,7 @@ public class Wand : MonoBehaviour {
     [Header("Required")]
     [Space(5)]
     public VelocityEvent velocityEvent;
-    public GameObject wandObject = null;
+    //public GameObject wandObject = null;
     [Header("Optional")]
     [Space(5)]
     [SerializeField] Material mat = null;
@@ -42,15 +42,10 @@ public class Wand : MonoBehaviour {
     [SerializeField] bool active = false;
     [SerializeField] bool selected = false;
 
-    Coroutine wandingCo = null;
+    Coroutine trackingCo = null;
     Coroutine resettingCo = null;
 
     Rigidbody rb = null;
-
-    //public delegate void WandResetStart();
-    //public event WandResetStart OnWandResetStart;
-    //public delegate void WandResetFinish();
-    //public event WandResetFinish OnWandResetFinish;
 
 
     [SerializeField] UnityEvent2 OnWandResetStart;
@@ -60,11 +55,12 @@ public class Wand : MonoBehaviour {
     [SerializeField] UnityEvent2 OnWandSelectActivated;
 
 
+
     void OnEnable() {
 
-        if (wandObject == null) wandObject = gameObject;
+        //if (wandObject == null) wandObject = gameObject;
 
-        mat = mat != null ? mat : wandObject.GetComponent<MeshRenderer>().material;
+        //mat = mat != null ? mat : wandObject.GetComponent<MeshRenderer>().material;
 
         rb = gameObject.GetComponent<Rigidbody>();
 
@@ -72,19 +68,18 @@ public class Wand : MonoBehaviour {
         if (propertyName == "") {
             Debug.LogError("[Wand] ERROR -> Could not find property name of mesh renderer to fade! Cancelling...");
         }
-
-
         mat.SetColor(propertyName, startingColor);
 
-        if (startActive) {
-            Activate();
-        }
 
         if (interactable != null) {
             interactable.selectEntered.AddListener(Selected);
             interactable.selectExited.AddListener(Unselected);
         }
 
+
+        if (startActive) {
+            Activate();
+        }
     }
 
     void OnDisable() {
@@ -93,6 +88,13 @@ public class Wand : MonoBehaviour {
             interactable.selectExited.RemoveListener(Unselected);
         }
     }
+
+
+
+
+
+
+    #region On select/unselect of interactable object
 
     public void PretendSelect() {
         var args = new SelectEnterEventArgs();
@@ -121,12 +123,21 @@ public class Wand : MonoBehaviour {
         else mat.SetColor(propertyName, startingColor);
     }
 
+    #endregion
+
+
+
+
+
+
+
+    #region Reset wand to origin
+
     public void ForceReset() {
         if (resettingCo == null && origin != null) resettingCo = StartCoroutine(Resetting(true));
     }
 
     IEnumerator Resetting(bool forced) {                
-        //if (OnWandResetStart != null) OnWandResetStart();
 
         // wait and then move to origin
         if (!forced) yield return new WaitForSeconds(resetDelay);
@@ -160,6 +171,15 @@ public class Wand : MonoBehaviour {
         if (OnWandResetFinish != null) OnWandResetFinish.Invoke();
     }
 
+    #endregion
+
+
+
+
+
+
+
+    #region Activate tracking of wand progress
 
     public void Activate() {
         active = true;
@@ -168,19 +188,19 @@ public class Wand : MonoBehaviour {
 
         mat.SetColor(propertyName, gradient.Evaluate(velocityEvent.Progress) * intensity);
 
-        if (wandingCo == null) wandingCo = StartCoroutine(Wanding());
+        if (trackingCo == null) trackingCo = StartCoroutine(TrackingwandProgress());
     }
 
     public void Deactivate() {
         active = false;
 
-        if (wandingCo != null) StopCoroutine(wandingCo);
+        if (trackingCo != null) StopCoroutine(trackingCo);
 
         mat.SetColor(propertyName, startingColor);
     }
 
 
-    IEnumerator Wanding() {    
+    IEnumerator TrackingwandProgress() {    
 
         while (velocityEvent.Progress < 1) {
             // Wait until the player is holding the wand
@@ -200,5 +220,63 @@ public class Wand : MonoBehaviour {
 
     }
 
+    #endregion
+
+
+
+    #region Forcing auto end on wand
+
+    public void ForceWandToHand() {
+        if (forcingWandToHandCo != null) return;
+        forcingWandToHandCo = StartCoroutine(ForcingWandToHand());
+    }
+
+    Coroutine forcingWandToHandCo = null;
+    IEnumerator ForcingWandToHand() {
+
+        // Unselect the interactable
+        interactable.ForceDetach();
+        yield return null;
+
+        // Set the reset origin to new left constraint
+        var autoEndWandConstraint = PTUtilities.instance.NewControllerConstraint(ControllerType.LeftController);
+        autoEndWandConstraint.name = "[AutoEndWandConstraint]";
+        autoEndWandConstraint.transform.position = origin.transform.position = PTUtilities.instance.leftController.transform.position;
+        autoEndWandConstraint.transform.rotation = origin.transform.rotation = PTUtilities.instance.leftController.transform.rotation;
+        origin.SetParent(autoEndWandConstraint.transform);
+        origin.gameObject.SetActive(true);
+        autoEndWandConstraint.SetActive(true);
+        yield return null;
+
+        // Disable + destroy interactable
+        interactable.enabled = false;
+        yield return null;
+        Destroy(interactable);
+        yield return null;
+
+        // Reset wand to left controller
+        ForceReset();
+    }
+
+
+    public void AutoProgressWand(float duration) {
+        if (autoProgressingWandCo != null) return;
+        autoProgressingWandCo = StartCoroutine(AutoProgressingWand(duration));
+    }
+
+    Coroutine autoProgressingWandCo = null;
+    IEnumerator AutoProgressingWand(float duration) {
+        velocityEvent.Disabled = true;
+        while (velocityEvent.Progress < 1) {
+            velocityEvent.Progress += Time.deltaTime / duration.Min(0.01f);
+            yield return null;
+        }
+    }
+
+
+
+
+
+    #endregion
 
 }

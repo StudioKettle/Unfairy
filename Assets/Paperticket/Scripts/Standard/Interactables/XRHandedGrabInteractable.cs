@@ -13,9 +13,11 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
     [Space(10)]
     public Transform LeftHandAttachTransform = null;
     public Transform RightHandAttachTransform = null;
+    [Space(5)]
     public HandPose animationPose = 0;
     public HandPose hoverPose = 0;
-
+    [Space(5)]
+    public float forcingDetachTime = 0.25f;
     private XRDirectInteractor leftController = null;
     private XRDirectInteractor rightController = null;
 
@@ -66,17 +68,21 @@ public class XRHandedGrabInteractable : XRGrabInteractable {
     
     public void ForceDetach() {
                 
-        if (forcingDetachCo != null) return;
+        //if (forcingDetachCo != null) return;
         if (interactorsSelecting.Count == 0) return;
 
-        forcingDetachCo = StartCoroutine(ForcingDetach(interactorsSelecting[0] as XRBaseInteractor));        
+        if ((interactorsSelecting[0] as XRBaseInteractor).TryGetComponent(out XRPaperticketInteractor interactor)){
+            interactor.ForceDetach();
+        }
+
+        //forcingDetachCo = StartCoroutine(ForcingDetach(interactorsSelecting[0] as XRBaseInteractor));        
     }
 
-    private IEnumerator ForcingDetach(XRBaseInteractor interactor) {
-        if (interactor.TryGetComponent(out XRDirectInteractor directInteractor)) {
-            directInteractor.enabled = false;
-            yield return new WaitForSeconds(0.25f);
-            directInteractor.enabled = true;
-        }
-    }
+    //private IEnumerator ForcingDetach(XRBaseInteractor interactor) {
+    //    if (interactor.TryGetComponent(out XRDirectInteractor directInteractor)) {
+    //        directInteractor.enabled = false;
+    //        yield return new WaitForSeconds(forcingDetachTime.Min(Time.deltaTime));
+    //        directInteractor.enabled = true;
+    //    }
+    //}
 }

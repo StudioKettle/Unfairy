@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.Animations;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.XR;
@@ -19,6 +20,7 @@ namespace Paperticket {
     public enum TimeScale { Scaled, Unscaled }
     public enum GameEventOption { OnButtonDown, OnButtonUp, OnTriggerPress, OnTriggerUp }
     public enum Hand { Left, Right, Both }
+    public enum ControllerType { LeftController, RightController, Head }
 
     public class PTUtilities : MonoBehaviour {
 
@@ -427,6 +429,30 @@ namespace Paperticket {
             boundaryMesh.Optimize();
             boundaryMesh.RecalculateNormals();
         }
+
+
+        public GameObject NewControllerConstraint(ControllerType controller) {
+            if (controller == ControllerType.Head) {
+                var newConstraint = new GameObject("[NewHeadConstraint]", typeof(ConstrainToController));
+                newConstraint.SetActive(false);
+                newConstraint.GetComponent<ConstrainToController>().controller = ConstrainToController.controllerType.Head;
+                return newConstraint;
+            }
+            else if (controller == ControllerType.LeftController) {
+                var newConstraint = new GameObject("[NewLeftHandConstraint]", typeof(ConstrainToController));
+                newConstraint.SetActive(false);
+                newConstraint.GetComponent<ConstrainToController>().controller = ConstrainToController.controllerType.LeftController;
+                return newConstraint;
+            }
+            else {
+                var newConstraint = new GameObject("[NewRightHandConstraint]", typeof(ConstrainToController));
+                newConstraint.SetActive(false);
+                newConstraint.GetComponent<ConstrainToController>().controller = ConstrainToController.controllerType.RightController;
+                return newConstraint;
+            }
+        }
+
+
 
 
 
@@ -1212,16 +1238,16 @@ namespace Paperticket {
 
             float t = 0;
             Vector3 initialPos = target.position;
-            Vector3 matchPos = matchTransform.position;
+            //Vector3 matchPos = matchTransform.position;
 
             if (debugging) Debug.Log("[PTUtilities] Moving transform " + target.name + " to match transform " + matchTransform.name);
 
             while (t < duration) {
                 yield return null;
-                target.position = Vector3.Lerp(initialPos, matchPos, animCurve.Evaluate(t / duration));
+                target.position = Vector3.Lerp(initialPos, matchTransform.position, animCurve.Evaluate(t / duration));
                 t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
             }
-            target.position = matchPos;
+            target.position = matchTransform.position;
 
             if (debugging) Debug.Log("[PTUtilities] Finished moving " + target.name + " to match transform " + matchTransform.name);
 
@@ -1249,16 +1275,16 @@ namespace Paperticket {
 
             float t = 0;
             Quaternion initialRot = target.rotation;
-            Quaternion matchRot = matchTransform.rotation;
+            //Quaternion matchRot = matchTransform.rotation;
 
             if (debugging) Debug.Log("[PTUtilities] Rotating transform " + target.name + " to match transform " + matchTransform.name);
 
             while (t < duration) {
                 yield return null;
-                target.rotation = Quaternion.Lerp(initialRot, matchRot, animCurve.Evaluate(t / duration));
+                target.rotation = Quaternion.Lerp(initialRot, matchTransform.rotation, animCurve.Evaluate(t / duration));
                 t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
             }
-            target.rotation = matchRot;
+            target.rotation = matchTransform.rotation;
 
             if (debugging) Debug.Log("[PTUtilities] Finished rotating " + target.name + " to match transform " + matchTransform.name);
 
@@ -1348,6 +1374,20 @@ namespace Paperticket {
         }
 
 
+        public IEnumerator ToggleComponent(MonoBehaviour componentToToggle, float duration, TimeScale timeScale) {
+            float t = 0;
+
+            if (debugging) Debug.Log("[PTUtilities] Toggling component " + componentToToggle);
+
+            componentToToggle.enabled = !componentToToggle.enabled;
+            while (t < duration) {
+                yield return null;
+                t += timeScale == 0 ? Time.deltaTime : Time.unscaledDeltaTime;
+            }
+            componentToToggle.enabled = !componentToToggle.enabled;
+
+            if (debugging) Debug.Log("[PTUtilities] Finished toggling component " + componentToToggle);
+        }
 
 
         #endregion

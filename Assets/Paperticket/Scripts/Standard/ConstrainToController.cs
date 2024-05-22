@@ -8,13 +8,13 @@ namespace Paperticket {
     [RequireComponent(typeof(ParentConstraint))]
     public class ConstrainToController : MonoBehaviour {
 
-        enum controllerType { LeftController, RightController, Head}
+        public enum controllerType { LeftController, RightController, Head}
 
         ParentConstraint constraint;
 
         [SerializeField] bool debugging = false;
         [Space(10)]
-        [SerializeField] controllerType controller = controllerType.LeftController;
+        public controllerType controller = controllerType.LeftController;
         [SerializeField] bool startConstrained = true;
         [Space(5)]
         [SerializeField] Vector3 positionOffset;
