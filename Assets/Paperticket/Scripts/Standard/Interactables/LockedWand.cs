@@ -177,8 +177,8 @@ public class LockedWand : MonoBehaviour {
         // Reset wand to hand (if not already selected or already resetting)
         if (!selected) {
             // Zoom back to origin
-            StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(transform, resetCurve, origin, 0.125f, TimeScale.Scaled));
-            yield return StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(transform, resetCurve, origin, 0.125f, TimeScale.Scaled));
+            StartCoroutine(PTUtilities.instance.RotateTransformViaCurve(transform, resetCurve, origin, 0.15f, TimeScale.Scaled));
+            yield return StartCoroutine(PTUtilities.instance.MoveTransformViaCurve(transform, resetCurve, origin, 0.15f, TimeScale.Scaled));
         }
         transform.parent = origin;
         transform.localPosition = Vector3.zero;
