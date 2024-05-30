@@ -96,5 +96,8 @@ public class UnusedClass {
     private UpdatableInvokableCall<Vector3, Space> _vector3Space;
 
 
+    private UpdatableInvokableCall<float, float, TimeScale> _floatFloatTimeScale;
+
+
 
 }
